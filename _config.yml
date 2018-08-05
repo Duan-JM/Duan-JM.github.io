@@ -4,9 +4,9 @@
 # ---------------------------------------------------------------
 
 # Site
-title: DeamoV's Blog
-subtitle:
-description: Blog for Thoughts and Tech
+title: Pre-Demo-Field
+subtitle: DeamoV's Blog
+description: Coding Life Coding Fun
 author: DeamoV
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh
@@ -151,8 +151,8 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
+#scheme: Muse
+scheme: Mist
 #scheme: Pisces
 
 
