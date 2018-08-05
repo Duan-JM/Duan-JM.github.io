@@ -1,0 +1,882 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Collections," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="DeamoV's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="常用工具总结 书下载的搜索引擎 https://www.jiumodiary.com 直接搜就能下载。 通用搜索技巧 搜索格式：《要搜的内容》 + 《要的格式》 + 《相关网站》， 他们的先后顺序无关，空格隔开即可。 如： 奢侈的 百度网盘 pdf 程序员的生存指南 csdn 去贴吧找资源 搜索相关的贴吧，然后在精品吧中翻（效率不高 Google搜索技巧（所有的双引号冒号都必须是英文输入法的） 关键词加&quot;&quot;，一定要是英文的双引号 搜索结果一定包含双引号内的文字。 如： &quot;奢侈的！&quot; 这样的结果不会将奢侈的单独作为关键词搜索。即，不会出现“奢侈blabla的blabla”这种结果。 site: 指定搜索网站，如： &quot;机器学习实战&quot; site:vdisk.weibo.com 在微盘中搜索机器学习实战，一般搜到的都可以直接下载 filetype: 指定结果的文件类型，一般用来搜索论文或者官方文档 &quot;ImageNet&quot; filetype:pdf 结果只会有pdf格式的，即打开就能下载。">
+<meta name="keywords" content="Collections">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用工具总结">
+<meta property="og:url" content="http://localhost:4000/tools/2018/08/02/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/">
+<meta property="og:site_name" content="DeamoV's Blog">
+<meta property="og:description" content="常用工具总结 书下载的搜索引擎 https://www.jiumodiary.com 直接搜就能下载。 通用搜索技巧 搜索格式：《要搜的内容》 + 《要的格式》 + 《相关网站》， 他们的先后顺序无关，空格隔开即可。 如： 奢侈的 百度网盘 pdf 程序员的生存指南 csdn 去贴吧找资源 搜索相关的贴吧，然后在精品吧中翻（效率不高 Google搜索技巧（所有的双引号冒号都必须是英文输入法的） 关键词加&quot;&quot;，一定要是英文的双引号 搜索结果一定包含双引号内的文字。 如： &quot;奢侈的！&quot; 这样的结果不会将奢侈的单独作为关键词搜索。即，不会出现“奢侈blabla的blabla”这种结果。 site: 指定搜索网站，如： &quot;机器学习实战&quot; site:vdisk.weibo.com 在微盘中搜索机器学习实战，一般搜到的都可以直接下载 filetype: 指定结果的文件类型，一般用来搜索论文或者官方文档 &quot;ImageNet&quot; filetype:pdf 结果只会有pdf格式的，即打开就能下载。">
+<meta property="og:locale" content="zh">
+<meta property="og:image" content="DraggedImage.png">
+<meta property="og:image" content="DraggedImage-1.png">
+<meta property="og:image" content="DraggedImage-2.png">
+<meta property="og:image" content="DraggedImage-3.png">
+<meta property="og:image" content="DraggedImage-4.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用工具总结">
+<meta name="twitter:description" content="常用工具总结 书下载的搜索引擎 https://www.jiumodiary.com 直接搜就能下载。 通用搜索技巧 搜索格式：《要搜的内容》 + 《要的格式》 + 《相关网站》， 他们的先后顺序无关，空格隔开即可。 如： 奢侈的 百度网盘 pdf 程序员的生存指南 csdn 去贴吧找资源 搜索相关的贴吧，然后在精品吧中翻（效率不高 Google搜索技巧（所有的双引号冒号都必须是英文输入法的） 关键词加&quot;&quot;，一定要是英文的双引号 搜索结果一定包含双引号内的文字。 如： &quot;奢侈的！&quot; 这样的结果不会将奢侈的单独作为关键词搜索。即，不会出现“奢侈blabla的blabla”这种结果。 site: 指定搜索网站，如： &quot;机器学习实战&quot; site:vdisk.weibo.com 在微盘中搜索机器学习实战，一般搜到的都可以直接下载 filetype: 指定结果的文件类型，一般用来搜索论文或者官方文档 &quot;ImageNet&quot; filetype:pdf 结果只会有pdf格式的，即打开就能下载。">
+<meta name="twitter:image" content="DraggedImage.png">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: ''
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>常用工具总结 | DeamoV's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">DeamoV's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+<script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/tools/2018/08/02/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DeamoV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="assets/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="DeamoV's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+          
+          
+            常用工具总结
+          
+        </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2018-08-02T00:00:00+08:00">
+                2018-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Tools" itemprop="url" rel="index">
+                    <span itemprop="name">Tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h1 id="常用工具总结">常用工具总结</h1>
+<h2 id="书下载的搜索引擎">书下载的搜索引擎</h2>
+<p><a href="https://www.jiumodiary.com">https://www.jiumodiary.com</a>
+直接搜就能下载。</p>
+<h2 id="通用搜索技巧">通用搜索技巧</h2>
+<ol>
+  <li>搜索格式：《要搜的内容》 + 《要的格式》 + 《相关网站》，
+ 他们的先后顺序无关，空格隔开即可。
+ 如：
+    <ul>
+      <li>奢侈的 百度网盘 pdf</li>
+      <li>程序员的生存指南 csdn</li>
+    </ul>
+  </li>
+  <li>去贴吧找资源
+ 搜索相关的贴吧，然后在精品吧中翻（效率不高
+    <h2 id="google搜索技巧所有的双引号冒号都必须是英文输入法的">Google搜索技巧（所有的双引号冒号都必须是英文输入法的）</h2>
+  </li>
+  <li>关键词加<code class="highlighter-rouge">""</code>，一定要是英文的双引号
+ 搜索结果一定包含双引号内的文字。
+ 如：
+    <ul>
+      <li><code class="highlighter-rouge">"奢侈的！"</code>
+  这样的结果不会将奢侈的单独作为关键词搜索。即，不会出现“奢侈blabla的blabla”这种结果。</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">site:</code>
+ 指定搜索网站，如：
+    <ul>
+      <li><code class="highlighter-rouge">"机器学习实战" site:vdisk.weibo.com</code>
+  在微盘中搜索机器学习实战，一般搜到的都可以直接下载</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">filetype:</code>
+ 指定结果的文件类型，一般用来搜索论文或者官方文档
+    <ul>
+      <li><code class="highlighter-rouge">"ImageNet" filetype:pdf</code>
+  结果只会有pdf格式的，即打开就能下载。</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="其他收藏">其他收藏</h2>
+<ol>
+  <li><a href="http://nipponcolors.com">取色</a> 
+（需要翻墙）提供日式色彩，内涵颜色二进制，可以直接复制到Photoshop取色数据中使用。
+<img src="DraggedImage.png" alt="" /></li>
+  <li><a href="https://unsplash.com">高清大图无版权01</a>，<a href="https://www.pexels.com">高清大图无版权02</a>（需翻墙
+ <img src="DraggedImage-1.png" alt="" />
+ <img src="DraggedImage-2.png" alt="" /></li>
+  <li><a href="https://www.iamxk.com">高质量PPT和PS模版和PS笔刷，等等</a>（不能开翻墙要不然打不开）
+ <img src="DraggedImage-3.png" alt="" /></li>
+  <li><a href="https://www.aconvert.com/cn/ebook/">工具，在线文件类型转换</a>
+ 把mobi的书在这里转成epub就能直接用手机自带阅读器看
+ <img src="DraggedImage-4.png" alt="" /></li>
+  <li><a href="https://cli.im/text?0a6a16b7b7ffc5aed7d5e330496928c0">生成二维码网站</a>
+    <h2 id="最后">最后</h2>
+    <p>最主要的是搜索的时候掌握关键词提取的想法，搜索的时候不要搜句子，应该搜关键词，比如“为什么photoshop不能导入笔刷”，搜索的时候搜“Photoshop 笔刷 导入错误”，如果还没有搜到的话，就自己想可能的所有原因，然后再搜“photoshop 笔刷 导入”，“photoshop 笔刷格式”，“photoshop笔刷 存储位置”，之类的。</p>
+  </li>
+</ol>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/Collections" rel="tag"># Collections</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.gif"
+               alt="DeamoV" />
+          <p class="site-author-name" itemprop="name">DeamoV</p>
+           
+              <p class="site-description motion-element" itemprop="description">Blog for Thoughts and Tech</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-1"> <a class="nav-link" href="#常用工具总结"> <span class="nav-number">1</span> <span class="nav-text">常用工具总结</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-2"> <a class="nav-link" href="#书下载的搜索引擎"> <span class="nav-number">1.1</span> <span class="nav-text">书下载的搜索引擎</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#通用搜索技巧"> <span class="nav-number">1.2</span> <span class="nav-text">通用搜索技巧</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#google搜索技巧所有的双引号冒号都必须是英文输入法的"> <span class="nav-number">1.3</span> <span class="nav-text">Google搜索技巧（所有的双引号冒号都必须是英文输入法的）</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#其他收藏"> <span class="nav-number">1.4</span> <span class="nav-text">其他收藏</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#最后"> <span class="nav-number">1.5</span> <span class="nav-text">最后</span> </a> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DeamoV</span>
+</div>
+
+
+<div class="powered-by">
+  
+</div>
+
+<div class="theme-info">
+   -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
