@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-06T23:30:44+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">机器学习序章</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/" rel="alternate" type="text/html" title="机器学习序章" /><published>2018-08-05T00:00:00+08:00</published><updated>2018-08-05T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-06T23:50:10+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">机器学习序章</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/" rel="alternate" type="text/html" title="机器学习序章" /><published>2018-08-05T00:00:00+08:00</published><updated>2018-08-05T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
@@ -8,7 +8,6 @@
 	&lt;/head&gt;
 &lt;body&gt;
 &lt;h3&gt;序言&lt;/h3&gt;
-
 &lt;p&gt;机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。&lt;/p&gt;
 
 &lt;p&gt;目前的更新顺序为课程的顺序，在整体学完之后，会按自己的理解进行一个汇总。&lt;/p&gt;
@@ -94,4 +93,4 @@
 &lt;/ul&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">机器学习系列（序章） 序言</summary></entry></feed>
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">机器学习系列（序章） 序言 机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。</summary></entry></feed>
