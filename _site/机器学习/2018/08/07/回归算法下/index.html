@@ -367,6 +367,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8B/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8B/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -636,6 +647,13 @@ $$
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -951,6 +969,28 @@ $$
 
   
 
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      
+      <script type="text/javascript">
+          var disqus_config = function () {
+              this.page.url = 'http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8B/';
+              this.page.identifier = '/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8B/';
+              this.page.title = '回归算法下';
+          };
+          var d = document, s = d.createElement('script');
+          s.src = 'https://.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', '' + +new Date());
+          (d.head || d.body).appendChild(s);
+      </script>
+      
+    
+
+  
+
 
 
 
@@ -965,6 +1005,25 @@ $$
 
 
 
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '111dbe7c3152cd4126dd',
+        clientSecret: 'e9ef42d7f73d45172dce65e5bef6c33f2a78d6d',
+        repo: 'vdeamov.github.io',
+        owner: 'VDeamoV',
+        admin: ['VDeamoV'],
+        id: '/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8B/',
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
 
 
 
