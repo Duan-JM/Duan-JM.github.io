@@ -410,12 +410,11 @@ changyan:
 # Support for gitalk comments system.
 gitalk:
   enable: true
-  clientID: 111dbe7c3152cd4126dd
-  clientSecret: e9ef42d7f73d45172dce65e5bef6c33f2a78d6d
-  repo: VDeamoV.github.io
+  clientID: 444f7a59e21fe37916be
+  clientSecret: 7a061310a453a45a324d628e45a3bbcd0b1a4f21
+  repo: vdeamov.github.io
   owner: VDeamoV
   admin: ['VDeamoV']
-  id: comments
 
 # Baidu Share
 # Available value:
