@@ -2,11 +2,20 @@
   <ul class="post-copyright">
     <li class="post-copyright-author">
       <strong>{{ __.post.copyright.author | append: __.symbol.colon }}</strong>
-      {{ site.author }}
+      <strong>Author：</strong>{{ site.author }}
+    </li>
+    <li class="post-copyright-github">
+      <strong>{{ __.post.copyright.github | append: __.symbol.colon }} </strong>
+      <strong>Github：<strong>https://github.com/VDeamoV
+    </li>
+    <li class="post-copyright-email">
+      <strong>{{ __.post.copyright.email | append: __.symbol.colon }} </strong>
+      <strong>Email：</strong>vincent.duan95@outlook.com
     </li>
     <li class="post-copyright-link">
       <strong>{{ __.post.copyright.link | append: __.symbol.colon }}</strong>
-      <a href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{ post.url | absolute_url }}</a>
+      <strong>Artical：</strong>
+      <a href="{{ post.url | absolute_url }}" title="{{ post.title }}">{{post.title}}</a>
     </li>
     <li class="post-copyright-license">
       <strong>{{ __.post.copyright.license_title | append: __.symbol.colon }} </strong>
