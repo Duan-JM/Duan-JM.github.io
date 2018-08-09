@@ -781,7 +781,7 @@ Next use <code class="highlighter-rouge">normal</code> by default. Have a previe
         repo: 'vdeamov.github.io',
         owner: 'VDeamoV',
         admin: ['VDeamoV'],
-        id: '/README.en/',
+        id: decodeURI(location.pathname),
         labels: ['gitalk'],
         perPage: 50,
         distractionFreeMode: true

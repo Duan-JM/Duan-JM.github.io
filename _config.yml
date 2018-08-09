@@ -412,10 +412,9 @@ gitalk:
   enable: true
   clientID: 444f7a59e21fe37916be
   clientSecret: 7a061310a453a45a324d628e45a3bbcd0b1a4f21
-  repo: 'vdeamov.github.io'
-  owner: 'VDeamoV'
+  repo: vdeamov.github.io
+  owner: VDeamoV
   admin: ['VDeamoV']
-  id: 'MyComment'
 
 # Baidu Share
 # Available value:
