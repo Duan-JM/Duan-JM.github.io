@@ -1,0 +1,63 @@
+---
+layout: post
+title: "决策树优化策略"
+date: 2018-08-10
+categories: 机器学习
+tags: [MachineLearning]
+---
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<title>决策树优化策略</title>
+	</head>
+<body>
+<h2>剪枝优化</h2>
+<p>决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类：</p>
+<ul>
+	<li><strong>前置剪枝：</strong>在构建决策树的过程中，提前停止。<strong>这种策略无法得到比较好的结果</strong></li>
+	<li><strong>后置剪枝：</strong>在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。</li>
+</ul>
+
+<h3>后置剪枝</h3>
+
+<p>后置剪枝的核心思想其实就是交叉验证，其通过对完全树进行剪枝，一直剪到只剩下树根，这样子便得到许多树，然后通过使用数据集分别对他们验证，然后根据结果选择最优树。</p>
+
+<h3>决策树剪枝过程</h3>
+
+<pre><code class="code-highlighted code-python"><span class="syntax-all syntax-keyword">while</span> 生成的决策树不为1个节点:
+	计算所有内部非叶子节点的剪枝系数;
+	选择最小剪枝系数的节点:
+		<span class="syntax-all syntax-keyword">if</span> 有多个最小剪枝系数节点:
+			选择包含数据项多的节点删除
+		<span class="syntax-all syntax-keyword">else</span>:
+			删除节点
+		将剪枝后的树存入之后用的决策树集
+<span class="syntax-all syntax-keyword">for</span> 决策树 <span class="syntax-all syntax-keyword">in</span> 决策树集:
+	用数据集验证决策树，得到最优剪枝后的决策树
+	</code></pre>
+
+<p>其最后用于验证决策树的损失函数如下公式1.1：</p>
+
+$$
+loss = \sum_{t=1}^{leaf} \frac{D_t}{D}H(t)\ \ \  公式1.1
+$$
+<p>剪枝系数的引入：</p>
+
+<p>剪枝系数的目的为，<strong>平衡准确度和树的节点数量之间的关系</strong>。所以很自然的想到我们常用的处理手法，在损失函数中引入叶子结点的变量，得到公式1.2。</p>
+
+$$
+loss_{\alpha} = loss + \alpha*leaf\ \ \ \ 公式1.2
+$$
+<p>设剪枝前的损失函数为$loss(R)$，剪枝后的损失函数为$loss(r)$，由于我们是想让剪枝前后的准确率尽量不变，所以让剪枝前后的损失函数相等，化简得公式1.3，即剪枝系数。<strong>注：剪枝后为根节点，所以$r=1$</strong>。</p>
+
+$$
+\alpha = \frac{loss(r)-loss(R)}{R_{leaf}-1}\ \ \ \ 	公式1.3
+$$
+<p>最后，由于我们想尽量减去的叶子结点多点，又同时保持准确度，故剪枝系数越小越好。</p>
+
+</body>
+</html>
+

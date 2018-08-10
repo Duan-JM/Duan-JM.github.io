@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-10T10:52:02+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">决策树</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="alternate" type="text/html" title="决策树" /><published>2018-08-09T00:00:00+08:00</published><updated>2018-08-09T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-10T12:44:34+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">决策树优化策略</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="决策树优化策略" /><published>2018-08-10T00:00:00+08:00</published><updated>2018-08-10T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;title&gt;决策树优化策略&lt;/title&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;剪枝优化&lt;/h2&gt;
+&lt;p&gt;决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类：&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;前置剪枝：&lt;/strong&gt;在构建决策树的过程中，提前停止。&lt;strong&gt;这种策略无法得到比较好的结果&lt;/strong&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;后置剪枝：&lt;/strong&gt;在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;后置剪枝&lt;/h3&gt;
+
+&lt;p&gt;后置剪枝的核心思想其实就是交叉验证，其通过对完全树进行剪枝，一直剪到只剩下树根，这样子便得到许多树，然后通过使用数据集分别对他们验证，然后根据结果选择最优树。&lt;/p&gt;
+
+&lt;h3&gt;决策树剪枝过程&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-python&quot;&gt;&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;while&lt;/span&gt; 生成的决策树不为1个节点:
+	计算所有内部非叶子节点的剪枝系数;
+	选择最小剪枝系数的节点:
+		&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;if&lt;/span&gt; 有多个最小剪枝系数节点:
+			选择包含数据项多的节点删除
+		&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;else&lt;/span&gt;:
+			删除节点
+		将剪枝后的树存入之后用的决策树集
+&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;for&lt;/span&gt; 决策树 &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;in&lt;/span&gt; 决策树集:
+	用数据集验证决策树，得到最优剪枝后的决策树
+	&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其最后用于验证决策树的损失函数如下公式1.1：&lt;/p&gt;
+
+$$
+loss = \sum_{t=1}^{leaf} \frac{D_t}{D}H(t)\ \ \  公式1.1
+$$
+&lt;p&gt;剪枝系数的引入：&lt;/p&gt;
+
+&lt;p&gt;剪枝系数的目的为，&lt;strong&gt;平衡准确度和树的节点数量之间的关系&lt;/strong&gt;。所以很自然的想到我们常用的处理手法，在损失函数中引入叶子结点的变量，得到公式1.2。&lt;/p&gt;
+
+$$
+loss_{\alpha} = loss + \alpha*leaf\ \ \ \ 公式1.2
+$$
+&lt;p&gt;设剪枝前的损失函数为$loss(R)$，剪枝后的损失函数为$loss(r)$，由于我们是想让剪枝前后的准确率尽量不变，所以让剪枝前后的损失函数相等，化简得公式1.3，即剪枝系数。&lt;strong&gt;注：剪枝后为根节点，所以$r=1$&lt;/strong&gt;。&lt;/p&gt;
+
+$$
+\alpha = \frac{loss(r)-loss(R)}{R_{leaf}-1}\ \ \ \ 	公式1.3
+$$
+&lt;p&gt;最后，由于我们想尽量减去的叶子结点多点，又同时保持准确度，故剪枝系数越小越好。&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">决策树优化策略 剪枝优化 决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类： 前置剪枝：在构建决策树的过程中，提前停止。这种策略无法得到比较好的结果 后置剪枝：在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。</summary></entry><entry><title type="html">决策树</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="alternate" type="text/html" title="决策树" /><published>2018-08-09T00:00:00+08:00</published><updated>2018-08-09T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;

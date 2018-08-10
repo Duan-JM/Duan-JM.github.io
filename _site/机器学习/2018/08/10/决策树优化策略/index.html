@@ -111,19 +111,17 @@
 
 
 
-<meta name="description" content="机器学习系列（序章） 序言 机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。">
+<meta name="description" content="决策树优化策略 剪枝优化 决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类： 前置剪枝：在构建决策树的过程中，提前停止。这种策略无法得到比较好的结果 后置剪枝：在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。">
 <meta name="keywords" content="MachineLearning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习序章">
-<meta property="og:url" content="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/">
+<meta property="og:title" content="决策树优化策略">
+<meta property="og:url" content="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/">
 <meta property="og:site_name" content="Pre-Demo-Field">
-<meta property="og:description" content="机器学习系列（序章） 序言 机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。">
+<meta property="og:description" content="决策树优化策略 剪枝优化 决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类： 前置剪枝：在构建决策树的过程中，提前停止。这种策略无法得到比较好的结果 后置剪枝：在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdly1fu0edeeakkj30jg0axdkl.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习序章">
-<meta name="twitter:description" content="机器学习系列（序章） 序言 机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/0069RVTdly1fu0edeeakkj30jg0axdkl.jpg">
+<meta name="twitter:title" content="决策树优化策略">
+<meta name="twitter:description" content="决策树优化策略 剪枝优化 决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类： 前置剪枝：在构建决策树的过程中，提前停止。这种策略无法得到比较好的结果 后置剪枝：在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。">
 
 
 <script type="text/javascript" id="hexo.configurations">
@@ -156,7 +154,7 @@
 
 
 
-  <title>机器学习序章 | Pre-Demo-Field</title>
+  <title>决策树优化策略 | Pre-Demo-Field</title>
   
 
 
@@ -295,7 +293,7 @@
   
 
   <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DeamoV">
@@ -315,7 +313,7 @@
           <h1 class="post-title" itemprop="name headline">
           
           
-            机器学习序章
+            决策树优化策略
           
         </h1>
         
@@ -329,8 +327,8 @@
               
                 <span class="post-meta-item-text"></span>
               
-              <time title="" itemprop="dateCreated datePublished" datetime="2018-08-05T00:00:00+08:00">
-                2018-08-05
+              <time title="" itemprop="dateCreated datePublished" datetime="2018-08-10T00:00:00+08:00">
+                2018-08-10
               </time>
             
 
@@ -370,7 +368,7 @@
 
           
           
-             <span id="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/" class="leancloud_visitors" data-flag-title="机器学习序章">
+             <span id="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" class="leancloud_visitors" data-flag-title="决策树优化策略">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -429,93 +427,52 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8" />
-		<title>机器学习系列（序章）</title>
+		<title>决策树优化策略</title>
 	</head>
 <body>
-<h3>序言</h3>
-<p>机器学习&amp;人工智能&amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。</p>
-
-<p>目前的更新顺序为课程的顺序，在整体学完之后，会按自己的理解进行一个汇总。</p>
-
-<h3>什么是机器学习</h3>
-
-<p>首先先上官方的卡内基梅隆大学的教授TomMitchell的定义。</p>
-
-<blockquote>
-<p>A program can be said to learn from experience E with respect to some class of tasks T and performance measure P , If its performance at tasks in T, as measured by P, improves with experience E.</p>
-</blockquote>
-
-<blockquote>
-<p>对于某给定的任务T，在合理的性能度量方案P的前提下，某计算机程序可以自主学习任务T的经验E；随着提供合适、优质、大量的经验E，该程序对于任务T的性能逐步提高。</p>
-</blockquote>
-
-<p>看起来很官方的说法对吧，接下来粗略的说明是怎么回事。</p>
-
-<p>一句话版本：抓了一把混着豆子的米（数据），根据你对豆子和米的特征的认识（已有经验），把豆子和米分开分别装在两个袋子里（分类），随后验收的人看你是否真的把米和豆子分开了（性能度量）。</p>
-
-<p>数学版本：X*P=Y，Y是分类的类别，X是一个数据，我们找的是矩阵P能使所有的数据X都能对应到相迎的分类Y。</p>
-
-<p>简单来说，机器学习就是分类器，通过学习已有的数据，得到一个数据和类别的关系，再用这个关系来对未来未分类的数据进行预测，这就是我理解的机器学习。</p>
-
-<h3> 机器学习&amp;人工智能&amp;深度学习有什么区别</h3>
-
-<p>说到这里，有些学过深度学习的人肯定就会疑惑这个和机器学习好像一样啊，深度学习也是把图片分类啊。是的，深度学习准确的来说算是机器学习的一部分，而机器学习和深度学习又可以被人工智能所包含。只不过深度学习在图像识别和语音识别的方便有着突出的优势，而机器学习在数据挖掘，统计学习和自然语言处理方面已经有了很大的发展。</p>
-
-<h3>它的工作流程是什么样子</h3>
-
-<p>数据收集=&gt;数据预处理(数据清洗)=&gt;特征提取=&gt;模型构建=&gt;模型测试评估=&gt;上线=&gt;迭代</p>
-
-<p>数据收集和数据清洗：可以理解为，做饭前的买菜（为模型提供训练用的有效数据，去除显而易见的无效数据）</p>
-
-<p>特征提取：可以理解为，炒菜前的切菜，切的越好，炒完越好吃（即从数据中选出可能能代表数据特征的属性）</p>
-
-<p>模型构建：可以理解为炒菜，用切好的菜，以一定的顺序进行翻炒（选择合适的算法来训练模型）。</p>
-
-<p>模型测试评估：试吃，如果不好吃，则反思是不是切的不好，菜买的不对，或者炒的顺序不对（测试用例看是否符合标准，如果不对责重复前面的步骤）。</p>
-
-<p>特别的说，训练的部分，其实就是以当前的权值运算出来的结果和已知结果对比，然后根据差距来修改权值，如此往复，使预测结果和已知结果无限接近。</p>
-
-<h3>算法的分类和选择</h3>
-
-<p>机器学习分为如下几个分类：</p>
-
-<ol>
-	<li>有监督学习：也就是训练用的数据是有标签的，在训练前是人工分好类的。再用训练过后的模型，对未来收到的数据进行分类，来达到预测的目的。</li>
-	<li>无监督学习：和有监督学习相比，训练的数据是没有分类的，在无监督学习中，就是通过学习，把这些为分类的数据进行分类，来推断出数据的一些内在结构。</li>
-	<li>半监督学习：训练的数据包含少量的含有标签的数据，通过这些数据来训练和分类。顾名思义就是无监督和有监督的结合。</li>
-</ol>
-
-<p>然后从算法的角度来看，又可以分为如下三种：</p>
-
-<ol>
-	<li>分类：标签是整形的，是一个一个独立的离散的。分类标识的时候使用int型。</li>
-	<li>回归：标签是浮点型，分类是连续的而不是离散的。分类表示用float的型。</li>
-	<li>聚类：1，2都是有监督学习，而3则是无监督学习。</li>
-</ol>
-
-<p>最后附上一个算法的选择图：（图很清楚只需要一点的英文水平就能看懂）</p>
-
-<p>classification:分类 </p>
-
-<p>regression:回归 </p>
-
-<p>clustering:聚类 </p>
-
-<p>dimensionality reduction：降纬度</p>
-
-<figure><img src="https://ws4.sinaimg.cn/large/0069RVTdly1fu0edeeakkj30jg0axdkl.jpg"/></figure>
-
-<h3>公开数据获取渠道</h3>
-
+<h2>剪枝优化</h2>
+<p>决策树的剪枝是决策树算法中最基本、最有用的一种优化方案，分为以下两类：</p>
 <ul>
-	<li><a href="http://archive.ics.uci.edu/ml/datasets.html">UCI Machine Learning Repository</a> （新手推荐这个，有标签）</li>
-	<li><a href="https://aws.amazon.com/cn/public-datasets/%20">Amazon Public-datasets</a></li>
-	<li><a href="https://www.kaggle.com/competitions%20">Kaggle</a></li>
-	<li><a href="http://www.kdnuggets.com/datasets/index.html%20">KDnuggets</a></li>
-	<li><a href="http://www.sogou.com/labs/resource/list_pingce.php">Sougou语料库</a></li>
-	<li><a href="https://tianchi.aliyun.com/datalab/index.htm%20">天池</a></li>
-	<li><a href="http://www.pkbigdata.com/common/cmptIndex.html">DC竞赛</a></li>
+	<li><strong>前置剪枝：</strong>在构建决策树的过程中，提前停止。<strong>这种策略无法得到比较好的结果</strong></li>
+	<li><strong>后置剪枝：</strong>在决策树构建好后，然后开始剪裁，一般使用两种方案。a）用单一叶子结点代替整个子树，也节点的分类采用子树中最主要的分类。b）将一个子树完全替代另一个子树。后置剪枝的主要问题是存在计算效率问题，存在一定的浪费情况。</li>
 </ul>
+
+<h3>后置剪枝</h3>
+
+<p>后置剪枝的核心思想其实就是交叉验证，其通过对完全树进行剪枝，一直剪到只剩下树根，这样子便得到许多树，然后通过使用数据集分别对他们验证，然后根据结果选择最优树。</p>
+
+<h3>决策树剪枝过程</h3>
+
+<pre><code class="code-highlighted code-python"><span class="syntax-all syntax-keyword">while</span> 生成的决策树不为1个节点:
+	计算所有内部非叶子节点的剪枝系数;
+	选择最小剪枝系数的节点:
+		<span class="syntax-all syntax-keyword">if</span> 有多个最小剪枝系数节点:
+			选择包含数据项多的节点删除
+		<span class="syntax-all syntax-keyword">else</span>:
+			删除节点
+		将剪枝后的树存入之后用的决策树集
+<span class="syntax-all syntax-keyword">for</span> 决策树 <span class="syntax-all syntax-keyword">in</span> 决策树集:
+	用数据集验证决策树，得到最优剪枝后的决策树
+	</code></pre>
+
+<p>其最后用于验证决策树的损失函数如下公式1.1：</p>
+
+$$
+loss = \sum_{t=1}^{leaf} \frac{D_t}{D}H(t)\ \ \  公式1.1
+$$
+<p>剪枝系数的引入：</p>
+
+<p>剪枝系数的目的为，<strong>平衡准确度和树的节点数量之间的关系</strong>。所以很自然的想到我们常用的处理手法，在损失函数中引入叶子结点的变量，得到公式1.2。</p>
+
+$$
+loss_{\alpha} = loss + \alpha*leaf\ \ \ \ 公式1.2
+$$
+<p>设剪枝前的损失函数为$loss(R)$，剪枝后的损失函数为$loss(r)$，由于我们是想让剪枝前后的准确率尽量不变，所以让剪枝前后的损失函数相等，化简得公式1.3，即剪枝系数。<strong>注：剪枝后为根节点，所以$r=1$</strong>。</p>
+
+$$
+\alpha = \frac{loss(r)-loss(R)}{R_{leaf}-1}\ \ \ \ 	公式1.3
+$$
+<p>最后，由于我们想尽量减去的叶子结点多点，又同时保持准确度，故剪枝系数越小越好。</p>
 
 </body>
 </html>
@@ -558,7 +515,7 @@
     <li class="post-copyright-link">
       <strong></strong>
       <strong>Artical：</strong>
-      <a href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/" title="机器学习序章">机器学习序章</a>
+      <a href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" title="决策树优化策略">决策树优化策略</a>
     </li>
     <li class="post-copyright-license">
       <strong> </strong>
@@ -591,15 +548,15 @@
         <div class="post-nav" id="post-nav-id">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/07/%E5%9B%9E%E5%BD%92%E7%AE%97%E6%B3%95%E4%B8%8A/" rel="next" title="回归算法上">
-                <i class="fa fa-chevron-left"></i> 回归算法上
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/09/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="prev" title="决策树">
+                决策树 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -759,7 +716,7 @@
             
               <div class="post-toc-content">
     <ol class=nav>
-      <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">1</span> <span class="nav-text">序言</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">2</span> <span class="nav-text">什么是机器学习</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">3</span> <span class="nav-text"> 机器学习&amp;人工智能&amp;深度学习有什么区别</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">4</span> <span class="nav-text">它的工作流程是什么样子</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">5</span> <span class="nav-text">算法的分类和选择</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">6</span> <span class="nav-text">公开数据获取渠道</span> </a> </li>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#"> <span class="nav-number">1</span> <span class="nav-text">剪枝优化</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">1.1</span> <span class="nav-text">后置剪枝</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">1.2</span> <span class="nav-text">决策树剪枝过程</span> </a> </li> </ol> </li>
     </ol>
   </div>
             
