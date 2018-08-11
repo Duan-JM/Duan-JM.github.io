@@ -420,8 +420,9 @@ gitalk:
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-#baidushare:
-##  type: button
+baidushare:
+  type: button
+  baidushare: true
 
 # Share
 #jiathis:
