@@ -561,7 +561,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto
@@ -586,7 +586,7 @@ use_motion: true
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
@@ -602,7 +602,7 @@ pace: false
 #pace-theme-mac-osx
 #pace-theme-minimal
 # For example
-# pace_theme: pace-theme-center-simple
+#pace_theme: pace-theme-center-simple
 pace_theme: pace-theme-big-counter
 
 # Canvas-nest
