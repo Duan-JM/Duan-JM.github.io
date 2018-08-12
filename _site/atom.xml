@@ -1,4 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-11T13:59:33+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">决策树优化策略</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="决策树优化策略" /><published>2018-08-10T00:00:00+08:00</published><updated>2018-08-10T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-12T10:34:18+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">使用Github创建自己的小博客</title><link href="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/12/%E4%BD%BF%E7%94%A8Github%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8F%E5%8D%9A%E5%AE%A2/" rel="alternate" type="text/html" title="使用Github创建自己的小博客" /><published>2018-08-12T00:00:00+08:00</published><updated>2018-08-12T00:00:00+08:00</updated><id>http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/12/%E4%BD%BF%E7%94%A8Github%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8F%E5%8D%9A%E5%AE%A2</id><content type="html" xml:base="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/12/%E4%BD%BF%E7%94%A8Github%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B0%8F%E5%8D%9A%E5%AE%A2/">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;title&gt;使用Github创建自己的小博客&lt;/title&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;懒人攻略&lt;/h2&gt;
+&lt;p&gt;只有四步：&lt;/p&gt;
+&lt;ol&gt;
+	&lt;li&gt;找到自己喜欢的别人的博客的Github地址，一般为&lt;code&gt;username.github.io&lt;/code&gt;结尾。&lt;/li&gt;
+	&lt;li&gt;Fork一份对方的源码，之后把仓库名改为&lt;code&gt;YourGithubName.github.io&lt;/code&gt;&lt;/li&gt;
+	&lt;li&gt;在&lt;code&gt;_config.yaml&lt;/code&gt;中更改个人信息，同时把&lt;code&gt;_posts&lt;/code&gt;中的文章都删了，注意别人的文章格式，之后仿照对方的格式写即可。&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;给你Fork的原作者写封邮件表达感谢！&lt;/strong&gt;说不定就这么勾搭了一个大佬也不一定呢。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;完成了四步后，浏览器输入&lt;code&gt;YourGithubName.github.io&lt;/code&gt;就能在晚上看到自己的博客啦。&lt;/p&gt;
+
+&lt;h2&gt;折腾攻略&lt;/h2&gt;
+
+&lt;p&gt;本这不重新造轮子的原则，附上我参考的大佬们的文章。&lt;/p&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;搭建篇：
+
+		&lt;p&gt;简书上chaosinmotion 的&lt;a href=&quot;https://www.jianshu.com/p/7593508666f8&quot;&gt; Github Pages + Jekyll 独立博客一小时快速搭建&amp;amp;上线指南 &lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;添加评论系统：
+
+		&lt;p&gt;Github上knightcai的&lt;a href=&quot;https://knightcai.github.io/2017/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/&quot;&gt; 为博客添加 Gitalk 评论插件 &lt;/a&gt;&lt;/p&gt;
+
+		&lt;p&gt;特别一提，如果出现Validation Error是因为博客标题的名字编码后太长了，参考&lt;a href=&quot;https://github.com/gitalk/gitalk/issues/102&quot;&gt;这个Issue&lt;/a&gt;中mr-wind的使用 &lt;code&gt;id: decodeURI(location.pathname)&lt;/code&gt; 解决方案。&lt;/p&gt;
+
+		&lt;p&gt;&lt;strong&gt;注：md5的方案可能更好，偷懒起见我没有用。&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;阅读量统计：
+
+		&lt;p&gt;wanghao的&lt;a href=&quot;https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud&quot;&gt; 为NexT主题添加文章阅读量统计功能 &lt;/a&gt;，这个文章用的是leandCloud。&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;搜索服务：
+
+		&lt;p&gt;使用Algolia，不过自带的LocalSearch比较简单。&lt;a href=&quot;http://theme-next.iissnan.com/third-party-services.html#algolia-search&quot;&gt;文章&lt;/a&gt;有配置说明。&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;主题：
+
+		&lt;p&gt;Next系列。&lt;a href=&quot;http://theme-next.iissnan.com/getting-started.html&quot;&gt;官网&lt;/a&gt;有安装手册。&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;CopyRight:
+
+		&lt;p&gt;在目录下搜索copyright，找到那个html文件进行修改就好了。效果是文章下面的红竖杠中的内容。&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;小彩蛋：
+
+		&lt;p&gt;史蒂芬小恐龙，他的js文件在&lt;a href=&quot;https://github.com/lmk123/t-rex-runner&quot;&gt;这里&lt;/a&gt;！之后就任君发挥啦，Happy Coding。&lt;/p&gt;&lt;/li&gt;
+	&lt;li&gt;最后题外话
+
+		&lt;p&gt;所有的配置基本上都可以在&lt;code&gt;_config.yaml&lt;/code&gt;中设置，同时在博客中&lt;code&gt;\&lt;/code&gt;代表的就是根目录，这样子你自己在配置其他的功能的时候就可以轻松愉悦的配置。值得一提的是css文件和js文件都在&lt;code&gt;assets&lt;/code&gt;文件夹中，自己DIY的时候最好不要打乱目录结构。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="GithubPage" /><category term="博客" /><category term="教程" /><summary type="html">使用Github创建自己的小博客 懒人攻略 只有四步： 找到自己喜欢的别人的博客的Github地址，一般为username.github.io结尾。 Fork一份对方的源码，之后把仓库名改为YourGithubName.github.io 在_config.yaml中更改个人信息，同时把_posts中的文章都删了，注意别人的文章格式，之后仿照对方的格式写即可。 给你Fork的原作者写封邮件表达感谢！说不定就这么勾搭了一个大佬也不一定呢。</summary></entry><entry><title type="html">决策树优化策略</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/" rel="alternate" type="text/html" title="决策树优化策略" /><published>2018-08-10T00:00:00+08:00</published><updated>2018-08-10T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/10/%E5%86%B3%E7%AD%96%E6%A0%91%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
@@ -514,7 +569,7 @@ $$
 
 &lt;p&gt;clustering:聚类 &lt;/p&gt;
 
-&lt;p&gt;dimensionality reduction：降纬度&lt;/p&gt;
+&lt;p&gt;dimensionality reduction：降维度&lt;/p&gt;
 
 &lt;figure&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdly1fu0edeeakkj30jg0axdkl.jpg&quot;/&gt;&lt;/figure&gt;
 
