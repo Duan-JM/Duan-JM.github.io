@@ -1,0 +1,224 @@
+---
+layout: post
+title: "支持向量机SVM"
+date: 2018-08-13
+categories: 机器学习
+tags: [MachineLearning]
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>支持向量机（Support Vector Machine）</title>
+	</head>
+<body>
+<h2>SVM的优点和缺点</h2>
+<ul>
+	<li>优点：泛化错误率低，计算开销不大，结果易解释</li>
+	<li>缺点：对参数调节和核函数的选择敏感，原始分类器不加修改仅适用于处理二类问题。</li>
+	<li>数据类型：数值型和标称型数据。</li>
+</ul>
+
+<h2>SVM算法原理</h2>
+
+<p>首先我们都知道，为了划分二维的数据需要一根线，划分三维数据需要一个面。这里线是一维，面是二维，同理继续推出对N维的数据需要使用N-1维的对象进行分割，线性回归和SVM本质都是通过找这个超平面来达到分类的效果。</p>
+
+<p>具体的来说SVM是在优化线性回归中的$kx+b$模型。在线性回归中只需要考虑有一个分割超平面能进行分类即可，而SVM则想找出所有能分类的分割超平面中最优的超平面，即<strong>所有点都到分割超平面的距离最大</strong>，而支持向量指的就是离超平面最近的那些点。</p>
+
+<p>超平面的公式为公式2.1。所以点A到分割超平面的距离为公式2.2。这里我们为了方便计算引入类别标签为-1和+1。所以保证所有的最小间隔的点最大化的公式为公式2.3。</p>
+
+<p><em>注1：-1和+1是为了保证预测正确的时候，$y(x_i)*label_i$都是一个很大的正值。</em></p>
+
+<p><em>注2：$arg\ max_{w,b}$的含义是，得到w和b使得后面式子取最大值</em></p>
+
+$$
+y(x) = w^TX+b\ \ \ 公式2.1
+$$
+
+$$
+\frac{|w^TX+b|}{||w||}\ \ \ 公式2.2
+$$
+
+$$
+arg\ max_{w,b}\{min_i(label_i*(w^Tx_i+b)*\frac{1}{||w||})\}\ \ \ 公式2.3
+$$
+<p>显然我们不能直接求解上面的式子。需要化简下它。由于公式2.1在正确预测时，同$label$的乘积大于1。所以我们可以拆分公式2.3为公式2.4，约束条件为公式2.5。</p>
+
+<p><em>注：这里的约束条件公式2.5中，要对每一个式子前都要加系数，即拉格朗日数乘子$\alpha_i$</em>。</p>
+
+$$
+arg\ min_{w,b}\ ||w||\ \ \ 公式2.4
+$$
+$$
+st.\ \ label_i*(w^Tx_i+b) \geq 1 \ \ \ 公式2.5
+$$
+<p>对为了方便求导计算在公式2.4前加上$\frac{1}{2}$这个系数。之后使用拉格朗日乘子法得到公式2.6，并进行计算。根据KKT条件中的偏导数等于0得到公式2.7和公式2.8。</p>
+
+<p><em>祝：这里需要注意的是拉格朗日数乘子的正负号，这个同不等式的符号有关</em></p>
+
+$$
+L(w,b,\alpha)= \frac{1}{2}||w||^2-\sum_{i=1}^n\alpha_i*[label_i*(w^Tx_i+b)-1]\ \ \ 公式2.6
+$$
+$$
+\sum_{i=1}^{n}\alpha_i label_i x_i = w\ \ \ 公式2.7
+$$
+$$
+\sum_{i=1}^{n}\alpha_i label_i = 0\ \ \ 公式2.8
+$$
+<p>将公式2.7，公式2.8代入公式2.6化简，再根据对偶问题得到最终公式2.9，根据KKT，其约束条件为公式2.10。</p>
+
+<p><em>注1：KKT条件在SMO算法中统一进行讲解。</em></p>
+
+<p><em>注2：b是由公式2.8消掉的。</em></p>
+
+<p><em>注3：在拉格朗日乘子法应用在这里，我们可以把$||w||$，写作$max_\alpha\ L(w,b,\alpha)$，所以原式可以写作$min_{w,b}\ max_\alpha\ L(w,b,\alpha)$，根据对偶问题，就可以变成$max_\alpha\ min_{w,b}\ L(w,b,\alpha)$，这也是能把公式2.7和公式2.8代入公式2.6的原因，也是公式2.9种是$max_\alpha$的原因。具体证明在KKT中的附上的博客中。</em></p>
+
+$$
+max_\alpha\ \sum_{i=1}^{n}\alpha_i - \frac{1}{2}\sum_{i,j=1}^{m}label_i*label_j*a_i*a_j\langle x_i·x_j\rangle\ \ \ 公式2.9
+$$
+
+$$
+\alpha_i \geq 0\ \  且\ \sum_{i=1}^{m}\alpha_i*label_i = 0\ \ \ 公式2.10
+$$
+<p><em>注：这里$\langle x_i·x_j\rangle$是两者向量积的运算，是从$x_i^T*x_j$得到的。</em></p>
+
+<p>这么看来我们算出了$\alpha$就能算出超平面，所以SVM的工作就是算出这些$\alpha$，而SMO算法就是求$\alpha$的典型算法。</p>
+
+<h2>对SVM引入线性不可分</h2>
+
+<p>由于数据都不那么干净，所以我们不应该假设数据能够100%的线性可分。我们通过对判定的公式，公式2.5，引入松弛变量$\xi_i\geq 0$，得到其引入了松弛因子的形式，如下公式3.1。</p>
+
+$$
+y_i(w*x_i+b)\geq1-\xi_i\ \ \ 公式3.1
+$$
+<p>同时对于目标函数公式2.4也需要调整，我们将$\xi$引入目标函数并对其设置权值，得到公式3.2，也因此其约束条件变为公式3.1，公式3.2。</p>
+
+$$
+min_{w,b}\frac{1}{2}||w||^2+C\sum_{i=1}^N\xi_i\ \ \ 公式3.2
+$$
+$$
+\begin{split}
+st.\ \ \ &y_i(w*x_i+b)\geq 1 - \xi_i\\
+&\xi \geq 0
+\end{split}
+$$
+<p>故拉格朗日函数$L(w,b,\xi,\alpha,\mu)$为如下公式3.3，其中$\alpha$，$\mu$为拉格朗日数乘子。</p>
+
+$$
+L(w,b,\xi,\alpha,\mu)=\frac{1}{2}||w||^2+C\sum_{i=1}^N\xi_i-\sum_{i=1}^n\alpha_i*[label_i*(w^Tx_i+b)-1+\xi_i]-\sum_{i=1}^n\mu_i\xi_i\ \ \ 公式3.3
+$$
+<p>和之前的操作一样，对其进行求偏导操作后，类似的得到了相同的公式2.7，公式2.8，不同的是这里对$\xi$的求到后对$\alpha$有了限制，得到了公式3.4，由于$\mu\geq0$所以有$\alpha_i$的取值范围$0 \leq \alpha_i \leq C$。</p>
+
+<p><em>注：注意这里的$\alpha$取值，之后SMO会用</em></p>
+
+$$
+C-\alpha_i-\mu_i = 0\ \ \ 公式3.4  
+$$
+<p>最终目标函数还是同之前推到的相同，即公式2.9，约束条件中只有$\alpha$的取值变为了，$0 \leq \alpha_i \leq C$。这样有了目标函数了以后，之后可以根据梯度下降算法求得最终的$\alpha$</p>
+
+<h2>SMO（Sequential Minimal Optimization）</h2>
+
+<h3>KKT条件 </h3>
+
+<p>求$f(x)$ 极值的时候我们这里讨论三种情况。</p>
+
+<ol>
+	<li>没有约束条件：</li>
+	<li>有一个等式$h(x)$的约束条件：
+
+		<p>使用拉格朗日乘子法（Lagrange Multiplier），也就是我们在高数中求极值常用的。设置一个拉格朗日系数$\alpha_1$，得到如下公式，之后对$x$和$\alpha_1$用求导的方式求极值即可。</p>
+
+		$$
+		L(x, \alpha) = f(x) + \alpha*h(x)
+		$$</li>
+	<li>含有不等式的约束条件：
+
+		<p>当约束条件中有不等式时，就需要用到KKT条件。同样地，把所有的不等式约束$g(x)\leq0$、等式约束$h(x)=0$和目标函数$f(x)$全部写为一个式子如下公式。</p>
+
+		$$
+		L(x,\alpha_1, \alpha_2)= f(x) + \alpha_1*g(x)+\alpha_2*h(x)
+		$$
+		<p>KKT条件是说最优值必须满足以下条件：</p>
+
+		<ol>
+			<li>$L(x, \alpha) = f(x) + \alpha(x)$ 对$x$，$\alpha_1$，$\alpha_2$求导为零。</li>
+			<li>$h(x)=0$ 。</li>
+			<li>$g(x)*\alpha_1=0$。</li>
+		</ol>
+
+		<p>其中第三个式子非常有趣，因为$g(x)\leq$ 0 ，<strong>如果要满足这个等式，必须有$a = 0$或者$g(x) = 0$</strong>。这是SVM的很多重要性质的来源。同时$f(x)$也可以写作$max_{\alpha_1,\alpha_2}\ L(x,\alpha_1,\alpha_2)$，这个则是SMO求解中的一个关键性质。详细的论述参考<a href="https://blog.csdn.net/xianlingmao/article/details/7919597">这篇博客</a>。</p></li>
+</ol>
+
+<h3>SMO算法细节</h3>
+
+<h4>SMO算法综述</h4>
+
+<p>由于原来直接通过梯度下降进行求解速度太慢，所以1996年，John Platt依靠KKT的特性，将大优化问题变成了多个小优化问题来求解，成为了SVM中最常用的求解思路。</p>
+
+<p>其思路如下：</p>
+
+<ul>
+	<li>Loop：
+
+		<ol>
+			<li>选取一对 $\alpha_i$，$\alpha_j$作为变量，其余看为常数</li>
+			<li>如果这对$\alpha$满足以下两个条件，使用梯度下降算法改变他们的值。
+
+				<ul>
+					<li>两者都在间隔边界外</li>
+					<li>两者都没有在进行过区间化处理，或者不在边界上</li>
+				</ul></li>
+			<li>当满足了KKT条件，即$\sum_{i=1}^N\alpha_iy_i=0$和$0\leq \alpha_i \leq C$。</li>
+		</ol></li>
+</ul>
+
+<p><em>注：这里可以这么理解，$\alpha_i$从之前的公式中我们可以大致理解为是每一个样本的权值，我们这些操作可以理解为通过操作$\alpha$把所有的样本点尽量的放在间隔边界上。</em></p>
+
+<h4>算法推导</h4>
+
+<p>我们接下来要做的是，通过类似梯度下降的方式来求的最优的$\alpha$值。正如上一节所说的，SMO的本质是大优化问题画小优化问题。所以从目标函数公式2.9中，随意取出两个$\alpha$，为了表达方便，不妨直接取$\alpha_1$和$\alpha_2$，同时对公式2.9前加负号取反之后，化简如下式4.1，其中$\kappa_{ij}$代表$\langle x_i·x_j\rangle$。</p>
+
+$$
+\begin{split}
+min_{\alpha_1, \alpha_2}W(\alpha_1,\alpha_2) &=\frac{1}{2}\kappa_{11}\alpha_1^2+\frac{1}{2}\kappa_{22}\alpha_2^2+y_1y_2\alpha_1\alpha_2\kappa_{12}-(\alpha_1+\alpha_2)\\
+&+y_1\alpha_1\sum_{i=3}^Ny_i\alpha_i\kappa_{i1}+y_2\alpha_2\sum_{i=3}^Ny_i\alpha_i\kappa_{i2}\ \ \ 公式4.1\\
+\end{split} 
+$$
+$$
+\begin{split}
+st. \ \ &\alpha_1y_1+\alpha_2y_2=-\sum_{i=3}^Ny_i\alpha_i\\
+&0\leq\alpha_i\leq C
+\end{split}
+$$
+<p>由于我们已经把不是$\alpha_1$和$\alpha_2$的参数看作常量，所以在进行求偏导进行梯度下降算法的时候就不需要考虑公式4.1中第二行的式子。通过这个式子中约束条件的等式就可以得到仅含$\alpha_j$的式子，对其进行梯度下降算法，得到如下公式4.2：</p>
+
+$$
+g(x)=\sum_{i=1}^Ny_i\alpha_i\kappa(x_i,x)+b  
+$$
+$$
+\eta = \kappa_{11}+\kappa_{22}-2\kappa_{12} = ||x_1-x2||^2
+$$
+$$
+E_i = g(x_i)-y_i = (\sum_{j=1}^Ny_j\alpha_j\kappa_{ji}+b)-y_i
+$$
+$$
+\alpha_i = \frac{\xi-\alpha_j y_j}{y_i}
+$$
+$$
+\alpha_j^{new}=\alpha_j^{old}+\frac{y_j(E_i-E_j)}{\eta}\ \ \ 公式4.2
+$$
+<p>这时候我们已经找到了两个的$alpha$的新值了，不过我们不能确定这两个新值是否还满足KKT条件。所以我们根据KKT条件中$\alpha$的取值，设置了L和H来防止新值不满足KKT，即$L\leq\alpha_i,\alpha_j \leq H$，其中L，H的公式如下公式4.3和公式4.4得到：</p>
+
+$$
+if\ y_i \neq  y_j\ \ \ L=max(0,\alpha_j-\alpha_i),\ H=min(C,C+\alpha_j-\alpha_i)
+$$
+$$
+if\ y_i = y_j\ \ \ L=max(0,\alpha_j+\alpha_i-C),\ H=min(C,\alpha_j+\alpha_i)
+$$
+<p>LH的细节推到，在<a href="https://blog.csdn.net/hjimce/article/details/45421827">这个博客</a>中详细的说明了LH是怎么推出来的。</p>
+
+</body>
+</html>
+

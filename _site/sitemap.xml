@@ -29,6 +29,10 @@
 <lastmod>2018-08-12T00:00:00+08:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/13/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BASVM/</loc>
+<lastmod>2018-08-13T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/</loc>
 </url>
 <url>
@@ -48,9 +52,6 @@
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>
-</url>
-<url>
-<loc>http://localhost:4000/README.en/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/assets/lib/fastclick/</loc>
