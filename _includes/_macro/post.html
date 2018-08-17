@@ -197,7 +197,6 @@
                  <span class="post-meta-item-text">{{__.post.visitors}} </span>
                {% endif %}
                <span class="leancloud-visitors-count">Generating</span>
-               <span class="post-meta-divider">|</span>
              </span>
           {% endif %}
 
@@ -212,6 +211,7 @@
             {% assign source = post.content %}
             {% include _helper/wordcount.html %}
             <div class="post-wordcount">
+              <span class="post-meta-divider">|</span>
               {% if site.post_wordcount.wordcount %}
                 {% unless site.post_wordcount.separated_meta %}
                   <span class="post-meta-divider">|</span>
