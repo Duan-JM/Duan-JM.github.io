@@ -39,9 +39,11 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "
 
 # Code Highlighter
 ## 'pygments' is unsupported on GitHub Pages now.
-highlighter: rouge
 highlight:
+  enable: true
   line_number: true
+  auto_detect: true
+  tab_replace:
 
 #### Markdown Processors
 ## 'redcarpet' is unsupported on GitHub Pages now.
@@ -174,13 +176,13 @@ font:
   global:
     # external: true will load this font family from host.
     external: true
-    family: Lato
+    family: Monda
 
   # Font settings for Headlines (h1, h2, h3, h4, h5, h6)
   # Fallback to `global` font settings.
   headings:
     external: true
-    family:
+    family: Roboto Slab
 
   # Font settings for posts
   # Fallback to `global` font settings.
@@ -193,14 +195,13 @@ font:
   # The `size` option use `px` as unit
   logo:
     external: true
-    family:
-    size:
+    family: Lobster Two
+    size: 24
 
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
-    size:
+    family: PT Mono
 
 
 
@@ -317,8 +318,8 @@ post_meta:
 # Post wordcount display settings
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
+  wordcount: true
+  min2read: true
   separated_meta: true
 
 # Wechat Subscriber
@@ -353,7 +354,7 @@ custom_logo:
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night
+highlight_theme: normal
 
 
 # ---------------------------------------------------------------

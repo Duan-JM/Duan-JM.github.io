@@ -1,20 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-17T18:06:26+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">BaiduPCS-Go的使用</title><link href="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="BaiduPCS-Go的使用" /><published>2018-08-17T00:00:00+08:00</published><updated>2018-08-17T00:00:00+08:00</updated><id>http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-17T19:18:20+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">Codehighttest</title><link href="http://localhost:4000/2018/08/17/CodeHightTest/" rel="alternate" type="text/html" title="Codehighttest" /><published>2018-08-17T00:00:00+08:00</published><updated>2018-08-17T00:00:00+08:00</updated><id>http://localhost:4000/2018/08/17/CodeHightTest</id><content type="html" xml:base="http://localhost:4000/2018/08/17/CodeHightTest/">&lt;p&gt;title: next主题设定代码高亮格式
+date: 2018-03-02
+tags:
+categories: 电影评论&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name>DeamoV</name></author><summary type="html">title: next主题设定代码高亮格式 date: 2018-03-02 tags: categories: 电影评论</summary></entry><entry><title type="html">BaiduPCS-Go的使用</title><link href="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="BaiduPCS-Go的使用" /><published>2018-08-17T00:00:00+08:00</published><updated>2018-08-17T00:00:00+08:00</updated><id>http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
 		&lt;meta charset=&quot;utf-8&quot; /&gt;
-		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/style.css&quot; /&gt;
 		&lt;title&gt;BaiduPCS-Go的使用&lt;/title&gt;
 	&lt;/head&gt;
 &lt;body&gt;
-&lt;h1&gt;BaiduPCS-Go的使用&lt;/h1&gt;
-
 &lt;h2&gt;Why BaiduPCS-Go&lt;/h2&gt;
-
 &lt;p&gt;BaiduPCS-Go是一个用Go语言编的命令行版的百度网盘，我们可以类比mas和Appstore的关系。那么为什么要用这样一个安装比较麻烦，还要记命令行的百度网盘的替代品，直接用百度网盘客户端不好么？&lt;/p&gt;
-
 &lt;p&gt;这还真的是不好，百度网盘在mac下是一个十足的阉割版，最常用的功能中，Mac版缺失了以下几种功能：&lt;/p&gt;
-
 &lt;ol&gt;
 	&lt;li&gt;&lt;strong&gt;没有分享功能&lt;/strong&gt;：mac下的客户端的分享功能居然是需要通过浏览器打开，太不优雅了。&lt;/li&gt;
 	&lt;li&gt;&lt;strong&gt;没有离线下载任务&lt;/strong&gt;：直接导致不能下载磁力链接。&lt;/li&gt;
@@ -108,7 +115,7 @@ u &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;�
 &lt;p&gt;这个工具很强大，还可以通过设置下载线程数等等操作来提升下载速度，更多详细的操作请参考它的&lt;a href=&quot;https://github.com/iikira/BaiduPCS-Go&quot;&gt;官网&lt;/a&gt;。&lt;/p&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="百度网盘" /><category term="下载" /><category term="教程" /><summary type="html">BaiduPCS-Go的使用 BaiduPCS-Go的使用</summary></entry><entry><title type="html">Tobias的小粉丝在此</title><link href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/" rel="alternate" type="text/html" title="Tobias的小粉丝在此" /><published>2018-08-16T00:00:00+08:00</published><updated>2018-08-16T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4</id><content type="html" xml:base="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/">&lt;!DOCTYPE html&gt;
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="百度网盘" /><category term="下载" /><category term="教程" /><summary type="html">BaiduPCS-Go的使用 Why BaiduPCS-Go BaiduPCS-Go是一个用Go语言编的命令行版的百度网盘，我们可以类比mas和Appstore的关系。那么为什么要用这样一个安装比较麻烦，还要记命令行的百度网盘的替代品，直接用百度网盘客户端不好么？ 这还真的是不好，百度网盘在mac下是一个十足的阉割版，最常用的功能中，Mac版缺失了以下几种功能： 没有分享功能：mac下的客户端的分享功能居然是需要通过浏览器打开，太不优雅了。 没有离线下载任务：直接导致不能下载磁力链接。</summary></entry><entry><title type="html">Tobias的小粉丝在此</title><link href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/" rel="alternate" type="text/html" title="Tobias的小粉丝在此" /><published>2018-08-16T00:00:00+08:00</published><updated>2018-08-16T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4</id><content type="html" xml:base="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
@@ -838,98 +845,4 @@ $$
 
 &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;
 &lt;/body&gt;
-&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">回归算法上 ​在序章中我们提到了，机器学习的本质就是一个分类器，对给出的数据进行有价值的分类。 ​具体的机器学习算法的分类分为，监督学习和无监督学习两种。而在监督渡学习中，我们以分类的类别是否是离散的，分为两种分类方式，分别是分类和回归。即，分类后是有一定的，像水果的分类，苹果，梨，橘子等等这样确定的分类的是分类，而分类后的预测结果是一个连续的数值则是回归。在这篇文章中，我们说的回归算法便是监督算法中的回归算法。</summary></entry><entry><title type="html">机器学习序章</title><link href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/" rel="alternate" type="text/html" title="机器学习序章" /><published>2018-08-05T00:00:00+08:00</published><updated>2018-08-05T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0</id><content type="html" xml:base="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%8F%E7%AB%A0/">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-		&lt;meta charset=&quot;utf-8&quot; /&gt;
-		&lt;title&gt;机器学习系列（序章）&lt;/title&gt;
-	&lt;/head&gt;
-&lt;body&gt;
-&lt;h3&gt;序言&lt;/h3&gt;
-&lt;p&gt;机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。&lt;/p&gt;
-
-&lt;p&gt;目前的更新顺序为课程的顺序，在整体学完之后，会按自己的理解进行一个汇总。&lt;/p&gt;
-
-&lt;h3&gt;什么是机器学习&lt;/h3&gt;
-
-&lt;p&gt;首先先上官方的卡内基梅隆大学的教授TomMitchell的定义。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;A program can be said to learn from experience E with respect to some class of tasks T and performance measure P , If its performance at tasks in T, as measured by P, improves with experience E.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;对于某给定的任务T，在合理的性能度量方案P的前提下，某计算机程序可以自主学习任务T的经验E；随着提供合适、优质、大量的经验E，该程序对于任务T的性能逐步提高。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;看起来很官方的说法对吧，接下来粗略的说明是怎么回事。&lt;/p&gt;
-
-&lt;p&gt;一句话版本：抓了一把混着豆子的米（数据），根据你对豆子和米的特征的认识（已有经验），把豆子和米分开分别装在两个袋子里（分类），随后验收的人看你是否真的把米和豆子分开了（性能度量）。&lt;/p&gt;
-
-&lt;p&gt;数学版本：X*P=Y，Y是分类的类别，X是一个数据，我们找的是矩阵P能使所有的数据X都能对应到相迎的分类Y。&lt;/p&gt;
-
-&lt;p&gt;简单来说，机器学习就是分类器，通过学习已有的数据，得到一个数据和类别的关系，再用这个关系来对未来未分类的数据进行预测，这就是我理解的机器学习。&lt;/p&gt;
-
-&lt;h3&gt; 机器学习&amp;amp;人工智能&amp;amp;深度学习有什么区别&lt;/h3&gt;
-
-&lt;p&gt;说到这里，有些学过深度学习的人肯定就会疑惑这个和机器学习好像一样啊，深度学习也是把图片分类啊。是的，深度学习准确的来说算是机器学习的一部分，而机器学习和深度学习又可以被人工智能所包含。只不过深度学习在图像识别和语音识别的方便有着突出的优势，而机器学习在数据挖掘，统计学习和自然语言处理方面已经有了很大的发展。&lt;/p&gt;
-
-&lt;h3&gt;它的工作流程是什么样子&lt;/h3&gt;
-
-&lt;p&gt;数据收集=&amp;gt;数据预处理(数据清洗)=&amp;gt;特征提取=&amp;gt;模型构建=&amp;gt;模型测试评估=&amp;gt;上线=&amp;gt;迭代&lt;/p&gt;
-
-&lt;p&gt;数据收集和数据清洗：可以理解为，做饭前的买菜（为模型提供训练用的有效数据，去除显而易见的无效数据）&lt;/p&gt;
-
-&lt;p&gt;特征提取：可以理解为，炒菜前的切菜，切的越好，炒完越好吃（即从数据中选出可能能代表数据特征的属性）&lt;/p&gt;
-
-&lt;p&gt;模型构建：可以理解为炒菜，用切好的菜，以一定的顺序进行翻炒（选择合适的算法来训练模型）。&lt;/p&gt;
-
-&lt;p&gt;模型测试评估：试吃，如果不好吃，则反思是不是切的不好，菜买的不对，或者炒的顺序不对（测试用例看是否符合标准，如果不对责重复前面的步骤）。&lt;/p&gt;
-
-&lt;p&gt;特别的说，训练的部分，其实就是以当前的权值运算出来的结果和已知结果对比，然后根据差距来修改权值，如此往复，使预测结果和已知结果无限接近。&lt;/p&gt;
-
-&lt;h3&gt;算法的分类和选择&lt;/h3&gt;
-
-&lt;p&gt;机器学习分为如下几个分类：&lt;/p&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;有监督学习：也就是训练用的数据是有标签的，在训练前是人工分好类的。再用训练过后的模型，对未来收到的数据进行分类，来达到预测的目的。&lt;/li&gt;
-	&lt;li&gt;无监督学习：和有监督学习相比，训练的数据是没有分类的，在无监督学习中，就是通过学习，把这些为分类的数据进行分类，来推断出数据的一些内在结构。&lt;/li&gt;
-	&lt;li&gt;半监督学习：训练的数据包含少量的含有标签的数据，通过这些数据来训练和分类。顾名思义就是无监督和有监督的结合。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;然后从算法的角度来看，又可以分为如下三种：&lt;/p&gt;
-
-&lt;ol&gt;
-	&lt;li&gt;分类：标签是整形的，是一个一个独立的离散的。分类标识的时候使用int型。&lt;/li&gt;
-	&lt;li&gt;回归：标签是浮点型，分类是连续的而不是离散的。分类表示用float的型。&lt;/li&gt;
-	&lt;li&gt;聚类：1，2都是有监督学习，而3则是无监督学习。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;最后附上一个算法的选择图：（图很清楚只需要一点的英文水平就能看懂）&lt;/p&gt;
-
-&lt;p&gt;classification:分类 &lt;/p&gt;
-
-&lt;p&gt;regression:回归 &lt;/p&gt;
-
-&lt;p&gt;clustering:聚类 &lt;/p&gt;
-
-&lt;p&gt;dimensionality reduction：降维度&lt;/p&gt;
-
-&lt;figure&gt;&lt;img src=&quot;https://ws4.sinaimg.cn/large/0069RVTdly1fu0edeeakkj30jg0axdkl.jpg&quot;/&gt;&lt;/figure&gt;
-
-&lt;h3&gt;公开数据获取渠道&lt;/h3&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;a href=&quot;http://archive.ics.uci.edu/ml/datasets.html&quot;&gt;UCI Machine Learning Repository&lt;/a&gt; （新手推荐这个，有标签）&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://aws.amazon.com/cn/public-datasets/%20&quot;&gt;Amazon Public-datasets&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/competitions%20&quot;&gt;Kaggle&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;http://www.kdnuggets.com/datasets/index.html%20&quot;&gt;KDnuggets&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;http://www.sogou.com/labs/resource/list_pingce.php&quot;&gt;Sougou语料库&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;https://tianchi.aliyun.com/datalab/index.htm%20&quot;&gt;天池&lt;/a&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;a href=&quot;http://www.pkbigdata.com/common/cmptIndex.html&quot;&gt;DC竞赛&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">机器学习系列（序章） 序言 机器学习&amp;amp;人工智能&amp;amp;深度学习，这三个是现在经常听到的词语。一旦提到了这些都会给人一种高大上的感觉，感觉会是一种很难学会的技术。表示在下血本（突然脑抽）的情况下，剁手买了1w多的数据挖掘的网课，目前正在学习它，希望能在学习完成后揭开机器学习的面纱，争取让每个读我的博客的人都能对机器学习有一个较为全面的概念。</summary></entry></feed>
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="MachineLearning" /><summary type="html">回归算法上 ​在序章中我们提到了，机器学习的本质就是一个分类器，对给出的数据进行有价值的分类。 ​具体的机器学习算法的分类分为，监督学习和无监督学习两种。而在监督渡学习中，我们以分类的类别是否是离散的，分为两种分类方式，分别是分类和回归。即，分类后是有一定的，像水果的分类，苹果，梨，橘子等等这样确定的分类的是分类，而分类后的预测结果是一个连续的数值则是回归。在这篇文章中，我们说的回归算法便是监督算法中的回归算法。</summary></entry></feed>

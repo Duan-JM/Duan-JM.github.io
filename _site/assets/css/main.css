@@ -126,12 +126,12 @@ td, th { padding: 0; }
 
 ::selection { background: #262a30; color: white; }
 
-body { position: relative; font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; line-height: 2; color: #555; background: white; }
+body { position: relative; font-family: "Monda", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 14px; line-height: 2; color: #555; background: white; }
 @media (max-width: 767px) { body { padding-right: 0 !important; } }
 @media (min-width: 768px) and (max-width: 991px) { body { padding-right: 0 !important; } }
 @media (min-width: 1600px) { body { font-size: 16px; } }
 
-h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; font-weight: bold; line-height: 1.5; font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; }
+h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; font-weight: bold; line-height: 1.5; font-family: "Roboto Slab", "Monda", "PingFang SC", "Microsoft YaHei", sans-serif; }
 
 h2, h3, h4, h5, h6 { margin: 20px 0 15px; }
 
@@ -234,26 +234,26 @@ html, body { height: 100%; }
 .footer-inner { box-sizing: border-box; margin: 20px auto; width: 700px; }
 @media (min-width: 1600px) { .container .footer-inner { width: 900px; } }
 
-pre, .highlight { overflow: auto; margin: 20px 0; padding: 0; font-size: 13px; color: #c5c8c6; background: #1d1f21; line-height: 1.6; }
+pre, .highlight { overflow: auto; margin: 20px 0; padding: 0; font-size: 13px; color: #4d4d4c; background: #f7f7f7; line-height: 1.6; }
 
-pre, code { font-family: consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace; }
+pre, code { font-family: "PT Mono", consolas, Menlo, "PingFang SC", "Microsoft YaHei", monospace; }
 
 code { padding: 2px 4px; word-wrap: break-word; color: #555; background: #eee; border-radius: 3px; font-size: 13px; }
 
-pre code { padding: 0; color: #c5c8c6; background: none; text-shadow: none; }
+pre code { padding: 0; color: #4d4d4c; background: none; text-shadow: none; }
 
 .highlight { border-radius: 1px; }
 .highlight pre { border: none; margin: 0; padding: 10px 0; }
-.highlight > pre { padding-left: 10px; padding-right: 10px; background-color: #1d1f21; }
+.highlight > pre { padding-left: 10px; padding-right: 10px; background-color: #f7f7f7; }
 .highlight table { margin: -10px; width: auto; border: none; }
 .highlight td { border: none; padding: 0; }
-.highlight figcaption { font-size: 1em; color: #c5c8c6; line-height: 1em; margin-bottom: 1em; }
+.highlight figcaption { font-size: 1em; color: #4d4d4c; line-height: 1em; margin-bottom: 1em; }
 .highlight figcaption:before, .highlight figcaption:after { content: " "; display: table; }
 .highlight figcaption:after { clear: both; }
-.highlight figcaption a { float: right; color: #c5c8c6; }
-.highlight figcaption a:hover { border-bottom-color: #c5c8c6; }
-.highlight .gutter pre { padding-left: 10px; padding-right: 10px; color: #888f96; text-align: right; background-color: black; }
-.highlight .code pre { width: 100%; padding-left: 10px; padding-right: 10px; background-color: #1d1f21; }
+.highlight figcaption a { float: right; color: #4d4d4c; }
+.highlight figcaption a:hover { border-bottom-color: #4d4d4c; }
+.highlight .gutter pre { padding-left: 10px; padding-right: 10px; color: #869194; text-align: right; background-color: #eff2f3; }
+.highlight .code pre { width: 100%; padding-left: 10px; padding-right: 10px; background-color: #f7f7f7; }
 .highlight .line { height: 20px; }
 
 .gutter { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
@@ -263,19 +263,19 @@ pre code { padding: 0; color: #c5c8c6; background: none; text-shadow: none; }
 
 pre.highlight { padding: 10px; }
 
-pre .deletion { background: #008000; }
+pre .deletion { background: #fdd; }
 
-pre .addition { background: #800000; }
+pre .addition { background: #dfd; }
 
-pre .meta { color: #b294bb; }
+pre .meta { color: #8959a8; }
 
-pre .c, pre .cm, pre .cp, pre .c1, pre .cs { color: #969896; }
-pre .nv, pre .vc, pre .vg, pre .vi, pre .na, pre .nt, pre .sr, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo { color: #cc6666; }
-pre .m, pre .mf, pre .mh, pre .mi, pre .il, pre .mo, pre .mx, pre .mb, pre .cp, pre .nb, pre .bp, pre .l, pre .ld, pre .params, pre .kc, pre .gp { color: #de935f; }
-pre .ruby .class .title, pre .css .rules .attribute, pre .s, pre .sb, pre .sc, pre .sd, pre .s2, pre .se, pre .sh, pre .si, pre .sx, pre .s1, pre .ss, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata, pre .special, pre .m, pre .mf, pre .mh, pre .mi, pre .il, pre .mo, pre .mx, pre .mb, pre .formula { color: #b5bd68; }
-pre .nc, pre .nf, pre .css .hexcolor { color: #8abeb7; }
-pre .nf, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title { color: #81a2be; }
-pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function { color: #b294bb; }
+pre .c, pre .cm, pre .cp, pre .c1, pre .cs { color: #8e908c; }
+pre .nv, pre .vc, pre .vg, pre .vi, pre .na, pre .nt, pre .sr, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo { color: #c82829; }
+pre .m, pre .mf, pre .mh, pre .mi, pre .il, pre .mo, pre .mx, pre .mb, pre .cp, pre .nb, pre .bp, pre .l, pre .ld, pre .params, pre .kc, pre .gp { color: #f5871f; }
+pre .ruby .class .title, pre .css .rules .attribute, pre .s, pre .sb, pre .sc, pre .sd, pre .s2, pre .se, pre .sh, pre .si, pre .sx, pre .s1, pre .ss, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata, pre .special, pre .m, pre .mf, pre .mh, pre .mi, pre .il, pre .mo, pre .mx, pre .mb, pre .formula { color: #718c00; }
+pre .nc, pre .nf, pre .css .hexcolor { color: #3e999f; }
+pre .nf, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title { color: #4271ae; }
+pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function { color: #8959a8; }
 
 .full-image.full-image.full-image { border: none; max-width: 100%; width: auto; margin: 20px auto; }
 @media (min-width: 992px) { .full-image.full-image.full-image { max-width: none; width: 110%; margin: 25px -5%; } }
@@ -380,7 +380,7 @@ pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function {
 
 .logo { display: inline-block; margin-right: 5px; line-height: 36px; vertical-align: top; }
 
-.site-title { display: inline-block; vertical-align: top; line-height: 36px; font-size: 20px; font-weight: normal; font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; }
+.site-title { display: inline-block; vertical-align: top; line-height: 36px; font-size: 24px; font-weight: normal; font-family: "Lobster Two", "Monda", "PingFang SC", "Microsoft YaHei", sans-serif; }
 
 .site-subtitle { margin-top: 10px; font-size: 13px; color: #999; }
 
@@ -405,7 +405,7 @@ pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function {
 
 .use-motion .menu-item { opacity: 0; }
 
-.post-body { font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; }
+.post-body { font-family: "Monda", "PingFang SC", "Microsoft YaHei", sans-serif; }
 @media (max-width: 767px) { .post-body { word-break: break-word; } }
 
 .post-body .fancybox img { display: block !important; margin: 0 auto; cursor: pointer; cursor: zoom-in; cursor: -webkit-zoom-in; }
@@ -463,7 +463,7 @@ pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function {
 .posts-expand .post-title-link:hover::before { visibility: visible; -webkit-transform: scaleX(1); -moz-transform: scaleX(1); -ms-transform: scaleX(1); -o-transform: scaleX(1); transform: scaleX(1); }
 .posts-expand .post-title-link .fa { font-size: 16px; }
 
-.posts-expand .post-meta { margin: 3px 0 60px 0; color: #999; font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; text-align: center; }
+.posts-expand .post-meta { margin: 3px 0 60px 0; color: #999; font-family: "Monda", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 12px; text-align: center; }
 .posts-expand .post-meta .post-category-list { display: inline-block; margin: 0; padding: 3px; }
 .posts-expand .post-meta .post-category-list-link { color: #999; }
 .posts-expand .post-meta .post-description { font-size: 14px; margin-top: 2px; }
@@ -560,7 +560,7 @@ pre .k, pre .kd, pre .kn, pre .kp, pre .kr, pre .kt, pre .javascript .function {
 .links-of-author { margin-top: 20px; }
 
 .links-of-author a { display: inline-block; vertical-align: middle; margin-right: 10px; margin-bottom: 10px; border-bottom-color: #555; font-size: 13px; }
-.links-of-author a:before { display: inline-block; vertical-align: middle; margin-right: 3px; content: " "; width: 4px; height: 4px; border-radius: 50%; background: #b029ff; }
+.links-of-author a:before { display: inline-block; vertical-align: middle; margin-right: 3px; content: " "; width: 4px; height: 4px; border-radius: 50%; background: red; }
 
 .links-of-blogroll { font-size: 13px; }
 
