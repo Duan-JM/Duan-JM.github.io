@@ -1,4 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-16T23:06:46+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">Tobias的小粉丝在此</title><link href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/" rel="alternate" type="text/html" title="Tobias的小粉丝在此" /><published>2018-08-16T00:00:00+08:00</published><updated>2018-08-16T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4</id><content type="html" xml:base="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/">&lt;!DOCTYPE html&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-08-17T18:06:26+08:00</updated><id>http://localhost:4000/</id><title type="html">Pre-Demo-Field</title><subtitle>Coding Life Coding Fun</subtitle><author><name>DeamoV</name></author><entry><title type="html">BaiduPCS-Go的使用</title><link href="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="alternate" type="text/html" title="BaiduPCS-Go的使用" /><published>2018-08-17T00:00:00+08:00</published><updated>2018-08-17T00:00:00+08:00</updated><id>http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8</id><content type="html" xml:base="http://localhost:4000/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2018/08/17/BaiduPCS-Go%E7%9A%84%E4%BD%BF%E7%94%A8/">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/style.css&quot; /&gt;
+		&lt;title&gt;BaiduPCS-Go的使用&lt;/title&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;BaiduPCS-Go的使用&lt;/h1&gt;
+
+&lt;h2&gt;Why BaiduPCS-Go&lt;/h2&gt;
+
+&lt;p&gt;BaiduPCS-Go是一个用Go语言编的命令行版的百度网盘，我们可以类比mas和Appstore的关系。那么为什么要用这样一个安装比较麻烦，还要记命令行的百度网盘的替代品，直接用百度网盘客户端不好么？&lt;/p&gt;
+
+&lt;p&gt;这还真的是不好，百度网盘在mac下是一个十足的阉割版，最常用的功能中，Mac版缺失了以下几种功能：&lt;/p&gt;
+
+&lt;ol&gt;
+	&lt;li&gt;&lt;strong&gt;没有分享功能&lt;/strong&gt;：mac下的客户端的分享功能居然是需要通过浏览器打开，太不优雅了。&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;没有离线下载任务&lt;/strong&gt;：直接导致不能下载磁力链接。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;如果你和我一样平时一样习惯终端操作，这个工具的学习成本超级低，同时它还有一定的提升下载速度的功效。&lt;/p&gt;
+
+&lt;h2&gt;使用指南&lt;/h2&gt;
+
+&lt;h3&gt;安装&lt;/h3&gt;
+
+&lt;p&gt;Mac一般是预装了go的，如果没有的话，使用&lt;code&gt;brew install go&lt;/code&gt;来安装。除了go我们还需要安装git，同样使用&lt;code&gt;brew install git&lt;/code&gt;。在拥有了git和go以后，执行下面的指令即可。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;go get -u -v github.com/iikira/BaiduPCS-Go&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注：在安装途中，有提示说其安装到了一个&lt;code&gt;~/go/bin&lt;/code&gt;的目录，也就是说这个工具的执行文件在&lt;code&gt;~/go/bin&lt;/code&gt;这个目录。&lt;/p&gt;
+
+&lt;p&gt;为了之后我们能够全局使用这个指令，于是我们将&lt;code&gt;export PATH=&amp;quot;/Users/deamov/go/bin:$PATH&amp;quot;&lt;/code&gt;添加到配置环境变量的文件中，如果没有使用zsh的话在&lt;code&gt;~/.bashrc&lt;/code&gt;中，如果用的是zsh的话在&lt;code&gt;~/.zshrc&lt;/code&gt;中。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;注：deamov是我的电脑的用户名，至此安装便结束了。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3&gt;常用操作说明&lt;/h3&gt;
+
+&lt;h4&gt;登陆&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;BaiduPCS-Go&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;简单一行指令就可以登录了，如果之前已经登陆过账号的话，现在就已经可以开始进行下载等操作了，如下效果图。&lt;/p&gt;
+
+&lt;figure&gt;&lt;img src=&quot;https://ws3.sinaimg.cn/large/006tNbRwly1fucuk0k8hnj310c0lojst.jpg&quot;/&gt;&lt;/figure&gt;
+
+&lt;p&gt;第一次使用需要有登陆的操作，输入&lt;code&gt;login&lt;/code&gt;即可登陆，尊许提示依次输入账户和密码即可，如果需要验证码，则会输出一个链接，打开就可以看到验证码了。&lt;/p&gt;
+
+&lt;h4&gt;基本操作&lt;/h4&gt;
+
+&lt;p&gt;基本的移动目录的方式和linux的操作一样，&lt;code&gt;ls&lt;/code&gt;是现实当前目录的文件，&lt;code&gt;rm&lt;/code&gt;是删除命令，&lt;code&gt;cd&lt;/code&gt;是切换目录，创建目录是&lt;code&gt;mkdir&lt;/code&gt;，拷贝是&lt;code&gt;cp&lt;/code&gt;，值得一提的是它支持Tab补全。和平时使用的终端命令不同的有如下几个指令。&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;搜索：&lt;/strong&gt;平时我们使用的&lt;code&gt;grep&lt;/code&gt;在这里是不能使用的，我们用&lt;code&gt;search&lt;/code&gt;关键词来搜索。
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;search 关键字 &lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 搜索当前工作目录的文件
+&lt;/span&gt;search -path=/ 关键字 &lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 搜索根目录的文件
+&lt;/span&gt;search -r 关键字	&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 递归搜索当前工作目录的文件 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;下载：&lt;/strong&gt;记住是download就好啦
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;BaiduPCS-Go download &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;网盘文件或目录的路径&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt; 
+BaiduPCS-Go d &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;网盘文件或目录的路径&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件或目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;2&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件或目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;3&amp;gt;&lt;/span&gt; ...
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 当然支持多文件下载咯，下载目录默认在~/Download文件夹中
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;离线下载: &lt;/strong&gt;支持http/https/ftp/电驴/磁力链协议
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 将百度和腾讯主页, 离线下载到根目录 /
+&lt;/span&gt;offlinedl add -path=/ http://baidu.com http://qq.com
+
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 添加磁力链接任务
+&lt;/span&gt;offlinedl add magnet:&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;?&lt;/span&gt;xt=urn:btih:xxx
+
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 查询任务ID为 12345 的离线下载任务状态
+&lt;/span&gt;offlinedl query 12345
+
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 取消任务ID为 12345 的离线下载任务
+&lt;/span&gt;offlinedl cancel 12345 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;分享share&lt;/h4&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;查看分享内容&lt;/strong&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;share list
+share l&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;取消分享&lt;/strong&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;share cancel &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;shareid_&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt;
+share c &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;shareid_&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 遗憾的是只能支持通过shareid来取笑分享
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;上传：同名文件会被覆盖&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&quot;code-highlighted code-bash&quot;&gt;upload &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;本地文件/目录的路径&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件/目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;2&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件/目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;3&amp;gt;&lt;/span&gt; ... &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;目标目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;gt;&lt;/span&gt;
+u &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;本地文件/目录的路径&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;1&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件/目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;2&amp;gt;&lt;/span&gt; &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;文件/目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;3&amp;gt;&lt;/span&gt; ... &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;lt;&lt;/span&gt;目标目录&lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;syntax-all syntax-comment&quot;&gt;# 实例
+&lt;/span&gt;upload &lt;span class=&quot;syntax-all syntax-keyword&quot;&gt;~&lt;/span&gt;/Downloads/1.mp4 /Video&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;其他&lt;/h3&gt;
+
+&lt;p&gt;这个工具很强大，还可以通过设置下载线程数等等操作来提升下载速度，更多详细的操作请参考它的&lt;a href=&quot;https://github.com/iikira/BaiduPCS-Go&quot;&gt;官网&lt;/a&gt;。&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content><author><name>DeamoV</name></author><category term="百度网盘" /><category term="下载" /><category term="教程" /><summary type="html">BaiduPCS-Go的使用 BaiduPCS-Go的使用</summary></entry><entry><title type="html">Tobias的小粉丝在此</title><link href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/" rel="alternate" type="text/html" title="Tobias的小粉丝在此" /><published>2018-08-16T00:00:00+08:00</published><updated>2018-08-16T00:00:00+08:00</updated><id>http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4</id><content type="html" xml:base="http://localhost:4000/%E6%9D%82%E9%A1%B9/2018/08/16/Tobias%E5%B0%8F%E8%BF%B7%E5%BC%9F%E5%9C%A8%E6%AD%A4/">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
