@@ -1,0 +1,1708 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/assets/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/assets/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MachineLearning," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Pre-Demo-Field" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="聚类算法（下） 聚类算法上中讲了大名鼎鼎的K-Means算法及其优化变种，在这篇中几种讲述两位两种不同思路的聚类算法。 层聚类算法 传统层聚类算法—AGNES和DIANA算法 层次聚类和K-Means的思路不太一样，它的思路有点像是决策树，按照层次进行分解，知道满足某种条件为止，传统的层次聚类分为自底而上，和自上而下两类： 凝聚的层次聚类:">
+<meta name="keywords" content="MachineLearning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聚类算法（下）">
+<meta property="og:url" content="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/19/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E4%B8%8B/">
+<meta property="og:site_name" content="Pre-Demo-Field">
+<meta property="og:description" content="聚类算法（下） 聚类算法上中讲了大名鼎鼎的K-Means算法及其优化变种，在这篇中几种讲述两位两种不同思路的聚类算法。 层聚类算法 传统层聚类算法—AGNES和DIANA算法 层次聚类和K-Means的思路不太一样，它的思路有点像是决策树，按照层次进行分解，知道满足某种条件为止，传统的层次聚类分为自底而上，和自上而下两类： 凝聚的层次聚类:">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="聚类算法（下）">
+<meta name="twitter:description" content="聚类算法（下） 聚类算法上中讲了大名鼎鼎的K-Means算法及其优化变种，在这篇中几种讲述两位两种不同思路的聚类算法。 层聚类算法 传统层聚类算法—AGNES和DIANA算法 层次聚类和K-Means的思路不太一样，它的思路有点像是决策树，按照层次进行分解，知道满足某种条件为止，传统的层次聚类分为自底而上，和自上而下两类： 凝聚的层次聚类:">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: ''
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>聚类算法（下） | Pre-Demo-Field</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pre-Demo-Field</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">DeamoV's Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/19/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DeamoV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pre-Demo-Field">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+          
+          
+            聚类算法（下）
+          
+        </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2018-08-19T00:00:00+08:00">
+                2018-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/19/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E4%B8%8B/" class="leancloud_visitors" data-flag-title="聚类算法（下）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text"> </span>
+               
+               <span class="leancloud-visitors-count">Generating</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  3700
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<title>聚类算法（下）</title>
+	</head>
+<body>
+<p>聚类算法上中讲了大名鼎鼎的K-Means算法及其优化变种，在这篇中几种讲述两位两种不同思路的聚类算法。</p>
+<h2>层聚类算法</h2>
+<h3>传统层聚类算法—AGNES和DIANA算法</h3>
+<p>层次聚类和K-Means的思路不太一样，它的思路有点像是决策树，按照层次进行分解，知道满足某种条件为止，传统的层次聚类分为自底而上，和自上而下两类：</p>
+<ul>
+	<li>凝聚的层次聚类:
+
+		<p>这类算法是采用<strong>采用自底向上</strong>的策略，其中的代表便是<strong>AGNES算法</strong>(AGglomerative Nesting)，它的核心思想是：最初将每个对象作为一个簇，然后这些簇根据某些准则被一步一步合并，两个簇间的距离可以由这两个不同簇中距离最近的数据点的相似度来确定。聚类的合并过程反复进行直到所有的对象满足簇数目。</p></li>
+	<li>分裂的层次聚类：
+
+		<p>和凝聚的层次聚类相反，这种是采用<strong>自顶向下</strong>的策略，代表算法为<strong>DIANA算法</strong>(DIvisive Analysis)。其核心思想是：首先将所有对象置于一个簇中，然后按照某种既定的规则逐渐细分为越来越小的簇(比如最大的欧式 距离)，直到达到某个终结条件(簇数目或者簇距离达到阈值)。</p></li>
+</ul>
+
+<p>在AGNES算法中都提到了，簇是根据某些原则进行分裂或者合并的，而这个原则就是<strong>簇间距离</strong>。计算簇间距离的方法有最小距离（SL聚类），最大距离（CL聚类）以及平均距离（AL聚类），具体的说明如下：</p>
+
+<ul>
+	<li>最小距离（SL聚类）
+
+		<p>选择两个聚簇中最近的两个样本之间的距离（<strong>S</strong>ingle/Word-<strong>L</strong>inkage）</p>
+
+		<p><em>注：得到的模型容易形成链式结构</em></p></li>
+	<li>最大距离（CL聚类）
+
+		<p>选择两个聚簇中最圆的两个眼本的距离（<strong>C</strong>omplete-<strong>L</strong>inkage）</p>
+
+		<p><em>注：如果出现了异常值的话，那他们的构建很容易受这个异常值的影响。</em></p></li>
+	<li>平均距离（AL聚类）
+
+		<p>选择两个聚类中的平均值（Average-Linkage聚类算法）或者中值（Median-Linkage聚类法）</p></li>
+</ul>
+
+<p>AGNES和DIANA算法优缺点如下：</p>
+
+<ol>
+	<li>简单，理解容易。</li>
+	<li>合并点/分裂点选择不太容易。</li>
+	<li>合并/分类的操作不能进行撤销。</li>
+	<li>由于执行效率较低$O(t*n^2)$，$t$为迭代次数，$n$为样本点数。</li>
+</ol>
+
+<h3>层次聚类优化算法</h3>
+
+<p>之前我们看到了传统的层次聚类算法，由于其执行效率太低，且不能动构建的的特点，显然不适合大数据集。于是我们在此基础上引入了<strong>BIRCH算法</strong>和<strong>CURE算法</strong>。</p>
+
+<h4>BIRCH算法</h4>
+
+<p>BIRCH (balanced iterative reducing and clustering using hierarchies) 算法，英文的全称翻译过来以后是平衡迭代削减聚类算法，其构成和我们考研数据结构中学过的B+树非常的类似，甚至很多特性都是相同的，具体的说它构建的树叫做CF（Cluster Feature）-Tree。</p>
+
+<ol>
+	<li>节点，即簇的结构：
+
+		<p>既然是树，那么就不得不提它的节点的结构了。在BIRCH构建CF树的过程中，每个节点等于说是存放了它之下所有节点的特征，于是他在节点中存放了如下的三部分数据。</p>
+
+		<ul>
+			<li>N，指在这个节点中有多少个样本点。</li>
+			<li>LS，指的是这个节点中的样本相应特征的和。</li>
+			<li>LS，指的是这个节点中的样本相应特征的特征的平方和。</li>
+		</ul></li>
+	<li>节点之间，节点和子节点，以及叶子结点之间的关系
+
+		<p>节点和其子节点是包含的关系，也就是父节点中的N，LS以及SS是其所有子节点的和。而相应的样本点的具体信息指包含在底层节点中（叶子结点的子节点），同时叶子结点构成一个单项链表，同时有一个指针指向其表头。这点的特性是<strong>同B+树高度一致的</strong>。</p></li>
+	<li>最多子女个数，以及分裂判定
+
+		<p>和B+树一样，对于树构建中的分叉个数是有限制的，这个限制需要提前给出，即<strong>分支因子</strong>。同时，<strong>值得注意的是</strong>，一般而言在构建节点簇的中心点的时候，一般选用第一个进入这个节点的样本点作为中心点，然后根据指定的该簇和中心点限定的距离，即<strong>类直径</strong>，其往往通过LS和SS算出。判断新入的点是否可以划入该簇，而分裂节点的时候，往往以这个初始点进行分割。</p></li>
+</ol>
+
+<p>综上我们可以看出，BIRCH算法的本质<strong>其实就是动态的插入样本点，然后动态的根据规则构建一个类B+树。</strong>它的优点是动态建树且效率高是线性效率，即每个样本点都是一次性插入的，同时也节省内存，所以非常适合大数据集。不过遗憾的是它也是采用距离作为分类标准，故<strong>只适合分布呈凸形或者球形的数据集</strong>、且需要给定聚类个数和簇之间的相关参数，而<strong>这些对节点CF的限制可能导致簇类结果和真实不太一致</strong>。</p>
+
+<p><em>注1：BIRCH不依赖给定的待分类簇数量K，但是给定了K值最好，若不一定K值，最终CF-Tree的叶子结点树木就是最终分类的簇的数目。</em></p>
+
+<p><em>注2:BIRCH算法在训练大规模数据集的时候，和mini-batch K-Means相比，BIRCH算法更加适合类别数量K比较多的情况。</em></p>
+
+<p><em>注3：由于类直径是通过LS和SS算出的，所以当特征维度超过20～30左右的时候，不建议使用该算法。</em></p>
+
+<h4>CURE算法（使用代表点的聚类法）</h4>
+
+<p>CURE（Clustering Using REpresentatives），该算法先把每个数据点看成一类，然后合并距离最近的类直至类个数为所要求的个数为止。但是和AGNES算法的区别是：取消了使用所有点，或用中心点+距离来表示一个类，而是从每个类中抽取固定数量、 分布较好的点作为此类的代表点，并将这些代表点乘以一个适当的收缩因子，使它们更加靠近类中心点。代表点的收缩特性可以调整模型可以匹配那些非球形的场景，而且<strong>收缩因子的使用可以减少噪音对聚类的影响</strong>。</p>
+
+<p>CURE算法的优点是能够处理<strong>非球形分布</strong>的应用场景，同时彩娱乐随机抽样和分区的方式可以提高算法的执行效率。</p>
+
+<h2>密度聚类算法</h2>
+
+<p>密度聚类方法的指导思想是：只要样本点的密度大于某个阀值，则将该样本添加到最近的簇中。这类算法可以克服基于距离的算法只能发现凸聚类的缺点，可以发现任意形状的聚类，而且对噪声数据不敏感。不过这种计算的复杂度高，计算量大。</p>
+
+<p>密度聚类算法的常用算法有<strong>DBSCAN</strong>和<strong>密度最大值算法</strong>。</p>
+
+<h3>DBSCAN算法</h3>
+
+<p>DBSCAN（Density-Based Spatial Clustering of Applications with Noise），将簇定义为密度相连的点的最大集合，能够将足够高密度的区域划分为簇，并且在具有噪声的空间数据上能够发现任意形状的簇。其核心思路<strong>是用一个点的ε邻域内的邻居点数衡量该点所在空间的密度</strong>，该算法可以找出形状不规则的cluster，而且聚类的时候事先不需要给定cluster的数量。</p>
+
+<h4>DBSCAN算法流程</h4>
+
+<p>它的算法流程如下：</p>
+
+<ul>
+	<li>如果一个点$x$的$\varepsilon$领域内包含m个对象，则创建一个x作为<strong>核心对象</strong>的新簇。</li>
+	<li>寻找并合并核心对象<strong>直接密度可达</strong>的对象</li>
+	<li>没有新点可以更新簇的时候，算法结束</li>
+</ul>
+
+<p><em>注：</em></p>
+
+<p><em>1. 每个簇至少包含一个<strong>核心对象</strong>；</em></p>
+
+<p><em>2. 非核心对象可以是簇的一部分，构成簇的边缘；</em></p>
+
+<p><em>3. 包含过少对象的簇被认为是噪声；</em></p>
+
+<p><em>4. 最大的密度相连对象的集合C为密度聚类中的一个簇，它满足两个属性，Maximality和Connectivity，Maximality指的是若$x$属于C，$y$从$x$<strong>密度可达</strong>，那么$y$也属于C，Connectivity指的是，若$x$和$y$都属于C，那么$x$和$y$是<strong>密度相连</strong>的。</em></p>
+
+<h4>DBSCAN相关名词解释</h4>
+
+<p>其中提到的定义有$\varepsilon$领域，密度，MinPts，核心点，边界点，噪音点，直接密度可达，密度可达，密度相连。他们的解释如下：</p>
+
+<ul>
+	<li>$\varepsilon$邻域($\varepsilon$ neighborhood）：给定对象在半径$\varepsilon$的区域。</li>
+	<li>密度(density)：在$\varepsilon$领域中的$x$的密度，是一个整数依赖于半径$\varepsilon$，$N_{\varepsilon}(X) $指的是半径内的点的个数。
+
+		$$
+		p(x) = |N_{\varepsilon}(X)|  
+		$$</li>
+	<li>MinPts：指得是判定该点是不是核心点的时候使用的阀值，记为M</li>
+	<li>核心点（core point）：如果$p(x) \geq M$ ,那么称$x$为$X$的核心点，记由$X$中所有核心点构成的集合为$X_c$，并记$X_nc$ 表示由$X$中所有非核心点构成的集合。通俗的来说， 核心点是密度达到一定阀值的的点。</li>
+	<li>边界点（border point）：如果非核心点$x$的$\varepsilon$邻域中存在核心点，那么认为$x$为$X$的边界点。通俗来讲就是密度特别稠密的边缘地带，也就是簇的边缘部分。</li>
+	<li>噪音点（noise point）：集合中除了边界点和核心点之外的点都是噪音点，所有噪音点组成的集合叫做$X_noi$，显然这些点就是对应稀疏区域的点。</li>
+	<li><strong>直接密度可达</strong>：这个是密度聚类中最重要的概念，它指的是给定一个对象集合 $X$，如果$y$是在$x$的$\varepsilon$邻域内，而且$x$是一个核心对象，可以说对象y从对象$x$出发是直接密度可达的</li>
+	<li>密度可达：如果存在一个对象链$p_1, p_2,...,p_m $ ，如果满足$p_{i+1}$是从$p_i$<strong>直接密度可达</strong>的，那么称$p_m$是从$p1$密度可达的，简单的来说就像铁链环环相扣差不多。</li>
+	<li>密度相连：在集合$X$中，如果存在一个对象$o$，使得对象$x$和$y$是从$o$关于$\varepsilon$和$m$密度可达的，那么对象$x$和$y$是关于$\varepsilon$和$m$密度相连的。</li>
+</ul>
+
+<h4>DBSCAN算法优缺点</h4>
+
+<p>优点: </p>
+
+<ul>
+	<li>不需要事先给定cluster的数目</li>
+	<li>可以发现<strong>任意形状的cluster</strong></li>
+	<li>能够<strong>找出数据中的噪音，且对噪音不敏感</strong> </li>
+	<li>算法只需要<strong>两个输入参数</strong> </li>
+	<li>聚类结果几乎不依赖节点的遍历顺序</li>
+</ul>
+
+<p>缺点:</p>
+
+<ul>
+	<li>DBSCAN算法聚类效果依赖距离公式的选取，最常用的距离公式为欧几里得距离。但是对于高维数据，由于维数太多，距离的度量已变得不是那么重要</li>
+	<li>DBSCAN算法不适合数据集中密度差异很小的情况</li>
+</ul>
+
+<h3>MDCA密度最大值聚类算法</h3>
+
+<p>MDCA(Maximum Density Clustering Application)算法基于密度的思想引入划分聚类中，能够自动确定簇数量并发现任意形状的簇。另外MDCA一般不保留噪声，因此也避免了阈值选择不当情况下造成的对象丢弃情况。</p>
+
+<p><em>注：MDCA的算法和AGNES非常相像，不同的是最初的初始簇确定是通过密度来确定的。</em></p>
+
+<h4>MDCA算法思路</h4>
+
+<p>MDCA算法核心一共分三步，划分、合并簇以及处理剩余节点三部分。</p>
+
+<ul>
+	<li>将数据集划分为基本簇：
+
+		<ul>
+			<li>对数据集X选取最大密度点$P_{max}$ ，形成以最大密度点为核心的新簇$C_i$，按照距离排序计算出序列$S_{p_max}$,对序列的前M个样本数据进行循环判断，如果节点的密度大于等于$density_0$ ，那么将当前节点添加$C_i$中。</li>
+			<li>循环处理剩下的数据集X，选择最大密度点$P_{max}$，并构建基本簇$C_{i+1}$，直到X中剩余的样本数据的密度均小于$deansity_0$。</li>
+		</ul></li>
+	<li>使用凝聚层次聚类的思想，合并较近的基本簇，得到最终的簇划分：
+
+		<ul>
+			<li>在所有簇中选择距离最近的两个簇进行合并，合并要求是：簇间距小于等于$dist_0$，如果所有簇中没有簇间距小于$dist_0$的时候，结束合并操作</li>
+		</ul></li>
+	<li>处理剩余节点，归入最近的簇
+
+		<ul>
+			<li>最常用、最简单的方式是：将剩余样本对象归入到最近的簇。</li>
+		</ul></li>
+</ul>
+
+<h4>MDCA算法名词解释</h4>
+
+<p>最大密度点：如字面意思，就是密度最大的点，密度计算公式一般取DBSCAN算法中的密度计算公式。</p>
+
+<p>有序序列$S_{p_{max}}$：根据所有对象与最大密度点的距离进行排序。</p>
+
+<p>密度阈值$density_0$：当节点的密度值大于密度阈值的时候，认为该节点属于一个 比较固定的簇，在第一次构建基本簇的时候，就将这些节点添加到对应簇中，如果小于这个值的时候，暂时认为该节点为噪声节点。</p>
+
+<p>簇间距离：对于两个簇C1和C2之间的距离，采用两个簇中最近两个节点之间的距离作为簇间距离。</p>
+
+<p>M值：初始簇中最多数据样本个数</p>
+
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
+
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong></strong>
+      <strong>Author：</strong>DeamoV
+    </li>
+    <li class="post-copyright-github">
+      <strong> </strong>
+      <strong>Github：<strong>https://github.com/VDeamoV
+    </li>
+    <li class="post-copyright-email">
+      <strong> </strong>
+      <strong>Email：</strong>vincent.duan95@outlook.com
+    </li>
+    <li class="post-copyright-link">
+      <strong></strong>
+      <strong>Artical：</strong>
+      <a href="http://localhost:4000/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/19/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E4%B8%8B/" title="聚类算法（下）">聚类算法（下）</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong> </strong>
+      
+    </li>
+    <li class="post-copyright-Order">
+      <strong> </strong>
+      <strong>原创文章如转载，请注明出处</strong>
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/MachineLearning" rel="tag"># MachineLearning</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2018/08/19/%E8%81%9A%E7%B1%BB%E7%AE%97%E6%B3%95-%E4%B8%8A/" rel="prev" title="聚类算法（上）">
+                聚类算法（上） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.jpg"
+               alt="DeamoV" />
+          <p class="site-author-name" itemprop="name">DeamoV</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#"> <span class="nav-number">1</span> <span class="nav-text">层聚类算法</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">1.1</span> <span class="nav-text">传统层聚类算法—AGNES和DIANA算法</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">1.2</span> <span class="nav-text">层次聚类优化算法</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">1.2.1</span> <span class="nav-text">BIRCH算法</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">1.2.2</span> <span class="nav-text">CURE算法（使用代表点的聚类法）</span> </a> </li> </ol> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#"> <span class="nav-number">2</span> <span class="nav-text">密度聚类算法</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">2.1</span> <span class="nav-text">DBSCAN算法</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">2.1.1</span> <span class="nav-text">DBSCAN算法流程</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">2.1.2</span> <span class="nav-text">DBSCAN相关名词解释</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">2.1.3</span> <span class="nav-text">DBSCAN算法优缺点</span> </a> </li> </ol> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#"> <span class="nav-number">2.2</span> <span class="nav-text">MDCA密度最大值聚类算法</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">2.2.1</span> <span class="nav-text">MDCA算法思路</span> </a> </li> <li class="nav-item nav-level-4"> <a class="nav-link" href="#"> <span class="nav-number">2.2.2</span> <span class="nav-text">MDCA算法名词解释</span> </a> </li> </ol> </li> </ol> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DeamoV</span>
+</div>
+
+
+<div class="powered-by">
+  
+</div>
+
+<div class="theme-info">
+   -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '444f7a59e21fe37916be',
+        clientSecret: '7a061310a453a45a324d628e45a3bbcd0b1a4f21',
+        repo: 'vdeamov.github.io',
+        owner: 'VDeamoV',
+        admin: ['VDeamoV'],
+        id: decodeURI(location.pathname),
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("bq5f2xqV3VJiqIcOvvNMmpSD-gzGzoHsz", "yx6xCFS98rS7qa8dmURSnXXf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/assets/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/assets/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
+
