@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "回归算法下"
+title: "Logistic回归&SoftMax回归"
 date: 2018-08-07
 categories: 机器学习
 tags: [MachineLearning]
@@ -11,11 +11,11 @@ tags: [MachineLearning]
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta charset="utf-8" />
-		<title>回归算法下</title>
+		<title>Logistic回归&SoftMax回归</title>
 	</head>
 <body>
 <h2>序言</h2>
-<p> 在机器学习02（回归算法上）中我们介绍了普通最小二乘线性回归算法，并进行了较为详细的推导，并通过分析其过拟合的问题，推导出了另外三个算法，Ridge回归算法，LASSO回归算法，以及弹性网络。并简要的分析了他们的优缺点。今天我们来接着介绍算法。为什么说是算法而不是回归算法呢，是因为在研究了逻辑回归和Softmax回归算法以后，惊讶的发现这两个算法是分类算法，所以这个回归算法下的说法就不是很严谨了。</p>
+<p> 之前的文章中我们介绍了普通最小二乘线性回归算法，并进行了较为详细的推导，并通过分析其过拟合的问题，推导出了另外三个算法，Ridge回归算法，LASSO回归算法，以及弹性网络。并简要的分析了他们的优缺点。今天我们来接着介绍算法。为什么说是算法而不是回归算法呢，是因为在研究了逻辑回归和Softmax回归算法以后，惊讶的发现这两个算法是分类算法，所以这个回归算法下的说法就不是很严谨了。</p>
 
 <h2>Logistic回归</h2>
 
@@ -104,6 +104,16 @@ $$
 
 <p>除了这些，还有一个叫做混淆矩阵的东西，也是评价模型的一种手段，可以之后搜索看看。</p>
 
+
+<h2>结语</h2>
+<p>这些算法算是机器学习早期的故事，我们可以看到，算法的出现非常符合人类思维发展模式。</p>
+
+<p>算法是由具象到抽象的，开始的时候，说到分类我们很容易想到一刀切的方式，于是出现了线性回归，与此同时我们又想出了用概率表示的方式于是出现了逻辑回归。当香农提出了信息熵之后，又出现了信息熵来表示分类是否合适的算法思路。</p>
+
+<p>算法也是又简单到复杂的，之后随着线性回归算法的使用，我们发现出现了过拟合，于是我们用正则项来解决，于是出现了LASSO和Ridge算法。之后为了让这个“一刀切”更好，出现了SVM。而概率的那条路就走的更远一点，在考虑了特征之间的关系后，出现了贝叶斯网络，更进一步在考虑到了隐变量之后出现了HMM，慢慢的也能看见现在的神经网络的雏形。</p>
+
+<p>最后，个人觉得算法是一种工具，如果不能灵活使用的话，充其量只能算一种思辨游戏。祝大家
+HappyCoding。</p>
 <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
