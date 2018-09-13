@@ -1,0 +1,50 @@
+---
+layout: post
+title: "支持向量机的补充之核函数"
+date: 2018-09-13
+categories: 机器学习
+tags: [MachineLearning]
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<title>支持向量机的补充之核函数</title>
+	</head>
+<body>
+<h1>支持向量机的补充之核函数</h1>
+<p>在之前的SVM章节中我们介绍了其具体的原理和大致推导过程，但是由于SVM只能应用于线性可分的数据，那么如果出现了线性不可分的情况怎么办呢，这就要引入今天的重点核函数。这种思想将在未来的深度学习中也会出现。</p>
+<h2>为什么要使用核函数</h2>
+<ol>
+	<li>之前我们在线性回归算法中讲到的，使用多项式扩展来考虑属性间有相关性的问题。</li>
+	<li><strong>将非线性问题变成线性问题</strong>。</li>
+</ol>
+
+<h2>核函数的核心思想与优势</h2>
+
+<p>什么是核函数呢？核函数就是两个向量在隐式映射过后的高纬空间中的内积的函数。它的价值在于它虽然也是将特征进行从低维到高维的转换，但核函数它事先在低维上进行计算，而将实质上的分类效果表现在了高维上，也就说它避免了直接在高维空间中的复杂计算。</p>
+
+<p>简单的来说，就是原本我们将低维的特征值映射到高维度的空间的时候，我们需要先将需要进行内积的两个向量映射到高维度的空间，之后进行内积操作。而使用核函数的价值在于，先对两个向量进行内积操作，之后再进行高维度的映射，而这个结果可以和之前先对向量进行映射的操作的方法大致相同。</p>
+
+<p>众所周知，在低维度进行内积操作的话，其运算的复杂度显然比高维度好很多，所以采用核函数的思想被广泛的应用。</p>
+
+<h2>常用的核函数</h2>
+
+<p>那么常用的核函数有以下三种</p>
+
+<ul>
+	<li>多项式核：$\kappa(x_1, x_2)=(\langle x_1, x_2 \rangle + R)^d$</li>
+	<li>高斯核函数RBF：$\kappa(x_1, x_2) = exp (-\frac{||x_1 - x_2||}{2\sigma^2})$</li>
+	<li>线性核函数：$\kappa(x_1,x_2) = \langle x_1, x_2 \rangle$</li>
+</ul>
+
+<h2>结语</h2>
+
+<p>使用核函数的时候其实就把原来的目标函数中的内积换成核函数就好了，不过其实在Sklearn中这些是可以在调用函数的过程中选择的，个人觉得知道这个概念和思想就好了。</p>
+
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
+
