@@ -7,7 +7,6 @@ tags: ['YouCompleteMe','Vim','TroubleShoot']
 ---
 ## 问题描述
 YouCompleteMe 只能支持 Python2 的补全，不支持 Python3 库的补全。
-
 ## 解决
 1. 重新去 YouCompleteMe 用 git pull 一下。
 2. 使用 pip 安装 jedi
