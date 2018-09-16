@@ -5,7 +5,6 @@ date: 2018-09-16
 categories: "TroubleShoot"
 tags: ['YouCompleteMe','Vim','TroubleShoot']
 ---
-# 关于设置YouCompleteMe Python3语法支持
 ## 问题描述
 YouCompleteMe 只能支持 Python2 的补全，不支持 Python3 库的补全。
 
