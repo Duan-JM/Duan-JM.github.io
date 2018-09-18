@@ -24,5 +24,5 @@ YouCompleteMe 只能支持 Python2 的补全，不支持 Python3 库的补全。
 	```
 
 ## 参考
-[YouCompleteMe Issue 2876](https://github.com/Valloric/YouCompleteMe/issues/2876)
-[ How do I complete Python3 with YouCompleteMe? ](https://vi.stackexchange.com/questions/6692/how-do-i-complete-python3-with-youcompleteme)
+- [YouCompleteMe Issue 2876](https://github.com/Valloric/YouCompleteMe/issues/2876)
+- [ How do I complete Python3 with YouCompleteMe? ](https://vi.stackexchange.com/questions/6692/how-do-i-complete-python3-with-youcompleteme)

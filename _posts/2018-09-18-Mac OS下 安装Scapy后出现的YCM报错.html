@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Mac OS下 安装Scapy后出现的YCM报错"
+date: 2018-09-18
+categories: "TroubleShoot"
+tags: ['Python','TroubleShoot','Scapy','VIM','YouCompleteMe']
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>Mac OS下 安装Scapy后出现的YCM报错</title>
+	</head>
+<body>
+<h2>起因</h2>
+<p>Mac OS 安装了 Scapy 后，在 YouCompleteMe 中出现如下报错：</p>
+<pre><code class="code-highlighted code-bash">X:ValueError: unknown locale: UTF-8 <span class="syntax-all syntax-keyword">in</span> Python</code></pre>
+<h2>解决方案</h2>
+<p>添加如下代码到配置环境变量文件（zsh 或者 bash）</p>
+<pre><code class="code-highlighted code-bash"><span class="syntax-all syntax-keyword">export</span> LC_ALL=en_US.UTF-8
+<span class="syntax-all syntax-keyword">export</span> LANG=en_US.UTF-8</code></pre>
+
+</body>
+</html>
+
