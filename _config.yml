@@ -6,8 +6,9 @@
 # Site
 title: Pre-Demo-Field
 subtitle: DeamoV's Blog
-description: Coding Life Coding Fun
+description: Work Hard! Play Hard!
 author: DeamoV
+
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh
 date_format: '%Y-%m-%d'
@@ -121,10 +122,10 @@ index_with_subtitle: true
 menu:
   home: /
   categories: /categories/
-  about: /about/
+  #about: /about/
   archives: /archives/
   tags: /tags/
-  #sitemap: /sitemap.xml
+  # sitemap: /sitemap.xml
   #commonweal: /404.html
 
 

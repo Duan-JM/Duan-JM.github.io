@@ -1,2 +1,3 @@
 # no site file
 _site/
+.DS_Store
