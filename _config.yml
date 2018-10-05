@@ -122,7 +122,7 @@ index_with_subtitle: true
 menu:
   home: /
   categories: /categories/
-  #about: /about/
+  about: /about/
   archives: /archives/
   tags: /tags/
   # sitemap: /sitemap.xml
