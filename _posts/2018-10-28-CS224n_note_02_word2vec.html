@@ -104,7 +104,7 @@ tags: ["NLP" , "CS224"]
 <p>首先可以由定义写出中心词 $w_t$ 对于窗口为 $m$ 的上下文的预测结果，即所有位置的预测结果的乘积：</p>
 
 $$
-J(\theta) = \prod\limits_{t=1}^{T}
+J(\theta) = \prod\limits_{t=1}^{T}\prod\limits_{\substack{-m \leq j \leq m \\ j \neq 0}} log{p(w_t+j|w_t)} 
 $$
 <p>之后，由于乘积的运算非常缓慢，所以使用 $log$ 将其转换为求和的形式：</p>
 
