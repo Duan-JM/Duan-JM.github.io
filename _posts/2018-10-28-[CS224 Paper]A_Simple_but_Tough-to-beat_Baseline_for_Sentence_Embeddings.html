@@ -64,7 +64,7 @@ tags: ["NLP" , "CS224"]
 		<figure><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fwo9ty6ogmj312p088t97.jpg"/></figure>
 
 		<p>其中 $p(w)$ 为某个单词的频率，这一步中引入了一个特殊的权值，这个权值会让高频词的权值下降。求和后得到暂时的句向量。</p></li>
-	<li>计算语料库中所有句向量构成的矩阵的第一个主成分 u，让每个句向量减去它在 u 上的投影（类似PCA）。其中，一个向量 v 在另一个向量 u 上的投影定义如下：
+	<li>计算语料库中所有句向量构成的矩阵的第一个主成分 u，让每个句向量减去它在 u 上的投影（类似<a href="https://vdeamov.github.io/mathtools/2018/10/30/降维处理之-PCA与SVD/">PCA</a>）。其中，一个向量 v 在另一个向量 u 上的投影定义如下：
 
 		$$
 		Proj_u v = \frac{uu^T v}{||u||^2}  
