@@ -104,12 +104,12 @@ tags: ["NLP" , "CS224"]
 <p>首先可以由定义写出中心词 $w_t$ 对于窗口为 $m$ 的上下文的预测结果，即所有位置的预测结果的乘积：</p>
 
 $$
-J(\theta) = \prod\limits_{t=1}^{T}\prod\limits_{\substack{-m \leq j \leq m \\ j \neq 0}} log{p(w_t+j|w_t)} 
+J(\theta) = \prod\limits_{t=1}^{T}\prod\limits_{\substack{-m \leq j \leq m \\ j \neq 0}} log({p(w_{t+j}|w_t)}) 
 $$
 <p>之后，由于乘积的运算非常缓慢，所以使用 $log$ 将其转换为求和的形式：</p>
 
 $$
-J(\theta) = - \frac{1}{T}\sum\limits_{t=1}^{T}\sum\limits_{\substack{-m \leq j \leq m \\ j \neq 0}} log{p(w_t+j|w_t)}
+J(\theta) = - \frac{1}{T}\sum\limits_{t=1}^{T}\sum\limits_{\substack{-m \leq j \leq m \\ j \neq 0}} log({p(w_{t+j}|w_t)})
 $$
 <p><em>注：目标函数的术语有好几种，<code>Loss function</code>，<code>cost function</code>,<code>objective function</code>这些都是。对于 softmax 来说，常用的损失函数为交叉熵。</em></p>
 
