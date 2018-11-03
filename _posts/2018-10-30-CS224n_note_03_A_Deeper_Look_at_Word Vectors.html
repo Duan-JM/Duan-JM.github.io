@@ -18,7 +18,7 @@ tags: ["NLP" , "CS224"]
 <h2>简述</h2>
 <p>这个课，简单的来说就是说，word2vec 除了之前的 skip-gram 算法，还有一个传统的算法使用基于窗口的共现矩阵来表示。他们都有缺点，于是诞生了 GloVe。</p>
 <h2>SkipGram 的进阶思考</h2>
-<p>上一个视频我们已经学了 Skip-gram 的全部思想啦，但是细心的大家肯定发现了，在 Skip-gram 算法中，它对每个文中的词都给了一个窗口来进行运算，同时预测概率的公式的分目部分是<strong>有超级多的向量进行点积操作</strong>，显然到此为止，这个算法的实际应用开销太大。</p>
+<p>上一个视频我们已经学了 Skip-gram 的全部思想啦，但是细心的大家肯定发现了，在Skip-gram 算法中，它对每个文中的词都给了一个窗口来进行运算，同时预测概率的公式的分母部分是<strong>有超级多的向量进行点积操作</strong>，显然到此为止，这个算法的实际应用开销太大。</p>
 <p><em>注：这里之前有错误，感谢一起学习课程的“彼岸花开”同学指出了此处的错误</em></p>
 <p>于是这里引入我们在 assignment01 中要使用的 negative sampling 来实现 skip-gram。这个思想是使用一种采样子集来简化运算。具体的做法是，取除中心词和上下文外的随机几个样本作为负例，训练 binary logistic regression。简单的来说就是，让非窗口内的单词出现概率最小，窗口内的最大。</p>
 <figure><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwqexluypgj31cb0e2wfl.jpg"/></figure>
