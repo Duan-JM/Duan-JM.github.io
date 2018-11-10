@@ -1,0 +1,51 @@
+---
+layout: post
+title: "MacOS 制作Ubuntu安装U盘"
+date: 2018-11-10
+categories: "Mac 小技巧"
+tags: ['Linux 安装','技巧', 'Mac']
+---
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>MacOS 制作Ubuntu安装U盘</title>
+	</head>
+<body>
+<p>一般而言我们在 windows 下使用 UtraISO 能很容易做出一个 linux 的安装U盘。但是在 MacOS 下应该怎么做呢？答案是万能的命令行！</p>
+<h2>操作步骤</h2>
+<ol>
+	<li>使用 hdituil
+<pre><code class="code-highlighted code-bash">hdiutil convert -format UDRW -o <span class="syntax-all syntax-keyword">&lt;</span>output_filename<span class="syntax-all syntax-keyword">&gt;</span> <span class="syntax-all syntax-keyword">&lt;</span>your_isoFile<span class="syntax-all syntax-keyword">&gt;</span></code></pre>
+
+		<p>我们使用 <code>hdituil</code> 对下载的 ISO 文件转换成 dmg 文件。其中 <code>-format UDRW</code>，代表着转换成具有读写权限的镜像。</p></li>
+	<li>使用 diskutil 卸载U盘
+
+<pre><code class="code-highlighted code-bash">diskutil list <span class="syntax-all syntax-comment"># 查看哪个是我们要卸载的U盘
+</span>diskutil unmountDisk <span class="syntax-all syntax-keyword">&lt;</span>TheDisk<span class="syntax-all syntax-keyword">&gt;</span> 
+<span class="syntax-all syntax-comment"># The Disk 代表着我们要选的U盘 如 /dev/disk2
+</span></code></pre></li>
+	<li>使用 <code>dd</code> 命令
+
+		<ul>
+			<li><code>if</code> 输入的文件路径</li>
+			<li><code>of</code> 输出的文件路径</li>
+			<li><code>bs</code> 块大小，一般使用 <code>1m</code></li>
+		</ul>
+
+<pre><code class="code-highlighted code-bash">mv <span class="syntax-all syntax-keyword">&lt;</span>your dmg<span class="syntax-all syntax-keyword">&gt;</span> <span class="syntax-all syntax-keyword">&lt;</span>iso<span class="syntax-all syntax-keyword">&gt;</span> <span class="syntax-all syntax-comment"># 将之前的转换成的dmg文件重命名成iso文件
+</span>sudo dd if=/your/iso/path of=/your/disk/path bs=1m
+<span class="syntax-all syntax-comment"># 注意这里的disk path需要前面加r，比如/dev/disk2 -&gt; /dev/rdisk2
+</span></code></pre></li>
+	<li>重要数据销毁
+
+<pre><code class="code-highlighted code-bash">sudo dd if=/dev/urandom of=/your/disk/path</code></pre>
+
+		<p>用随机数填充U盘，来彻底销毁数据。</p></li>
+</ol>
+
+</body>
+</html>
+

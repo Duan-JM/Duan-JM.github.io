@@ -2,7 +2,7 @@
 layout: post
 title: "代理 Socks 转 http"
 date: 2018-10-13
-categories: Linux 小技巧
+categories: "Linux 小技巧"
 tags: ['privoxy','socks5','http_proxy','教程']
 ---
 ## 前言
