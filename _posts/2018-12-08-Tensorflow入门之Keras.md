@@ -26,10 +26,10 @@ tags: ["TensorFlow", "Keras"]
 	```python
 	from keras.models import Sequential
 	from keras.layers import Dense
-	model = Sequential() # 事例化 equential
+	model = Sequential() # 实例化 equential
 
 	# 构建模型
-	model.add(Dense(units=64, activation='relu', inpout_dim=100))
+	model.add(Dense(units=64, activation='relu', input_dim=100))
 	model.add(Dense(units=10, activation='softmax'))
 
 	# 用 .compile() 设计得分函数和学习方式
