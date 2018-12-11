@@ -218,7 +218,10 @@ model.compile(optimizer=tf.train.RMSPropOptimizer(0.001),
 estimator = keras.estimator.model_to_estimator(model)
 ```
 
+*注：整体 Keras 的 `Sequential` 对 `Estimator` 支持的不太好，我在使用的时候只有以函数式编程的方式才顺利的进行了 `Keras` 到 `Estimator`的转换。*
+
 ## 多GPU支持
+
 `tf.keras` 模型可以使用 `tf.contrib.distribute.DistributionStrategy` 在多个 GPU 上运行。此 API 在多个 GPU 上提供分布式训练，几乎不需要更改现有代码。目前，`tf.contrib.distribute.MirroredStrategy` 是唯一受支持的分布策略。`MirroredStrategy` 通过在一台机器上使用规约在同步训练中进行图内复制。
 
 ```python
@@ -255,4 +258,6 @@ keras_estimator = keras.estimator.model_to_estimator(
 # 训练
 keras_estimator.train(input_fn=input_fn, steps=10)
 ```
-详细[参考这里](https://tensorflow.google.cn/guide/keras)的最后一章节。
+**注意！注意！注意！**：在用了 estimator 之后不会像 Keras 模型的 `model.fit` 那样有一个非常优雅的输出，它会**没有输出**！曾经新手的我，在这里浪费了快半天，只需要在代码的最开始加上 `tf.logging.set_verbosity(tf.logging.INFO)` 就可以输出了，默认是每 100 step 输出一次，可以手动在 `RunConfig` 中修改。
+
+更多详细[参考这里](https://tensorflow.google.cn/guide/keras)的最后一章节。
