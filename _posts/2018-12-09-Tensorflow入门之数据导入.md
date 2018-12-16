@@ -20,6 +20,7 @@ tags: ["TensorFlow", "Dataset"]
 
 ## 输入管道的流程
 1. 构建 Dataset 并处理
+
 	`tf.data.Dataset.from_tensors()` 或 `tf.data.Dataset.from_tensor_slices()`来构建 Dataset，当然如果以特定格式存储的数据，也有对应的读取方式，如 TFRecord 的为`tf.data.TFRecordDataset`。之后我们可以用 `map` 等函数进行对原始数据的二次加工，这部分可以查看 `tf.data.Dataset` 的文档。
 2. 创建迭代器
 	- `Iterator.initializer` 可以初始化迭代器的状态，可以达到一些复杂的操作。
