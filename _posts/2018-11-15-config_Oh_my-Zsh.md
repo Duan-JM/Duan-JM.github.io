@@ -5,9 +5,11 @@ date: 2018-11-15
 categories: 软件使用
 tags: ['oh_my_zsh','教程']
 ---
+
 ### Why Zsh
 1. 好看！
 2. 有git实时显示
+
 简单直白粗暴、上述亮点就是我换oh my zsh的初衷。用了它直接免去了很多的重复操作、让终端更美观、让生活更美好。
 
 ### 安装
@@ -16,35 +18,68 @@ tags: ['oh_my_zsh','教程']
 ```bash
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 ```
+
 首先git到`～/.oh-my-zsh`目录下。
+
 ```bash
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 ```
+
 然后用模版设置配置文件。
+
 ```bash
 chsh -s /bin/zsh
 ```
+
 之后、切换默认打开的终端指令。如果想换回`bash`可以用`chsh -s /bin/bash`换回来
+
 ```bash
 ZSH_THEME="ys"
 ```
+
 最后是换主题，见下一章。
 
-### 更换Powerline主题
+### 更换Powerline主题 (Deprecated)
 1. git下powerline的主题。
+
 	```bash
 	git clone git://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme 
 	```
+
 	随后，`./install.sh`就好了。
+
 2. 安装字体。
+
 	```bash
 	git clone https://github.com/powerline/fonts.git
 	```
+
 	同理，`./install.sh`就可以安装号字体了。
+
 3. 终端下设置字体为`Meslo LG M for powerLine`。
 4. 在zshrc里设置主题
+
 	```bash
 	ZSH_THEME="powerline" 
+	```
+
+### 更换 astro 主题
+1. git 相关主题
+
+	```bash
+	https://github.com/iplaces/astro-zsh-theme.git
+	```
+
+2. 将 theme 文件移动到对应文件夹中
+
+	```bash
+	cp astro.zsh-theme ~/.oh-my-zsh/themes/
+	```
+
+3. 在 zshrc 中设置
+
+	```bash
+	ZSH_THEME="astro"
 	```
 	
 ### 更换个人的主题
