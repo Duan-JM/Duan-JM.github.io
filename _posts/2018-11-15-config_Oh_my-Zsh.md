@@ -16,30 +16,35 @@ tags: ['oh_my_zsh','教程']
 > Talk is Cheap Show me the Code
 
 ```bash
+sudo apt-get install zsh # linux
+brew install zsh # mac
+
+# ===> install oh_my_zsh
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-```
-
-首先git到`～/.oh-my-zsh`目录下。
-
-```bash
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-```
 
-然后用模版设置配置文件。
-
-```bash
+# 设置 zsh 默认启动
 chsh -s /bin/zsh
+
+# 从个人的 dotfile 备份恢复设置
+git clone https://github.com/VDeamoV/vdeamov-dotfiles.git
+cp vdeamov-dotfiles/zsh/zshrc ~/.zshrc
+cp -rf vdeamov-dotfiles/zsh/.zsh-config ~/.zsh-config
+
+# 恢复主题
+https://github.com/iplaces/astro-zsh-theme.git
+cp astro.zsh-theme ~/.oh-my-zsh/themes/
+
+# set ZSH_THEME="astro" in the ~/.zshrc
 ```
+之后，切换默认打开的终端指令。如果想换回 `bash` 可以用 `chsh -s /bin/bash` 换回来。
+至于如何切换主题，见下一章。
+	
+### 更换个人的主题
+1. 将自己的主题文件（`file.theme`）放入`~/.oh-my-zsh/themes` 文件夹中
+2. 在`~/.zshrc` 中 `ZSH_THEME` 选择自己的主题。
 
-之后、切换默认打开的终端指令。如果想换回`bash`可以用`chsh -s /bin/bash`换回来
-
-```bash
-ZSH_THEME="ys"
-```
-
-最后是换主题，见下一章。
-
-### 更换Powerline主题 (Deprecated)
+### 更换Powerline主题 (Optional)
 1. git下powerline的主题。
 
 	```bash
@@ -63,32 +68,13 @@ ZSH_THEME="ys"
 	ZSH_THEME="powerline" 
 	```
 
-### 更换 astro 主题
-1. git 相关主题
-
-	```bash
-	https://github.com/iplaces/astro-zsh-theme.git
-	```
-
-2. 将 theme 文件移动到对应文件夹中
-
-	```bash
-	cp astro.zsh-theme ~/.oh-my-zsh/themes/
-	```
-
-3. 在 zshrc 中设置
-
-	```bash
-	ZSH_THEME="astro"
-	```
-	
-### 更换个人的主题
-1. 将自己的主题文件（`file.theme`）放入`~/.oh-my-zsh/themes` 文件夹中
-2. 在`~/.zshrc` 中 `ZSH_THEME` 选择自己的主题。
 
 ## [Plugin] Zsh-syntax-highlighting
+
 可以语法高亮你的 shell 命令，重要的是会标出你输入错误的指令。
+
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx8kotg7xzg30lh02d3yo.gif)
+
 1. 从 git 上下载到指定位置
 	```bash
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -97,13 +83,17 @@ ZSH_THEME="ys"
 	它的名字为 `zsh-syntax-highlighting`，添加到plugins中就好了
 	
 ## [Plugin] Zsh-autosuggestions
+
 它会根据你的指令输入记录来补全你的指令，非常有用。
 ![](https://ws2.sinaimg.cn/large/006tNbRwly1fx8kotdfzsg30li02amxk.gif)
+
 1. 从 git 上下载
 	```bash
 	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 	```
+
 2. 添加到 `zshrc` 中的 `plugin list`
 	它的名字为 `zsh-autosuggestions`，添加到plugins中就好了
+
 ## 参考
 本文主要参考为bo\_song的[文章](https://www.jianshu.com/p/563dc1da2199)，里面还有详细的配色可以去关注一下～
