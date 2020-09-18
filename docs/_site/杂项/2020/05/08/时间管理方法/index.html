@@ -1,0 +1,1672 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/assets/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/assets/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="GTD,效率,生活," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Pre-Demo-Field" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言 自从进入了研究生以后，时间就开始严重不够用了。虽然已经把玩游戏，刷微博看八卦这种纯粹浪费时间的事情全部去掉了，但是每天仍然被做不完的事情所充斥着。">
+<meta name="keywords" content="GTD, 效率, 生活">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GTD vs OKR 时间管理思考">
+<meta property="og:url" content="http://localhost:4000/%E6%9D%82%E9%A1%B9/2020/05/08/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95/">
+<meta property="og:site_name" content="Pre-Demo-Field">
+<meta property="og:description" content="前言 自从进入了研究生以后，时间就开始严重不够用了。虽然已经把玩游戏，刷微博看八卦这种纯粹浪费时间的事情全部去掉了，但是每天仍然被做不完的事情所充斥着。">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GTD vs OKR 时间管理思考">
+<meta name="twitter:description" content="前言 自从进入了研究生以后，时间就开始严重不够用了。虽然已经把玩游戏，刷微博看八卦这种纯粹浪费时间的事情全部去掉了，但是每天仍然被做不完的事情所充斥着。">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '',
+      author: ''
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>GTD vs OKR 时间管理思考 | Pre-Demo-Field</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pre-Demo-Field</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">DeamoV's Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2020/05/08/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DeamoV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pre-Demo-Field">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+          
+          
+            GTD vs OKR 时间管理思考
+          
+        </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2020-05-08T00:00:00+08:00">
+                2020-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/%E6%9D%82%E9%A1%B9" itemprop="url" rel="index">
+                    <span itemprop="name">杂项</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/%E6%9D%82%E9%A1%B9/2020/05/08/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95/" class="leancloud_visitors" data-flag-title="GTD vs OKR 时间管理思考">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text"> </span>
+               
+               <span class="leancloud-visitors-count">Generating</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  2738
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="前言">前言</h2>
+<p>自从进入了研究生以后，时间就开始严重不够用了。虽然已经把玩游戏，刷微博看八卦这种纯粹浪费时间的事情全部去掉了，但是每天仍然被做不完的事情所充斥着。</p>
+
+<p>陪家人和<del>女票（已经没了）</del>的时间变得非常的少，同时觉得获得的知识摄入量也没有因此大量提升，个人觉得自己进入了吴军老师说的假忙碌状态。于是总结了以下两点原因：</p>
+
+<ol>
+  <li>事情安排出了问题
+做了大量不重要但紧急的事情，导致重要不紧急的事情没有做，最终导致 deadline的时候，被各种重要紧急的事情压破，紧张感导致了工作效率的下降，最终导致恶性循环。</li>
+  <li>个人能力问题
+时间的掌控，和身体的健康状况。个人不能做到到了指定的时间就立刻停止手头的事情。总会延长一点占用两个事件之间的休息时间，直接导致下一个任务过度劳累，效率下降。同时多次因为各种“事情”压迫了自己读书和健身的时间，这点长远来看是非常不好的。</li>
+</ol>
+
+<h2 id="时间管理原则">时间管理原则</h2>
+
+<p>这一部分是在使用 Things 作为自己的时间管理工具的第三个年头的回顾总结。中间发生了很多的事情，让我对于时间管理的意义进行了反思。这部分的内容的思想主要来源于万维钢老师的精英日课中《生活黑客》部分的启发。在开始总结自己的时间管理原则的之前，我需要问自己一个问题，我为什么要进行时间的量化管理？这个问题的答案很简单，提升时间效率。那么为什么要提高时间效率，现在的回答是需要提升自我与所做事项的把控感，以提升日常的幸福指数。</p>
+
+<p>但是事与愿违，我的生活幸福感最终并没有变高，还一定程度上间接的失去了某些重要的人，成为了室友口中的工作狂，同时在前言（研一时）写的问题却没有解决，只是每天做的事情变多了仅此而已。我觉得问题出现在了，使用中过于走形式而忽略了真正重要的部分。</p>
+
+<p>在万维钢老师中的精英日课中对于 GTD 有一个很精辟的整理，GTD 实际有用的原因如下：</p>
+
+<ul>
+  <li>确定重要不紧急的事情被合理的做了 （要事优先）</li>
+  <li>减少任务切换的消耗，提升效率</li>
+  <li>外置任务到工具中，减少大脑的负担（脑子是用来思考的不是用来记忆的）</li>
+  <li>看到重要的事情被做完减少焦虑感</li>
+</ul>
+
+<p>内容很正确，但是有个很隐性的问题，你如何确定什么事情是重要不紧急的时间，如何拆解你的最终目标。这是一个非常高阶的技能，如果不解决就会出现以下在我身上发生的事情：</p>
+
+<p>我计划完成毕业论文需要  A B C D 三个步骤，每个步骤 3 小时。然后在做完了 A 后，发现还有 E 这个步骤，于是我加了进去。之后在完成了 C 之后，发现导师要求我对于 A B 进行重写，然后以此循环，整个事件进入了不可控的状态。于是上述减少焦虑感就完全没有作用了。</p>
+
+<p>那么究竟应该如何做呢，我只是一个非常普通的研究生而已，不能指望自己成为一个大佬，什么事情面面俱到完全掌握，安排得体。方法也很简单，就是从能掌控的事情开始分割。完成 ACMMM 论文这个大事情我掌握不了，但是我可以切分为更细粒度的事情，比如写出 ver0.1 版本的 Abstract，完成朋友提示的扩展实验等等，随着经验的增加，慢慢的我相信可掌握的项目会越来越大。</p>
+
+<p>随着项目的减少，那么宏观的把我就降低了，我该如何把我的重要不紧急的事情顺利完成，并获得幸福感呢。这个就要引入 OKR 的概念，OKR 是 Google 家用于让员工全体针对某一共同目标进行自下而上努力的工具。有大佬说，这个工具不适用于个人，但是实际上来说，它具有锻炼个人思考的功效，以及提供我们自信心的功效。</p>
+
+<h2 id="okr-思想">OKR 思想</h2>
+
+<p>关于细节的部分我就不说了，网上有很多。在我的个人博客里也专门介绍过一次。这里只谈谈我个人的理解。OKR 应该这么读，O / KR。白话讲，O 就是你的目标，一个你心心相念的目标，一个你觉得完成了就能幸福的目标，可长期可短期。而 KR 就是衡量你是否完成这个 O 的指标。你看这里就完成了确立目标和目标分析的两个步骤。而长期目标（年度），短期目标（月或者季度）和超短期（月）则形成了一种递推的关系。举个例子如下：（当然同期我还有其他的 O）</p>
+
+<ul>
+  <li>UR （3 年的目标）保证高质量生活题哦啊见下，有闲钱完成自己想做的事情
+    <ul>
+      <li>KR 1 → 杭州拥有一套房子（并能够一把付完） + 月现金流 2w （年收入 40w）</li>
+      <li>KR 2 → 有能力用计算机技术帮助部分人从重复劳动中解放出来，让人专注与创新</li>
+    </ul>
+  </li>
+  <li>O (季度目标) 获得上升专业领域的算法岗入场劵
+    <ul>
+      <li>KR 1 → 获得上升行业的算法暑期实习</li>
+      <li>KR 2 → 通过 Google 的 KictStart</li>
+      <li>KR 3 → 完成导师给出的论文要求，让老师同意实习</li>
+    </ul>
+  </li>
+  <li>O (月目标) 完成 ACMMM 的论文投递 （反面事例，这个 O 是任务而不是目标）
+    <ul>
+      <li>KR 1 → 完成老师认可的 Abstract 和 Introduction</li>
+      <li>KR 2 → 在 Exp 中体现自己的模型的XXXX (保密)</li>
+      <li>KR 3 → 全文无语法错误，书写符合科技论文的要求</li>
+    </ul>
+  </li>
+</ul>
+
+<p>这么做提高了容错率，也给了你提供了矫正的机会。如果这次的短期 OKR 设置的不好，偏离了路线，问题不大，下个月修正就好了。你看，这么做还进行了风险控制。值得强调的是 OKR 是一种强人的工具，他要求你不停的去挑战自我，完成目标的 70%，低了表示你高估了自己的能力或发生了没考虑到的问题，低了表示你过于安于现状，或者低估了自己。</p>
+
+<h2 id="gtd-时间管理">GTD 时间管理</h2>
+
+<p>那么这些和 GTD 有什么关系呢。我们可以看到，GTD 是完成任务，而 OKR 是相对更高层的规划。同时 OKR 中的每一项又有着自己的 DDL。这就很适合和 GTD 结合。</p>
+
+<p>Things APP 的设计理念：（你可以用自己趁手的工具）</p>
+
+<ul>
+  <li>Things 的作用 1：收集任务，结合 shortcut 收集网页，自己脑子一闪而过的想法</li>
+  <li>Things 的作用 2：外置内容，让过去的我来计划好未来的我的内容</li>
+  <li>Things 的作用 3：让我划分任务到当前 OKR 中间的任务，任务集中于完成我的周期目标</li>
+</ul>
+
+<p>GTD 的工作流如下：</p>
+
+<ol>
+  <li>准备工作：日常经常反思（至少一个月一次），查看自己是否按照制定的 OKR 在前进，将 KR 的目标在 Things 中设定为项目区域（左侧的小方框）。这么做代表着责任的划分，代表着我要做的事情是为了完成某项 KR。为了不成为工作狂，我在左侧还加入了爱好这一责任分区。</li>
+  <li>早晨：查看当天要做的内容 -&gt; 在 Things 这个软件中的今天栏目（一件一件往下做）
+原则为：这个列表只能添加，不能重新回到其他列表</li>
+  <li>晚上：查看当天完成的内容，并准备第二天的内容 -&gt; 在 Things 的左侧项目栏目中选择任务
+原则为：
+    <ul>
+      <li>根据情况选择不同项目区域中的任务加入当天列表，并预估完成所需时间</li>
+      <li>查看当天任务完成情况，包含不同实际用时和预测用时番茄数的差别，查看当天的时间分配是否合理</li>
+    </ul>
+  </li>
+  <li>其他时间：快速添加脑子中闪过要做的事情添加到收集栏目中 -&gt; 通过手机或电脑添加任务到 things 收件箱中
+原则为：
+    <ul>
+      <li>快速，准确的描述想要做的任务即可</li>
+      <li>在等电梯等零碎时间，查看收件箱的内容对收件箱进行如下6个操作
+        <ol>
+          <li>删除：一时冲动加进来的，现在看起来毫无价值</li>
+          <li>将来 / 可能：这些事情将来可能去做，但不会现在做，就加入到 Things 的 Sometime 中，每天晚上看看要不要加入到当天列表。</li>
+          <li>等待。这件事情需要派别人完成，就<strong>立刻去做</strong>，然后加上一个时间提醒（Things 会自动移出 Inbox）。</li>
+          <li>下一步行动。如果需要亲自完成，若为 2 分钟以内能做完的，立刻做完，若两分钟以上，移到当天要做的任务中</li>
+          <li>下一步行动中很复杂的任务，移动到对应的项目区域，之后定期回顾处理</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="其他注意事项">其他注意事项</h2>
+
+<ol>
+  <li>注意自己的时间颗粒度，即分配时间的时间块，从半小时做起，慢慢减少。</li>
+  <li>注意自己的时间中，学习，生活，身体管理，这三方面的平衡。</li>
+  <li>注意自己在每个时间块中间的时间利用率</li>
+</ol>
+
+<h2 id="changelog">ChangeLog</h2>
+
+<ul>
+  <li>2018-11-27 : 初次总结</li>
+  <li>2020-05-08：添加新的思考，融入 OKR 思想</li>
+</ul>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong></strong>
+      <strong>Author：</strong>DeamoV
+    </li>
+    <li class="post-copyright-github">
+      <strong> </strong>
+      <strong>Github：<strong>https://github.com/VDeamoV
+    </li>
+    <li class="post-copyright-email">
+      <strong> </strong>
+      <strong>Email：</strong>vincent.duan95@outlook.com
+    </li>
+    <li class="post-copyright-link">
+      <strong></strong>
+      <strong>Artical：</strong>
+      <a href="http://localhost:4000/%E6%9D%82%E9%A1%B9/2020/05/08/%E6%97%B6%E9%97%B4%E7%AE%A1%E7%90%86%E6%96%B9%E6%B3%95/" title="GTD vs OKR 时间管理思考">GTD vs OKR 时间管理思考</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong> </strong>
+      
+    </li>
+    <li class="post-copyright-Order">
+      <strong> </strong>
+      <strong>原创文章如转载，请注明出处</strong>
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/GTD" rel="tag"># GTD</a>
+          
+            
+            <a href="/tag/#/%E6%95%88%E7%8E%87" rel="tag"># 效率</a>
+          
+            
+            <a href="/tag/#/%E7%94%9F%E6%B4%BB" rel="tag"># 生活</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/vim/2020/09/13/%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AEvim/" rel="next" title="Vim 安装配置">
+                <i class="fa fa-chevron-left"></i> Vim 安装配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/2019/08/30/%E5%8C%97%E9%82%AE%E6%A0%A1%E5%9B%AD%E7%BD%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%99%BB%E5%BD%95/" rel="prev" title="终端登录北邮校园网">
+                终端登录北邮校园网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.jpg"
+               alt="DeamoV" />
+          <p class="site-author-name" itemprop="name">DeamoV</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/Duan-JM" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/EblisQwQ" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                
+                
+                <li class="links-of-blogroll-item">
+                  <a href="https://j-cabin.cn" title="J-Cabin" target="_blank">J-Cabin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#前言"> <span class="nav-number">1</span> <span class="nav-text">前言</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#时间管理原则"> <span class="nav-number">2</span> <span class="nav-text">时间管理原则</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#okr-思想"> <span class="nav-number">3</span> <span class="nav-text">OKR 思想</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#gtd-时间管理"> <span class="nav-number">4</span> <span class="nav-text">GTD 时间管理</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#其他注意事项"> <span class="nav-number">5</span> <span class="nav-text">其他注意事项</span> </a> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#changelog"> <span class="nav-number">6</span> <span class="nav-text">ChangeLog</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DeamoV</span>
+</div>
+
+
+<div class="powered-by">
+  
+</div>
+
+<div class="theme-info">
+   -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '444f7a59e21fe37916be',
+        clientSecret: '7a061310a453a45a324d628e45a3bbcd0b1a4f21',
+        repo: 'duan-jm.github.io',
+        owner: 'Duan-JM',
+        admin: ['Duan-JM'],
+        id: decodeURI(location.pathname),
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("bq5f2xqV3VJiqIcOvvNMmpSD-gzGzoHsz", "yx6xCFS98rS7qa8dmURSnXXf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/assets/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/assets/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
+

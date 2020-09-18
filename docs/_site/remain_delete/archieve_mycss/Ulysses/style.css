@@ -1,0 +1,427 @@
+/*
+    New SSPAI Web Theme
+
+    A theme to [sspai](ssp.ai) default theme.
+
+    Developed by sainho93
+*/
+
+/* 正文 */
+
+body {
+  width: 768px;
+  text-align: left;
+  padding: 0;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: PingFang-SC-regular, 'Hiragino Sans GB', 'Microsoft Yahei', Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 26px;
+  word-break: normal;
+  word-wrap: break-word;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 30px 0 10px 0;
+  color: #4a4a4a;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  font-size: 12px;
+}
+
+
+
+/* 列表 */
+
+ol, ul {
+  padding-left: 2em;
+}
+
+ol li, ul li {
+  margin: 10px 0;
+}
+
+/* 段落 */
+
+/*p {
+  margin: 0 0 20px 0;
+  line-height: 26px;
+}
+
+p > code {
+  color: #c7264e;
+  background-color: #f9f2f4;
+  font-size: .95em;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+} */
+
+/* 超链接 */
+
+a {
+  text-decoration: none;
+  border-bottom: 1px solid #4A4A4A;
+  color: #292525;
+}
+
+a:hover {
+  color: #D7191A;
+  border-bottom-color: #D7191A;
+}
+
+a:focus, a img {
+  display: block;
+}
+
+/* 块引用 */
+
+blockquote {
+  position: relative;
+  display: block;
+  /*padding: 64px 45px 35px 48px !important;*/
+  padding: 44px 45px 25px 48px !important;
+  color: #9B9B9B;
+  /*margin: 20px 0;*/
+  margin: 20px 0 0 0;
+  font-size: 16px;
+  line-height: 26px;
+  border-left: none;
+}
+
+blockquote:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  /* 引用的图片 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABQCAYAAADm4nCVAAAAAXNSR0IArs4c6QAABPhJREFUeAHtm4du4zAMhhU33Xuj6Hr/B+oDdO+95919AmykvTRmYtI2DBII7F4Yivx/iqJkX+vPPwkVydvbW3h5eQlcX19fw/v7e/j8/AxfX1/xs7CwEJaXlyvyrviwxEF8xJbG+PHxkcVHrO3iw8gtMPjDw0N4fHyMH/7uJRXmRi+3en6XxsYV8PNiMCcAB+7v78PNzU0EPc+hntHV9EsynPhub29DXlL9DMGMAKbX5eVluL6+jmXl58BN+JvEuri4CM/PzwOHo04AGZACTw1sotzd3UXgKTFFRZWAq6urcH5+3tiMp9QcHx+Hp6enorhnv1chgCmIYxoZkXlWoxvWLRKLma29hhUmAKfOzs7UHasL/rSPBwcHZsk1MAHU98PDw9jh1AUsbT+o9UdHR7Fv17ad2huIADZMu7u7cXORGmralVlNh2MtfRPAQgT4/fa71oFo2mc9o30uQ/oigNV/f3+/sV0OgFPvKT1lSSIdiMxvOvisaWWCD/YiAqj5e3t7jc7809PTeJQgTUgtvVwC6HYAHxKaKmwgaaerkFwCaMMoP00VNpFkf1XSkwA6gbJrYplApHsZ7d1tPzH82gWR9WVlRqvVChMTE2FsbCwMDw+HdrsdP6Ojo/3E0rcus5udbhlCXJOTkzG+zhh/JYBe2PI0M0mS6ND09HTgMzQ0VAYO2Rg8GLKe3SRQGt/4+Hg2dudNVwJ4sKB54tc5INk+OzsbVlZWYpZ3flfWPSXn5OTEbLiRkZGwuroawc8b5D8CyHqr0jM1NRUdsy4teUHT8ViUHkonz7Dn5+fzXMi+/48AnNM+ZiDr19bWwtzcXDZwVTc8qbM446G+b2xs9F1KvxHA1KQn1hSyAsdYZOsgxKe9tpHxJNgg8o0A7ee3lJqtra248g/inPZvtBOMmU2t5/WZQeUbAZq7QTJ/e3u7soW2GyDaCUa9LwI+PmYbMd5j0TpuIDM2NzdrBT7B8uqIlszMzISlpaXC5jICNJ2jHv7W9xb2eEADbCy1nlmzYVxfXx/Qk+8/iwRQG3nHRUPo8evQ7fyMhb2NhjC7aSq4akgkgF2hRmeAU2yw6ihaCUbHw0ZLSyIB1H8NwTnOOeom7Gs0TnQ5PtF+WViNAAvntIjUSrDFxcW+N1p5MSTsDDWyg9pf9oFaXnDp9xrnWpTXoi1n6k/nNdHqDDj1q6sUeXk2jYmdvEWCJRrZnx4tp87W7apx8GaVYImGc5xyarVl2uSxAGt0eMRoIWoEWDinYVNjhtN2araenXElGkfPnPvUVWgyiopla51oTE9LB4uCpxGfZYKpEGDpYFECNGaAZXxxH1AkSBZfi/asiE+dv637DGjt7OxU9v+EO4Hqds9xb9GzpbJeM+/mv+Tf4lGERNF1bBBwAmxwFVt1AsRQ2Sg6ATa4iq06AWKobBSdABtcxVadADFUNopOgA2uYqtOgBgqG0UnwAZXsVUnQAyVjaITYIOr2KoTIIbKRtEJsMFVbNUJEENlo+gE2OAqtuoEiKGyUXQCbHAVW3UCxFDZKDoBNriKrToBYqhsFJ0AG1zFVp0AMVQ2ik6ADa5iq06AGCobRSfABlexVSdADJWNohNgg6vYqhMghspG0QmwwVVs1QkQQ2Wj6ATY4Cq26gSIobJRdAJscBVbdQLEUNkoOgE2uIqtOgFiqGwUnQAbXMVWnQAxVDaKfwGN0SoDfoFaqQAAAABJRU5ErkJggg==") left top no-repeat;
+  background-size: contain;
+  width: 36px;
+  height: 40px;
+}
+
+blockquote:after,
+/* 粗体 */
+
+b, strong {
+  font-weight: 700;
+}
+
+/* 斜体 */
+
+em, i {
+  font-style: italic;
+}
+
+/* 删除 */
+
+del, strike {
+  text-decoration: line-through;
+}
+
+/* 源代码 */
+
+pre {
+  background-color: #f6f8fa;
+  padding: 11px 20px 13px;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+pre p {
+  margin: 0;
+  line-height: 22px;
+}
+
+/* 代码 */
+
+pre code {
+  font-size: 14px;
+  border: none;
+  background: none;
+  display: block;
+  border-radius: 0;
+  font-family: Source Code Pro, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+code {
+  background-color: #f6f8fa;
+  font-family: Source Code Pro, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 14px;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+/* 代码语法高亮 */
+
+.syntax-all {
+}
+
+.syntax-entity {
+  color: #6f42c1;
+}
+
+.syntax-tag {
+  color: #22863a;
+}
+
+.syntax-keyword {
+  color: #d73a49;
+}
+
+.syntax-parameter {
+  color: #24292e;
+}
+
+.syntax-string {
+  color: #003878;
+}
+
+.syntax-constant {
+  color: #005cc5;
+}
+
+.syntax-variable {
+  color: #e36209;
+}
+
+.syntax-escape {
+  font-weight: bold;
+  color:       #22863a;
+}
+
+.syntax-comment {
+  color: #6a737d;
+}
+
+.syntax-error {
+  color: #b31d28;
+}
+
+/* 语法标记高亮 */
+
+.syntax-heading {
+  font-weight: bold;
+  color:       #005cc5;
+}
+
+.syntax-italic {
+  font-style: italic;
+  color:      #24292e;
+}
+
+.syntax-bold {
+  font-weight: bold;
+  color:       #24292e;
+}
+
+.syntax-deleted {
+  color:            #b31d28;
+  background-color: #ffeef0;
+}
+
+.syntax-inserted {
+  color:            #22863a;
+  background-color: #f0fff4;
+}
+
+.syntax-changed {
+  color:            #e36209;
+  background-color: #ffebda;
+}
+
+.syntax-ignored {
+  color:            #f6f8fa;
+  background-color: #005cc5;
+}
+
+.syntax-link {
+  text-decoration: underline;
+  color:           #032f62;
+}
+
+.syntax-list {
+  color: #e36209;
+}
+
+/* 图片 */
+
+img {
+  max-width: 50%;
+ /* margin-left: auto;
+  margin-right: auto;
+  display: block;*/
+  text-align: center;
+}
+
+figure {
+  margin: 0 0 30px 0;
+  text-align: center;
+}
+
+figcaption {
+  outline: none;
+  font-size: 14px;
+  color: #999;
+  letter-spacing: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+figure img {
+  margin-bottom: 0px;
+/*  margin-left: auto;
+  margin-right:auto;
+  display:block;*/
+}
+
+/* 分隔线 */
+
+hr {
+  margin: 20px 0;
+}
+
+/* 上标 */
+
+sup {
+  color: #fff;
+  background-color: #4A4A4A;
+  border-radius: 2px;
+  font-size: 10px;
+  line-height: 1;
+  padding: 1px 5px;
+  top: -0.8em;
+  margin-left: 2px;
+  margin-right: 2px;
+  text-decoration: none;
+  cursor: help;
+  position: relative;
+}
+
+/* 下标 */
+
+/*u {
+  text-decoration: none;
+  border-bottom: 1px solid #4A4A4A;
+}*/
+
+ol#footnotes {
+  font-size: 0.875rem;
+  line-height: 1.85714286;
+  font-weight: 300;
+  color: #4A4A4A;
+  border-top: 1px solid #DBE2E8;
+  cursor: default;
+}
+
+ol#footnotes li {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 26px;
+  list-style-type: decimal;
+}
+
+/*ol#footnotes li:before {
+  content: counter(footer-counter) ". ";
+  counter-increment: footer-counter;
+  font-weight: 400;
+  font-size: 14px;
+}*/
+
+
+/*a:target, ol#footnotes li:target, sup a:target {
+  animation-name: highfade;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-name: highfade;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+}
+
+a:target {
+  border: 0;
+  outline: 0;
+}*/
+
+
+/* 切换样式 */
+@keyframes highfade {
+  0% {
+    background-color: none;
+  }
+  20% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: none;
+  }
+}
+
+@-webkit-keyframes highfade {
+  0% {
+    background-color: none;
+  }
+  20% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: none;
+  }
+}
+
+/* 根据窗口调整样式 */
+iframe {
+  width: 100%;
+  min-height: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  iframe {
+    min-height: 300px; 
+  }
+}
+
+/* @media screen and (max-width: 736px) {
+  body {
+    margin: 20px;
+  }
+  ul, ol {
+    margin: 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+} */

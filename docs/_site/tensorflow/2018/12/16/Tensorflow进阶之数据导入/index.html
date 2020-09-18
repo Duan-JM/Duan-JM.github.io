@@ -1,0 +1,1731 @@
+
+<!doctype html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next muse use-motion" lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/assets/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/assets/lib/pace/pace-theme-big-counter.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/assets/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/assets/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/assets/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="TensorFlow,Dataset," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Pre-Demo-Field" type="application/atom+xml" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="不同格式的数据的导入 Numpy 数据的导入 这种导入非常直白，就是使用 Numpy 把外部的数据进行导入，然后转换成 tf.Tensor ，之后使用 Dataset.from_tensor_slices()。就可以成功导入了。简单的案例如下：">
+<meta name="keywords" content="TensorFlow, Dataset">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tensorflow进阶之数据导入">
+<meta property="og:url" content="http://localhost:4000/tensorflow/2018/12/16/Tensorflow%E8%BF%9B%E9%98%B6%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5/">
+<meta property="og:site_name" content="Pre-Demo-Field">
+<meta property="og:description" content="不同格式的数据的导入 Numpy 数据的导入 这种导入非常直白，就是使用 Numpy 把外部的数据进行导入，然后转换成 tf.Tensor ，之后使用 Dataset.from_tensor_slices()。就可以成功导入了。简单的案例如下：">
+<meta property="og:locale" content="zh">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tensorflow进阶之数据导入">
+<meta name="twitter:description" content="不同格式的数据的导入 Numpy 数据的导入 这种导入非常直白，就是使用 Numpy 把外部的数据进行导入，然后转换成 tf.Tensor ，之后使用 Dataset.from_tensor_slices()。就可以成功导入了。简单的案例如下：">
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '',
+      author: ''
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://localhost:4000/"/>
+
+
+
+
+
+  <title>Tensorflow进阶之数据导入 | Pre-Demo-Field</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pre-Demo-Field</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">DeamoV's Blog</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+        
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="" spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+<div id="posts" class="posts-expand">
+
+  
+  
+
+  
+
+  
+  
+  
+
+  <article class="post post-type- " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://localhost:4000/tensorflow/2018/12/16/Tensorflow%E8%BF%9B%E9%98%B6%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DeamoV">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pre-Demo-Field">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+          
+          
+            Tensorflow进阶之数据导入
+          
+        </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              <time title="" itemprop="dateCreated datePublished" datetime="2018-12-16T00:00:00+08:00">
+                2018-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"></span>
+              
+              
+                
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/category/#/Tensorflow" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/tensorflow/2018/12/16/Tensorflow%E8%BF%9B%E9%98%B6%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5/" class="leancloud_visitors" data-flag-title="Tensorflow进阶之数据导入">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text"> </span>
+               
+               <span class="leancloud-visitors-count">Generating</span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="post-wordcount">
+              
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  1724
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text"></span>
+                
+                <span title="">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+            
+                <div class="post-description">
+                    
+                </div>
+            
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="不同格式的数据的导入">不同格式的数据的导入</h2>
+<h3 id="numpy-数据的导入">Numpy 数据的导入</h3>
+<p>这种导入非常直白，就是使用 Numpy 把外部的数据进行导入，然后转换成 <code class="highlighter-rouge">tf.Tensor</code> ，之后使用 <code class="highlighter-rouge">Dataset.from_tensor_slices()</code>。就可以成功导入了。简单的案例如下：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9</pre></td><td class="code"><pre class="highlight"><code><span class="err">#</span> <span class="n">Load</span> <span class="n">the</span> <span class="n">training</span> <span class="n">data</span> <span class="n">into</span> <span class="n">two</span> <span class="n">NumPy</span> <span class="n">arrays</span><span class="o">,</span> <span class="k">for</span> <span class="n">example</span> <span class="n">using</span> <span class="err">`</span><span class="n">np</span><span class="o">.</span><span class="na">load</span><span class="o">()</span><span class="err">`</span><span class="o">.</span>
+<span class="n">with</span> <span class="n">np</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="s">"/var/data/training_data.npy"</span><span class="o">)</span> <span class="n">as</span> <span class="nl">data:</span>
+  <span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s">"features"</span><span class="o">]</span>
+  <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s">"labels"</span><span class="o">]</span>
+
+<span class="err">#</span> <span class="n">Assume</span> <span class="n">that</span> <span class="n">each</span> <span class="n">row</span> <span class="n">of</span> <span class="err">`</span><span class="n">features</span><span class="err">`</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">row</span> <span class="n">as</span> <span class="err">`</span><span class="n">labels</span><span class="err">`</span><span class="o">.</span>
+<span class="k">assert</span> <span class="n">features</span><span class="o">.</span><span class="na">shape</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">labels</span><span class="o">.</span><span class="na">shape</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">Dataset</span><span class="o">.</span><span class="na">from_tensor_slices</span><span class="o">((</span><span class="n">features</span><span class="o">,</span> <span class="n">labels</span><span class="o">))</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>上面的简单的实例有一个很大的问题，就是 <code class="highlighter-rouge">features</code> 和 <code class="highlighter-rouge">labels</code> 会作为 <code class="highlighter-rouge">tf.constant()</code> 指令嵌入在 Tensorflow 的图中，会浪费很多内存。所以我们可以根据 <code class="highlighter-rouge">tf.palceholder()</code> 来定义 <code class="highlighter-rouge">Dataset</code>，同时在对数据集初始化的时候送入 Numpy 数组。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17</pre></td><td class="code"><pre class="highlight"><code><span class="n">with</span> <span class="n">np</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="s">"/var/data/training_data.npy"</span><span class="o">)</span> <span class="n">as</span> <span class="nl">data:</span>
+  <span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s">"features"</span><span class="o">]</span>
+  <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="o">[</span><span class="s">"labels"</span><span class="o">]</span>
+
+<span class="err">#</span> <span class="n">Assume</span> <span class="n">that</span> <span class="n">each</span> <span class="n">row</span> <span class="n">of</span> <span class="err">`</span><span class="n">features</span><span class="err">`</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">row</span> <span class="n">as</span> <span class="err">`</span><span class="n">labels</span><span class="err">`</span><span class="o">.</span>
+<span class="k">assert</span> <span class="n">features</span><span class="o">.</span><span class="na">shape</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">labels</span><span class="o">.</span><span class="na">shape</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+
+<span class="n">features_placeholder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(</span><span class="n">features</span><span class="o">.</span><span class="na">dtype</span><span class="o">,</span> <span class="n">features</span><span class="o">.</span><span class="na">shape</span><span class="o">)</span>
+<span class="n">labels_placeholder</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(</span><span class="n">labels</span><span class="o">.</span><span class="na">dtype</span><span class="o">,</span> <span class="n">labels</span><span class="o">.</span><span class="na">shape</span><span class="o">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">Dataset</span><span class="o">.</span><span class="na">from_tensor_slices</span><span class="o">((</span><span class="n">features_placeholder</span><span class="o">,</span> <span class="n">labels_placeholder</span><span class="o">))</span>
+<span class="err">#</span> <span class="o">[</span><span class="n">Other</span> <span class="n">transformations</span> <span class="n">on</span> <span class="err">`</span><span class="n">dataset</span><span class="err">`</span><span class="o">...]</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">make_initializable_iterator</span><span class="o">()</span>
+
+<span class="n">sess</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">initializer</span><span class="o">,</span> <span class="n">feed_dict</span><span class="o">={</span><span class="nl">features_placeholder:</span> <span class="n">features</span><span class="o">,</span>
+                                          <span class="nl">labels_placeholder:</span> <span class="n">labels</span><span class="o">})</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h3 id="tfrecord-数据的导入">TFRecord 数据的导入</h3>
+<p>TFRecord 是一种面向记录的简单二进制格式，很多 Tensorflow 应用采用这种方式来训练数据。这个也是推荐的做法。将它做成 Dataset 的方式也非常简单，就是单纯的通过 <code class="highlighter-rouge">tf.data.TFRecordDataset</code> 类就可以实现。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3</pre></td><td class="code"><pre class="highlight"><code><span class="err">#</span> <span class="n">Creates</span> <span class="n">a</span> <span class="n">dataset</span> <span class="n">that</span> <span class="n">reads</span> <span class="n">all</span> <span class="n">of</span> <span class="n">the</span> <span class="n">examples</span> <span class="n">from</span> <span class="n">two</span> <span class="n">files</span><span class="o">.</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="o">[</span><span class="s">"/var/data/file1.tfrecord"</span><span class="o">,</span> <span class="s">"/var/data/file2.tfrecord"</span><span class="o">]</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">TFRecordDataset</span><span class="o">(</span><span class="n">filenames</span><span class="o">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>同样我们也能设定成，在初始化迭代器的时候导入数据。其中需要注意的是 <code class="highlighter-rouge">filenames</code> 需要设置成 <code class="highlighter-rouge">tf.String</code> 类。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17</pre></td><td class="code"><pre class="highlight"><code><span class="n">filenames</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">placeholder</span><span class="o">(</span><span class="n">tf</span><span class="o">.</span><span class="na">string</span><span class="o">,</span> <span class="n">shape</span><span class="o">=[</span><span class="n">None</span><span class="o">])</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">TFRecordDataset</span><span class="o">(</span><span class="n">filenames</span><span class="o">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">map</span><span class="o">(...)</span>  <span class="err">#</span> <span class="n">Parse</span> <span class="n">the</span> <span class="n">record</span> <span class="n">into</span> <span class="n">tensors</span><span class="o">.</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">repeat</span><span class="o">()</span>  <span class="err">#</span> <span class="n">Repeat</span> <span class="n">the</span> <span class="n">input</span> <span class="n">indefinitely</span><span class="o">.</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">batch</span><span class="o">(</span><span class="mi">32</span><span class="o">)</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">make_initializable_iterator</span><span class="o">()</span>
+
+<span class="err">#</span> <span class="n">You</span> <span class="n">can</span> <span class="n">feed</span> <span class="n">the</span> <span class="n">initializer</span> <span class="n">with</span> <span class="n">the</span> <span class="n">appropriate</span> <span class="n">filenames</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span>
+<span class="err">#</span> <span class="n">phase</span> <span class="n">of</span> <span class="n">execution</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">g</span><span class="o">.</span> <span class="n">training</span> <span class="n">vs</span><span class="o">.</span> <span class="n">validation</span><span class="o">.</span>
+
+<span class="err">#</span> <span class="n">Initialize</span> <span class="err">`</span><span class="n">iterator</span><span class="err">`</span> <span class="n">with</span> <span class="n">training</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">training_filenames</span> <span class="o">=</span> <span class="o">[</span><span class="s">"/var/data/file1.tfrecord"</span><span class="o">,</span> <span class="s">"/var/data/file2.tfrecord"</span><span class="o">]</span>
+<span class="n">sess</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">initializer</span><span class="o">,</span> <span class="n">feed_dict</span><span class="o">={</span><span class="nl">filenames:</span> <span class="n">training_filenames</span><span class="o">})</span>
+
+<span class="err">#</span> <span class="n">Initialize</span> <span class="err">`</span><span class="n">iterator</span><span class="err">`</span> <span class="n">with</span> <span class="n">validation</span> <span class="n">data</span><span class="o">.</span>
+<span class="n">validation_filenames</span> <span class="o">=</span> <span class="o">[</span><span class="s">"/var/data/validation1.tfrecord"</span><span class="o">,</span> <span class="o">...]</span>
+<span class="n">sess</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">iterator</span><span class="o">.</span><span class="na">initializer</span><span class="o">,</span> <span class="n">feed_dict</span><span class="o">={</span><span class="nl">filenames:</span> <span class="n">validation_filenames</span><span class="o">})</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h2 id="dataset-的预处理">Dataset 的预处理</h2>
+<h3 id="datasetmap">Dataset.map()</h3>
+<p><code class="highlighter-rouge">Dataset.map(f)</code> 转换通过将指定函数 <code class="highlighter-rouge">f</code> 应用于输入数据集的每个元素来生成新数据集。
+简单的实例（解码图片数据并调整大小）如下：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16</pre></td><td class="code"><pre class="highlight"><code><span class="err">#</span> <span class="n">Reads</span> <span class="n">an</span> <span class="n">image</span> <span class="n">from</span> <span class="n">a</span> <span class="n">file</span><span class="o">,</span> <span class="n">decodes</span> <span class="n">it</span> <span class="n">into</span> <span class="n">a</span> <span class="n">dense</span> <span class="n">tensor</span><span class="o">,</span> <span class="n">and</span> <span class="n">resizes</span> <span class="n">it</span>
+<span class="err">#</span> <span class="n">to</span> <span class="n">a</span> <span class="n">fixed</span> <span class="n">shape</span><span class="o">.</span>
+<span class="n">def</span> <span class="nf">_parse_function</span><span class="o">(</span><span class="n">filename</span><span class="o">,</span> <span class="n">label</span><span class="o">):</span>
+  <span class="n">image_string</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">read_file</span><span class="o">(</span><span class="n">filename</span><span class="o">)</span>
+  <span class="n">image_decoded</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">image</span><span class="o">.</span><span class="na">decode_jpeg</span><span class="o">(</span><span class="n">image_string</span><span class="o">)</span>
+  <span class="n">image_resized</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">image</span><span class="o">.</span><span class="na">resize_images</span><span class="o">(</span><span class="n">image_decoded</span><span class="o">,</span> <span class="o">[</span><span class="mi">28</span><span class="o">,</span> <span class="mi">28</span><span class="o">])</span>
+  <span class="k">return</span> <span class="n">image_resized</span><span class="o">,</span> <span class="n">label</span>
+
+<span class="err">#</span> <span class="n">A</span> <span class="n">vector</span> <span class="n">of</span> <span class="n">filenames</span><span class="o">.</span>
+<span class="n">filenames</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">constant</span><span class="o">([</span><span class="s">"/var/data/image1.jpg"</span><span class="o">,</span> <span class="s">"/var/data/image2.jpg"</span><span class="o">,</span> <span class="o">...])</span>
+
+<span class="err">#</span> <span class="err">`</span><span class="n">labels</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="err">`</span> <span class="n">is</span> <span class="n">the</span> <span class="n">label</span> <span class="k">for</span> <span class="n">the</span> <span class="n">image</span> <span class="n">in</span> <span class="err">`</span><span class="n">filenames</span><span class="o">[</span><span class="n">i</span><span class="o">].</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">constant</span><span class="o">([</span><span class="mi">0</span><span class="o">,</span> <span class="mi">37</span><span class="o">,</span> <span class="o">...])</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">Dataset</span><span class="o">.</span><span class="na">from_tensor_slices</span><span class="o">((</span><span class="n">filenames</span><span class="o">,</span> <span class="n">labels</span><span class="o">))</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">_parse_function</span><span class="o">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>至此为止，我们对图片的处理还是使用的是 TensorFlow 中的 API，那么我们想用 Python 自带的奇奇怪怪的包应该怎么做呢。TensorFlow 给了我们 <code class="highlighter-rouge">tf.py_func()</code> 这个选项来使用任意 Python 逻辑。我们只用在 <code class="highlighter-rouge">Dataset.map()</code> 中调用 <code class="highlighter-rouge">tf.py_func()</code> 指令就可以了。简单的例子如下：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17<br/>18<br/>19<br/>20<br/>21<br/>22</pre></td><td class="code"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="err">#</span> <span class="n">Use</span> <span class="n">a</span> <span class="n">custom</span> <span class="n">OpenCV</span> <span class="n">function</span> <span class="n">to</span> <span class="n">read</span> <span class="n">the</span> <span class="n">image</span><span class="o">,</span> <span class="n">instead</span> <span class="n">of</span> <span class="n">the</span> <span class="n">standard</span>
+<span class="err">#</span> <span class="n">TensorFlow</span> <span class="err">`</span><span class="n">tf</span><span class="o">.</span><span class="na">read_file</span><span class="o">()</span><span class="err">`</span> <span class="n">operation</span><span class="o">.</span>
+<span class="n">def</span> <span class="nf">_read_py_function</span><span class="o">(</span><span class="n">filename</span><span class="o">,</span> <span class="n">label</span><span class="o">):</span>
+  <span class="n">image_decoded</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="na">imread</span><span class="o">(</span><span class="n">filename</span><span class="o">.</span><span class="na">decode</span><span class="o">(),</span> <span class="n">cv2</span><span class="o">.</span><span class="na">IMREAD_GRAYSCALE</span><span class="o">)</span>
+  <span class="k">return</span> <span class="n">image_decoded</span><span class="o">,</span> <span class="n">label</span>
+
+<span class="err">#</span> <span class="n">Use</span> <span class="n">standard</span> <span class="n">TensorFlow</span> <span class="n">operations</span> <span class="n">to</span> <span class="n">resize</span> <span class="n">the</span> <span class="n">image</span> <span class="n">to</span> <span class="n">a</span> <span class="n">fixed</span> <span class="n">shape</span><span class="o">.</span>
+<span class="n">def</span> <span class="nf">_resize_function</span><span class="o">(</span><span class="n">image_decoded</span><span class="o">,</span> <span class="n">label</span><span class="o">):</span>
+  <span class="n">image_decoded</span><span class="o">.</span><span class="na">set_shape</span><span class="o">([</span><span class="n">None</span><span class="o">,</span> <span class="n">None</span><span class="o">,</span> <span class="n">None</span><span class="o">])</span>
+  <span class="n">image_resized</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">image</span><span class="o">.</span><span class="na">resize_images</span><span class="o">(</span><span class="n">image_decoded</span><span class="o">,</span> <span class="o">[</span><span class="mi">28</span><span class="o">,</span> <span class="mi">28</span><span class="o">])</span>
+  <span class="k">return</span> <span class="n">image_resized</span><span class="o">,</span> <span class="n">label</span>
+
+<span class="n">filenames</span> <span class="o">=</span> <span class="o">[</span><span class="s">"/var/data/image1.jpg"</span><span class="o">,</span> <span class="s">"/var/data/image2.jpg"</span><span class="o">,</span> <span class="o">...]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="o">,</span> <span class="mi">37</span><span class="o">,</span> <span class="mi">29</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="o">...]</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">Dataset</span><span class="o">.</span><span class="na">from_tensor_slices</span><span class="o">((</span><span class="n">filenames</span><span class="o">,</span> <span class="n">labels</span><span class="o">))</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">map</span><span class="o">(</span>
+    <span class="n">lambda</span> <span class="n">filename</span><span class="o">,</span> <span class="nl">label:</span> <span class="n">tuple</span><span class="o">(</span><span class="n">tf</span><span class="o">.</span><span class="na">py_func</span><span class="o">(</span>
+        <span class="n">_read_py_function</span><span class="o">,</span> <span class="o">[</span><span class="n">filename</span><span class="o">,</span> <span class="n">label</span><span class="o">],</span> <span class="o">[</span><span class="n">tf</span><span class="o">.</span><span class="na">uint8</span><span class="o">,</span> <span class="n">label</span><span class="o">.</span><span class="na">dtype</span><span class="o">])))</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">_resize_function</span><span class="o">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h3 id="批处理数据">批处理数据</h3>
+<ol>
+  <li>简单的批处理
+ 简单的批处理我们直接调用 <code class="highlighter-rouge">Dataset.batch()</code> 这种 API 即可，但是它有一个限制就是对于每个组件 i，所有元素的<strong>张量形状都必须完全相同</strong>。
+    <div class="highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11</pre></td><td class="code"><pre class="highlight"><code> inc_dataset = tf.data.Dataset.range(100)
+ dec_dataset = tf.data.Dataset.range(0, -100, -1)
+ dataset = tf.data.Dataset.zip((inc_dataset, dec_dataset))
+ batched_dataset = dataset.batch(4)
+
+ iterator = batched_dataset.make_one_shot_iterator()
+ next_element = iterator.get_next()
+
+ print(sess.run(next_element))  # ==&gt; ([0, 1, 2,   3],   [ 0, -1,  -2,  -3])
+ print(sess.run(next_element))  # ==&gt; ([4, 5, 6,   7],   [-4, -5,  -6,  -7])
+ print(sess.run(next_element))  # ==&gt; ([8, 9, 10, 11],   [-8, -9, -10, -11])
+</code></pre></td></tr></tbody></table></div>    </div>
+  </li>
+  <li>填充批处理张量
+ 和简单批处理相比，这种方式可以对具有不同大小的张量进行批处理。这种方法的 API 为 <code class="highlighter-rouge">Dataset.padded_batch()</code>。简单的实例展示如下：
+    <div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12</pre></td><td class="code"><pre class="highlight"><code> <span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+ <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)],</span> <span class="n">x</span><span class="p">))</span>
+ <span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">padded_batch</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">padded_shapes</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">])</span>
+
+ <span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">make_one_shot_iterator</span><span class="p">()</span>
+ <span class="n">next_element</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span>
+
+ <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">next_element</span><span class="p">))</span>  <span class="c"># ==&gt; [[0, 0, 0], [1, 0, 0], [2, 2, 0], [3, 3, 3]]</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">next_element</span><span class="p">))</span>  <span class="c"># ==&gt; [[4, 4, 4, 4, 0, 0, 0],</span>
+                         	   <span class="c">#      [5, 5, 5, 5, 5, 0, 0],</span>
+                         	   <span class="c">#      [6, 6, 6, 6, 6, 6, 0],</span>
+                         	   <span class="c">#      [7, 7, 7, 7, 7, 7, 7]]</span>
+</code></pre></td></tr></tbody></table></div>    </div>
+    <p>可以通过 <code class="highlighter-rouge">Dataset.padded_batch()</code> 转换为每个组件的每个维度设置不同的填充，并且可以采用可变长度（在上面的示例中用 <code class="highlighter-rouge">None</code> 表示）或恒定长度。也可以替换填充值，默认设置为 0。</p>
+  </li>
+</ol>
+
+<h2 id="训练工作流程">训练工作流程</h2>
+<h3 id="处理多个周期">处理多个周期</h3>
+<p>有时候我们希望我们的数据集能训练很多个周期，简单的方法是使用<code class="highlighter-rouge">Dataset.repeat()</code> API。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5</pre></td><td class="code"><pre class="highlight"><code><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"/var/data/file1.tfrecord"</span><span class="p">,</span> <span class="s">"/var/data/file2.tfrecord"</span><span class="p">]</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></td></tr></tbody></table></div></div>
+<p>上述例子中，我们将 dataset 重复了 10 个周期，值得注意的是如果 repeat 中没有参数代表中无限次地重复使用，即不会在一个周期结束和下一个周期开始时发出信号。</p>
+
+<p>如果我们想在每个周期结束时收到信号，则可以编写在数据集结束时捕获 <a href="https://tensorflow.google.cn/api_docs/python/tf/errors/OutOfRangeError?hl=zh-cn"><code class="highlighter-rouge">tf.errors.OutOfRangeError</code></a> 的训练循环。此时，就可以收集关于该周期的一些统计信息。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6<br/>7<br/>8<br/>9<br/>10<br/>11<br/>12<br/>13<br/>14<br/>15<br/>16<br/>17</pre></td><td class="code"><pre class="highlight"><code><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"/var/data/file1.tfrecord"</span><span class="p">,</span> <span class="s">"/var/data/file2.tfrecord"</span><span class="p">]</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">iterator</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">make_initializable_iterator</span><span class="p">()</span>
+<span class="n">next_element</span> <span class="o">=</span> <span class="n">iterator</span><span class="o">.</span><span class="n">get_next</span><span class="p">()</span>
+
+<span class="c"># Compute for 100 epochs.</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">iterator</span><span class="o">.</span><span class="n">initializer</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">next_element</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">tf</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">OutOfRangeError</span><span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="c"># [Perform end-of-epoch calculations here.]</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h3 id="随机重排数据">随机重排数据</h3>
+<p>有时候我们希望能随机的选取 Dataset 中的元素，则可以使用 <code class="highlighter-rouge">Dataset.shuffle()</code>。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><table style="margin: 0px"><tbody><tr><td class="gutter"><pre>1<br/>2<br/>3<br/>4<br/>5<br/>6</pre></td><td class="code"><pre class="highlight"><code><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="s">"/var/data/file1.tfrecord"</span><span class="p">,</span> <span class="s">"/var/data/file2.tfrecord"</span><span class="p">]</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span>
+</code></pre></td></tr></tbody></table></div></div>
+<h2 id="参考">参考</h2>
+<ul>
+  <li><a href="https://tensorflow.google.cn/guide/datasets?hl=zh-cn">[官方教程]</a></li>
+</ul>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong></strong>
+      <strong>Author：</strong>DeamoV
+    </li>
+    <li class="post-copyright-github">
+      <strong> </strong>
+      <strong>Github：<strong>https://github.com/VDeamoV
+    </li>
+    <li class="post-copyright-email">
+      <strong> </strong>
+      <strong>Email：</strong>vincent.duan95@outlook.com
+    </li>
+    <li class="post-copyright-link">
+      <strong></strong>
+      <strong>Artical：</strong>
+      <a href="http://localhost:4000/tensorflow/2018/12/16/Tensorflow%E8%BF%9B%E9%98%B6%E4%B9%8B%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5/" title="Tensorflow进阶之数据导入">Tensorflow进阶之数据导入</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong> </strong>
+      
+    </li>
+    <li class="post-copyright-Order">
+      <strong> </strong>
+      <strong>原创文章如转载，请注明出处</strong>
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            
+            <a href="/tag/#/TensorFlow" rel="tag"># TensorFlow</a>
+          
+            
+            <a href="/tag/#/Dataset" rel="tag"># Dataset</a>
+          
+        </div>
+      
+
+      
+      
+      
+      
+      
+
+      
+      
+        <div class="post-nav" id="post-nav-id">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/reinforcelearning/2019/03/11/%E7%AC%AC%E4%B8%80%E8%AF%BE_%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AE%80%E4%BB%8B/" rel="next" title="第一课 强化学习简介">
+                <i class="fa fa-chevron-left"></i> 第一课 强化学习简介
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/python/2018/12/11/python%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8Bseaborn/" rel="prev" title="python数据可视化之 seaborn">
+                python数据可视化之 seaborn <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+
+      
+    </footer>
+  </article>
+
+  <div class="post-spread">
+    
+  </div>
+</div>
+
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="gitalk-container"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/assets/images/avatar.jpg"
+               alt="DeamoV" />
+          <p class="site-author-name" itemprop="name">DeamoV</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/">
+                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-name"></span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+        
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://github.com/Duan-JM" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              
+              
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/EblisQwQ" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                
+                
+                <li class="links-of-blogroll-item">
+                  <a href="https://j-cabin.cn" title="J-Cabin" target="_blank">J-Cabin</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+            
+              <div class="post-toc-content">
+    <ol class=nav>
+      <li class="nav-item nav-level-2"> <a class="nav-link" href="#不同格式的数据的导入"> <span class="nav-number">1</span> <span class="nav-text">不同格式的数据的导入</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#numpy-数据的导入"> <span class="nav-number">1.1</span> <span class="nav-text">Numpy 数据的导入</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#tfrecord-数据的导入"> <span class="nav-number">1.2</span> <span class="nav-text">TFRecord 数据的导入</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#dataset-的预处理"> <span class="nav-number">2</span> <span class="nav-text">Dataset 的预处理</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#datasetmap"> <span class="nav-number">2.1</span> <span class="nav-text">Dataset.map()</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#批处理数据"> <span class="nav-number">2.2</span> <span class="nav-text">批处理数据</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#训练工作流程"> <span class="nav-number">3</span> <span class="nav-text">训练工作流程</span> </a> <ol class="nav-child"> <li class="nav-item nav-level-3"> <a class="nav-link" href="#处理多个周期"> <span class="nav-number">3.1</span> <span class="nav-text">处理多个周期</span> </a> </li> <li class="nav-item nav-level-3"> <a class="nav-link" href="#随机重排数据"> <span class="nav-number">3.2</span> <span class="nav-text">随机重排数据</span> </a> </li> </ol> </li> <li class="nav-item nav-level-2"> <a class="nav-link" href="#参考"> <span class="nav-number">4</span> <span class="nav-text">参考</span> </a> </li>
+    </ol>
+  </div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DeamoV</span>
+</div>
+
+
+<div class="powered-by">
+  
+</div>
+
+<div class="theme-info">
+   -
+  <a class="theme-link" href="https://github.com/simpleyyt/jekyll-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+   
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  
+  
+  
+  
+  <script type="text/javascript" src="/assets/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/assets/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/assets/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/assets/js/src/post-details.js?v=5.1.1"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/assets/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+      var gitalk = new Gitalk({
+        clientID: '444f7a59e21fe37916be',
+        clientSecret: '7a061310a453a45a324d628e45a3bbcd0b1a4f21',
+        repo: 'duan-jm.github.io',
+        owner: 'Duan-JM',
+        admin: ['Duan-JM'],
+        id: decodeURI(location.pathname),
+        labels: ['gitalk'],
+        perPage: 50,
+        distractionFreeMode: true
+      });
+      gitalk.render('gitalk-container');
+</script>
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+    
+
+  
+
+
+
+
+
+  
+
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("bq5f2xqV3VJiqIcOvvNMmpSD-gzGzoHsz", "yx6xCFS98rS7qa8dmURSnXXf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/assets/js/src/js.cookie.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/assets/js/src/scroll-cookie.js?v=5.1.1"></script>
+
+
+  
+
+</body>
+</html>
+
