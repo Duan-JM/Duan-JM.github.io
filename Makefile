@@ -1,3 +1,3 @@
 .PHONY: serve 
 serve:
-	bundle exec jekyll serve
+	cd blog && bundle exec jekyll serve

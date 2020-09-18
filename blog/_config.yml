@@ -125,7 +125,7 @@ menu:
   about: /about/
   archives: /archives/
   tags: /tags/
-  sitemap: /sitemap.xml
+  # sitemap: /sitemap.xml
   #commonweal: /404.html
 
 
@@ -145,8 +145,6 @@ menu_icons:
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
-
-
 
 
 # ---------------------------------------------------------------
@@ -216,7 +214,7 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  Github  : https://github.com/VDeamoV
+  Github  : https://github.com/Duan-JM
   Twitter : https://twitter.com/EblisQwQ
 
 
@@ -231,7 +229,7 @@ social_icons:
   KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
-  Weibo: weibo
+  # Weibo: weibo
 
 
 # Sidebar Avatar
@@ -415,9 +413,9 @@ gitalk:
   enable: true
   clientID: 444f7a59e21fe37916be
   clientSecret: 7a061310a453a45a324d628e45a3bbcd0b1a4f21
-  repo: vdeamov.github.io
-  owner: VDeamoV
-  admin: ['VDeamoV']
+  repo: duan-jm.github.io
+  owner: Duan-JM
+  admin: ['Duan-JM']
 
 # Baidu Share
 # Available value:
