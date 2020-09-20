@@ -6,3 +6,9 @@ serve:
 clean:
 	rm -r ./docs/_site
 	rm ./docs/Gemfile.lock
+
+.PHONY: install
+install:
+	gem install jekyll bundler
+	cd ./docs && bundle install 
+

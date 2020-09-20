@@ -3,3 +3,9 @@ gem 'github-pages', group: :jekyll_plugins
 gem "nokogiri"
 gem "jekyll"
 gem "ffi"
+
+group :jekyll_plugins do
+  gem 'jemoji'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-feed'
+end
