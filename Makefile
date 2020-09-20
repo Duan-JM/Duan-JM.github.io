@@ -5,3 +5,4 @@ serve:
 .PHONY: clean
 clean:
 	rm -r ./docs/_site
+	rm ./docs/Gemfile.lock
