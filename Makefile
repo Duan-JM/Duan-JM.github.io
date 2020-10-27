@@ -1,4 +1,4 @@
-.PHONY: serve 
+.PHONY: serve
 serve:
 	cd docs && bundle exec jekyll serve
 
@@ -10,5 +10,5 @@ clean:
 .PHONY: install
 install:
 	gem install jekyll bundler
-	cd ./docs && bundle install 
+	cd ./docs && bundle install
 
