@@ -1,4 +1,4 @@
-source 'https://gems.ruby-china.com'
+source 'https://mirrors.tuna.tsinghua.edu.cn/rubygems/'
 gem 'github-pages', group: :jekyll_plugins
 gem "nokogiri", ">= 1.11.0"
 gem "jekyll"
