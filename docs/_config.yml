@@ -565,12 +565,12 @@ google_analytics:
 
 
 # Local search
-local_search:
-  enable: true
-  trigger: auto
-  top_n_per_article: 1
-  unescape: false
-  preload: true
+# local_search:
+#   enable: false
+#   trigger: auto
+#   top_n_per_article: 1
+#   unescape: false
+#   preload: true
 
 # lunr_search:
 #   enabled: false
