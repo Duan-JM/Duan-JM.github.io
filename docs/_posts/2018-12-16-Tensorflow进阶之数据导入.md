@@ -40,6 +40,7 @@ iterator = dataset.make_initializable_iterator()
 sess.run(iterator.initializer, feed_dict={features_placeholder: features,
                                           labels_placeholder: labels})
 ```
+<!--more-->
 ### TFRecord 数据的导入
 TFRecord 是一种面向记录的简单二进制格式，很多 Tensorflow 应用采用这种方式来训练数据。这个也是推荐的做法。将它做成 Dataset 的方式也非常简单，就是单纯的通过 `tf.data.TFRecordDataset` 类就可以实现。
 ```java

@@ -73,6 +73,7 @@ plugins:
  - jemoji
  - jekyll-sitemap
  - jekyll-feed
+ # - jekyll-lunr-js-search
 
 # ---------------------------------------------------------------
 # Site Information Settings
@@ -345,9 +346,9 @@ post_copyright:
 # Options:
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
-custom_logo:
-  enabled: false
-  image:
+# custom_logo:
+#   enabled: false
+#   image:
 
 
 # Code Highlight theme
@@ -368,7 +369,7 @@ mathjax:
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
-han: false
+# han: false
 
 # Swiftype Search API Key
 #swiftype_key:
@@ -379,14 +380,14 @@ han: false
 # Duoshuo ShortName
 #duoshuo_shortname:
 
-# Disqus
-disqus:
-  enable: false
-  shortname:
-  count: true
-  # hide comments (visitors need to click to load the comments)
-  # count need to be false when hide is true
-  hide: false
+# # Disqus
+# disqus:
+#   enable: false
+#   shortname:
+#   count: true
+#   # hide comments (visitors need to click to load the comments)
+#   # count need to be false when hide is true
+#   hide: false
 
 # Hypercomments
 #hypercomments_id:
@@ -395,10 +396,10 @@ disqus:
 #gentie_productKey:
 
 # changyan
-changyan:
-  enable: false
-  appid:
-  appkey:
+# changyan:
+#   enable: false
+#   appid:
+#   appkey:
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -409,13 +410,13 @@ changyan:
 #livere_uid: your uid
 
 # Support for gitalk comments system.
-gitalk:
-  enable: true
-  clientID: 444f7a59e21fe37916be
-  clientSecret: 7a061310a453a45a324d628e45a3bbcd0b1a4f21
-  repo: duan-jm.github.io
-  owner: Duan-JM
-  admin: ['Duan-JM']
+# gitalk:
+#   enable: false
+#   clientID: 444f7a59e21fe37916be
+#   clientSecret: 7a061310a453a45a324d628e45a3bbcd0b1a4f21
+#   repo: duan-jm.github.io
+#   owner: Duan-JM
+#   admin: ['Duan-JM']
 
 # Baidu Share
 # Available value:
@@ -465,63 +466,64 @@ google_analytics:
 
 # Facebook SDK Support.
 # https://github.com/iissnan/hexo-theme-next/pull/410
-facebook_sdk:
-  enable: false
-  app_id:       #<app_id>
-  fb_admin:     #<user_id>
-  like_button:  #true
-  webmaster:    #true
+# facebook_sdk:
+#   enable: false
+#   app_id:       #<app_id>
+#   fb_admin:     #<user_id>
+#   like_button:  #true
+#   webmaster:    #true
 
 # Facebook comments plugin
 # This plugin depends on Facebook SDK.
 # If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
-facebook_comments_plugin:
-  enable: false
-  num_of_posts: 10  # min posts num is 1
-  width: 100%       # default width is 550px
-  scheme: light     # default scheme is light (light or dark)
+# facebook_comments_plugin:
+#   enable: false
+#   num_of_posts: 10  # min posts num is 1
+#   width: 100%       # default width is 550px
+#   scheme: light     # default scheme is light (light or dark)
 
 # VKontakte API Support.
 # To get your AppID visit https://vk.com/editapp?act=create
-vkontakte_api:
-  enable: false
-  app_id:       #<app_id>
-  like:         true
-  comments:     true
-  num_of_posts: 10
+# vkontakte_api:
+#   enable: false
+#   app_id:       #<app_id>
+#   like:         true
+#   comments:     true
+#   num_of_posts: 10
 
 # Star rating support to each article.
 # To get your ID visit https://widgetpack.com
-rating:
-  enable: false
-  id:     #<app_id>
-  color:  fc6423
+# rating:
+#   enable: false
+#   id:     #<app_id>
+#   color:  fc6423
 
 
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
-leancloud_visitors:
-  enable: false #  停止 leancloud 的访问来解决访问超时的问题
-  app_id:  # <app_id>
-  app_key: # <app_key>
+# leancloud_visitors:
+#   enable: false #  停止 leancloud 的访问来解决访问超时的问题
+#   app_id:  # <app_id>
+#   app_key: # <app_key>
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
-busuanzi_count:
-  # count values only if the other configs are false
-  enable: false # 现在不需要来看 uv 这些，就是个个人网站罢了，快速打开比较重要
-  # custom uv span for the whole site
-  site_uv: true
-  site_uv_header: <i class="fa fa-user"></i>
-  site_uv_footer:
-  # custom pv span for the whole site
-  site_pv: true
-  site_pv_header: <i class="fa fa-eye"></i>
-  site_pv_footer:
-  # custom pv span for one page only
-  page_pv: true
-  page_pv_header: <i class="fa fa-file-o"></i>
-  page_pv_footer:
+
+# busuanzi_count:
+#   # count values only if the other configs are false
+#   enable: false # 现在不需要来看 uv 这些，就是个个人网站罢了，快速打开比较重要
+#   # custom uv span for the whole site
+#   site_uv: true
+#   site_uv_header: <i class="fa fa-user"></i>
+#   site_uv_footer:
+#   # custom pv span for the whole site
+#   site_pv: true
+#   site_pv_header: <i class="fa fa-eye"></i>
+#   site_pv_footer:
+#   # custom pv span for one page only
+#   page_pv: true
+#   page_pv_header: <i class="fa fa-file-o"></i>
+#   page_pv_footer:
 
 
 # Tencent analytics ID
@@ -532,44 +534,51 @@ busuanzi_count:
 
 
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-baidu_push: true
+# baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
 #
 # API Documentation:
 # https://developers.google.com/google-apps/calendar/v3/reference/events/list
-calendar:
-  enable: false
-  calendar_id: <required>
-  api_key: <required>
-  orderBy: startTime
-  offsetMax: 24
-  offsetMin: 4
-  timeZone:
-  showDeleted: false
-  singleEvents: true
-  maxResults: 250
+# calendar:
+#   enable: false
+#   calendar_id: <required>
+#   api_key: <required>
+#   orderBy: startTime
+#   offsetMax: 24
+#   offsetMin: 4
+#   timeZone:
+#   showDeleted: false
+#   singleEvents: true
+#   maxResults: 250
 
 # Algolia Search
-algolia_search:
-  enable: false
-  hits:
-    per_page: 10
-  labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}"
-    hits_stats: "${hits} results found in ${time} ms"
+# algolia_search:
+#   enable: false
+#   hits:
+#     per_page: 10
+#   labels:
+#     input_placeholder: Search for Posts
+#     hits_empty: "We didn't find any results for the search: ${query}"
+#     hits_stats: "${hits} results found in ${time} ms"
 
 
 # Local search
 local_search:
   enable: true
-  # if auto, trigger search by changing input
-  # if manual, trigger search by pressing enter key or search button
   trigger: auto
-  # show top n results per article, show all results by setting to -1
   top_n_per_article: 1
+  unescape: false
+  preload: true
+
+# lunr_search:
+#   enabled: false
+#   exclude: [index.html]
+#   index:
+#     - title
+#     - content
+#     - url
 
 # External URL with BASE64 encrypt & decrypt
 # Usage: {% exturl text url "title" %}

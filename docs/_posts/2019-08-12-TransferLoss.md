@@ -13,6 +13,7 @@ VGGLoss 是提取 VGG 的不同的层学到的图片的特征，之后通过对�
 $$
 l_{vgg}(x, y) = ||f_\phi(x) - f_\phi(y)||^{2}_2
 $$
+<!--more-->
 
 ## StyleLoss
 StyleLoss 和 VGGLoss 相似，不同的是计算相似的时候是使用的 [Gram 矩阵](https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%8B%89%E5%A7%86%E7%9F%A9%E9%98%B5)，直观上的差别就是，VGGLoss 是不同的层的结果之间的相减求平方，而 Style Loss 是两个特征要先乘自己的转置之后再做类似 VGGLoss 的操作。

@@ -11,6 +11,7 @@ tags: ['oh_my_zsh','教程']
 2. 有git实时显示
 
 简单直白粗暴、上述亮点就是我换oh my zsh的初衷。用了它直接免去了很多的重复操作、让终端更美观、让生活更美好。
+<!--more-->
 
 ### 安装
 > Talk is Cheap Show me the Code

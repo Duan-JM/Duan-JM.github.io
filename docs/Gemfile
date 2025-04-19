@@ -1,13 +1,11 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/rubygems/'
+
+# GitHub pages 提供的打包
 gem 'github-pages', group: :jekyll_plugins
-gem "jekyll"
-gem "ffi"
-gem "nokogiri", ">= 1.11.0"
 
 group :jekyll_plugins do
   gem 'jemoji'
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
+  gem 'jekyll-lunr-js-search'
 end
-
-gem "webrick", "~> 1.7"

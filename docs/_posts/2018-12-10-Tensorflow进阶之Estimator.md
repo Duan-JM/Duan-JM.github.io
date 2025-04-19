@@ -9,6 +9,7 @@ tags: ["TensorFlow", "Estimator"]
 
 ## Estimator 模型的简单说明
 所有的 Estimator 的模型的基类为 `tf.estimator.Estimator` ，这意味着即便是预设置的模型其实也是用自定义模型的方式设置的。和之前介绍的使用预创建的 Estimator 的唯一区别在于，我们需要自行编写模型函数（`model_fn`）
+<!--more-->
 
 ## model\_fn
 ### 输入格式

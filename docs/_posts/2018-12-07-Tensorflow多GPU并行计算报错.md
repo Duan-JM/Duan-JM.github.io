@@ -7,6 +7,7 @@ tags: ['Python','TroubleShoot','Tensorflow','多GPU']
 ---
 ## 问题分析
 在 Keras 中配置多 GPU 并行计算的时候，报错 `libnccl.so.2 not found`。简单的来说就是 Tensorflow 多 GPU 运行的话使用了一个 NCCL 2.x 的库，但是不是默认安装的，同时又由于NCCL 2.x是动态加载的，因此不会影响不调用NCCL原语的程序，也就是说直到你第一次尝试多 GPU 为止都不会发现这个问题。
+<!--more-->
 
 ## 解决
 解决的方式当然是相当简单咯，安装就可以了，你可以选择从[官网](https://developer.nvidia.com/nccl)安装，也可以用如下操作来偷懒。

@@ -9,6 +9,7 @@ tags: ["TensorFlow", "Keras"]
 1. 简单快速的圆形部署
 2. 支持 CNN 和 RNN，也支持两者结合
 3. 同时支持 CPU 和 GPU 计算。
+<!--more-->
 
 ## Keras 设计理念
 1. **User friendliness**, Keras is an API designed for human beings, not machines. 

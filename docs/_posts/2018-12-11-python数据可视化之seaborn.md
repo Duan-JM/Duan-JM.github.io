@@ -7,6 +7,7 @@ tags: ['Python','技巧']
 ---
 ## 简介
 Seaborn 是一个数据可视化的库，主要用来生成热力图的，详情查看它的[官网](http://seaborn.pydata.org/tutorial.html)。这个工具一定要混合 `matplotlib` 来使用，我们在做好图之后还是必须要用 `plt.show` 才能展示图片，同时图片的布局也是靠 `matplotlib`。
+<!--more-->
 
 ## 热力图
 热力图很多人其实是第一次接触，我在查了百度之后的百度百科结果不太满意，转而投奔[ Wiki 结果](https://en.wikipedia.org/wiki/Heat_map)如下：

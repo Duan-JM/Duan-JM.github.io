@@ -7,6 +7,8 @@ tags: ['privoxy','socks5','http_proxy','教程']
 ---
 ## 前言
 这两天，学长派的任务中，需要使用 Scrapy 爬去许多国外的网站，需要给 Scrapy 搭梯子，而 Scrapy 只支持 http 的代理，故记录下这次 socks 转 http 的步骤。
+<!--more-->
+
 ## 前置软件
 - shadowsocks （就不解释了，大家都知道）
 - privoxy

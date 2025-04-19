@@ -7,6 +7,7 @@ tags: ["TensorFlow", "Estimator"]
 ---
 ## [Estimator](https://tensorflow.google.cn/guide/estimators) 作用简介
 Estimator 使用来简化机器学习训练、评估、预测的一个高阶 TensorFlow API。我们可以使用预创建的 Estimator，也可以自己编写自定义的 Estimator，但是所有的 Estimator 都是基于 `tf.estimator.Estimator` 类的类。
+<!--more-->
 
 ## Why Estimator
 1. 可以在本地主机上或分布式多服务器环境中运行基于 Estimator 的模型，而无需更改模型。

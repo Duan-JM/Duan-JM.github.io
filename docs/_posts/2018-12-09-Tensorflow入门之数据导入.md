@@ -8,6 +8,7 @@ tags: ["TensorFlow", "Dataset"]
 
 ## tf.data API 简介
 借助这个 API 可以较为快速的入门数据导入的部分。自定义数据输入可以说是跑任何模型必须要会的部分。学习这部分 API 是入门 Tensorflow跳不过的部分。本部分和之前的 Tensorflow 部分一样，主要是筛选自官方教程，意在跳出自己认为核心的入门内容，抛去复杂的细节，以求快速入门。
+<!--more-->
 
 ## tf.data 中的两个主要类
 ### tf.data.Dataset

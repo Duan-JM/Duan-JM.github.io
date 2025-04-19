@@ -7,6 +7,8 @@ tags: ["Few_Shot_Learning"]
 ---
 ## N ways K shot few-shot Learning 问题的描述
 最终训练模型的效果需要达到，给模型之前完全没见过的  $N$ 个新类，每个新类中只有 $K$ 个样本。该模型需要能够通过利用这仅有的 $N \times K$  个样本，来对接下来给出的新样本进行分类。在 RelationNet work [^1] 的问题描述中，将这给出的 $N \times K$ 个样本集称为 Support Set ，待分类的图片集称为 Query Set。
+<!--more-->
+
 ## 常用的训练步骤
 ### 训练集中的类的样本不止 $K$ 个样本
 若我们使用数据集 $D$ 来训练模型， 而 $D$  中所有的类中 $a$ 个样本，eg. mini-imagenet 中每个类有 600 个样本，则  $a=600$。整体的训练过程可以分为多个 meta-learning 的过程，在每个 meta-learning 开始的时候，从训练集 $D$ 中随机抽取 $N$ 个类，每个类中抽取 $K$ 个样本做成 Support Set，除此之外，还从已经抽取得到每个类中，除已抽取的样本外，再抽取 $T$ 个样本作为 Query Set。之后，模型将会去学习如何根据 Support Set 的样本，来正确分类 Query Set 的样本。

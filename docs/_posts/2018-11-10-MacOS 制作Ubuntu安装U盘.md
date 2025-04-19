@@ -7,6 +7,8 @@ tags: ['Linux 安装','技巧', 'Mac']
 ---
 # MacOS 制作Ubuntu安装U盘
 一般而言我们在 windows 下使用 UtraISO 能很容易做出一个 linux 的安装U盘。但是在 MacOS 下应该怎么做呢？答案是万能的命令行！
+<!--more-->
+
 ## 操作步骤
 1. 使用 hdituil
 	```bash
