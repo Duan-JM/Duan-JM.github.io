@@ -36,7 +36,7 @@ paginate: 10
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "README_en.md", "vendor"]
 
 # Separator
-#excerpt_separator: <!-- more -->
+excerpt_separator: <!--more-->
 
 # Code Highlighter
 ## 'pygments' is unsupported on GitHub Pages now.
@@ -501,15 +501,15 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: true
-  app_id: bq5f2xqV3VJiqIcOvvNMmpSD-gzGzoHsz
-  app_key: yx6xCFS98rS7qa8dmURSnXXf
+  enable: false #  停止 leancloud 的访问来解决访问超时的问题
+  app_id:  # <app_id>
+  app_key: # <app_key>
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
-  enable: true
+  enable: false # 现在不需要来看 uv 这些，就是个个人网站罢了，快速打开比较重要
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
@@ -586,10 +586,11 @@ exturl: false
 use_motion: true
 
 # Fancybox
-fancybox: true
+fancybox: false
 
 # Progress bar in the top during page loading.
 pace: true
+
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce
