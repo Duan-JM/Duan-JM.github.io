@@ -73,7 +73,6 @@ plugins:
  - jemoji
  - jekyll-sitemap
  - jekyll-feed
- # - jekyll-lunr-js-search
 
 # ---------------------------------------------------------------
 # Site Information Settings
@@ -565,20 +564,12 @@ google_analytics:
 
 
 # Local search
-# local_search:
-#   enable: false
-#   trigger: auto
-#   top_n_per_article: 1
-#   unescape: false
-#   preload: true
-
-# lunr_search:
-#   enabled: false
-#   exclude: [index.html]
-#   index:
-#     - title
-#     - content
-#     - url
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: true
 
 # External URL with BASE64 encrypt & decrypt
 # Usage: {% exturl text url "title" %}

@@ -9,7 +9,6 @@ clean:
 
 .PHONY: install
 install:
-	sudo gem install jekyll --user -V
 	sudo gem install bundler --user -V
 	cd ./docs && sudo bundle install
 

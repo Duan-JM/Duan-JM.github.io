@@ -7,5 +7,4 @@ group :jekyll_plugins do
   gem 'jemoji'
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
-  gem 'jekyll-lunr-js-search'
 end
