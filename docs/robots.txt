@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/lib/
+Disallow: /404.html
+
+Sitemap: https://duan-jm.github.io/sitemap.xml

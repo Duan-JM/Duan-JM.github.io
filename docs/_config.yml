@@ -6,16 +6,16 @@
 # Site
 title: Pre-Demo-Field
 subtitle: DeamoV's Blog
-description: Work Hard! Play Hard!
+description: Duan-JM的个人博客，分享投资理财、机器学习、深度学习、强化学习等技术内容与生活思考
 author: DeamoV
 
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: zh-Hans
-date_format: '%Y-%m-%d'
+date_format: "%Y-%m-%d"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com' and baseurl as '/child'
-url:
+url: https://duan-jm.github.io
 baseurl:
 permalink: pretty
 
@@ -23,17 +23,28 @@ permalink: pretty
 paginate: 10
 #paginate_path: "/page:num/"
 #archive:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+#paginate: 10
+#paginate_path: "/page:num/"
 #category:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+#paginate: 10
+#paginate_path: "/page:num/"
 #tag:
-  #paginate: 10
-  #paginate_path: "/page:num/"
+#paginate: 10
+#paginate_path: "/page:num/"
 
 # Handling Reading
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md", "Gemfile", "Gemfile.lock", "README_en.md", "vendor"]
+exclude:
+  [
+    ".rvmrc",
+    ".rbenv-version",
+    "README.md",
+    "Rakefile",
+    "changelog.md",
+    "Gemfile",
+    "Gemfile.lock",
+    "README_en.md",
+    "vendor",
+  ]
 
 # Separator
 excerpt_separator: <!--more-->
@@ -50,13 +61,12 @@ highlight:
 ## 'redcarpet' is unsupported on GitHub Pages now.
 markdown: kramdown
 kramdown:
-    input: GFM
+  input: GFM
 
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -70,9 +80,9 @@ feed:
 # Plugins
 ## Docs: https://help.github.com/articles/configuring-jekyll-plugins/
 plugins:
- - jemoji
- - jekyll-sitemap
- - jekyll-feed
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-feed
 
 # ---------------------------------------------------------------
 # Site Information Settings
@@ -82,7 +92,7 @@ plugins:
 # favicon: /assets/favicon.icon
 
 # Set default keywords (Use a comma to separate)
-keywords: "DeamoV, LetsPlay"
+keywords: "投资,理财,机器学习,深度学习,强化学习,Python,TensorFlow,Jekyll,博客,Duan-JM"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -128,7 +138,6 @@ menu:
   # sitemap: /sitemap.xml
   #commonweal: /404.html
 
-
 # Enable/Disable menu icons.
 # Icon Mapping:
 #   Map a menu item to a specific FontAwesome icon name.
@@ -146,7 +155,6 @@ menu_icons:
   sitemap: sitemap
   commonweal: heartbeat
 
-
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
@@ -155,7 +163,6 @@ menu_icons:
 scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-
 
 # ---------------------------------------------------------------
 # Font Settings
@@ -202,21 +209,16 @@ font:
     external: true
     family: PT Mono
 
-
-
-
 # ---------------------------------------------------------------
 # Sidebar Settings
 # ---------------------------------------------------------------
-
 
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  Github  : https://github.com/Duan-JM
-  Twitter : https://twitter.com/EblisQwQ
-
+  Github: https://github.com/Duan-JM
+  Twitter: https://twitter.com/EblisQwQ
 
 # Social Links Icons
 # Icon Mapping:
@@ -231,11 +233,9 @@ social_icons:
   Twitter: twitter
   # Weibo: weibo
 
-
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
 avatar: /assets/images/avatar.jpg
-
 
 # Table Of Contents in the Sidebar
 toc:
@@ -247,13 +247,11 @@ toc:
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
 
-
 # Creative Commons 4.0 International License.
 # http://creativecommons.org/
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
 #creative_commons: by-nc-sa
 #creative_commons:
-
 
 sidebar:
   # Sidebar Position, available value: left | right
@@ -280,15 +278,12 @@ sidebar:
   # Scroll percent label in b2t button
   scrollpercent: false
 
-
 # Blog rolls
 links_title: Links
 # links_layout: block
 links_layout: inline
 links:
   #Title: http://example.com/
-  J-Cabin : https://j-cabin.cn
-
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -334,8 +329,6 @@ post_copyright:
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
-
-
 # ---------------------------------------------------------------
 # Misc Theme Settings
 # ---------------------------------------------------------------
@@ -349,13 +342,11 @@ post_copyright:
 #   enabled: false
 #   image:
 
-
 # Code Highlight theme
 # Available value:
 #    normal | night | night eighties | night blue | night bright
 # https://github.com/chriskempson/tomorrow-theme
 highlight_theme: normal
-
 
 # ---------------------------------------------------------------
 # Third Party Services Settings
@@ -365,7 +356,7 @@ highlight_theme: normal
 mathjax:
   enable: true
   per_page: false
-  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+  cdn: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Han Support docs: https://hanzi.pro/
 # han: false
@@ -422,8 +413,8 @@ mathjax:
 #    button | slide
 # Warning: Baidu Share does not support https.
 #baidushare:
-  #type: button
-  #baidushare: true
+#type: button
+#baidushare: true
 
 # Share
 #jiathis:
@@ -460,8 +451,7 @@ google_analytics:
 #   ua_enable: false
 #   admin_enable: false
 #   user_id: 0
-  #admin_nickname: Author
-
+#admin_nickname: Author
 
 # Facebook SDK Support.
 # https://github.com/iissnan/hexo-theme-next/pull/410
@@ -497,7 +487,6 @@ google_analytics:
 #   id:     #<app_id>
 #   color:  fc6423
 
-
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 # leancloud_visitors:
@@ -524,16 +513,14 @@ google_analytics:
 #   page_pv_header: <i class="fa fa-file-o"></i>
 #   page_pv_footer:
 
-
 # Tencent analytics ID
 # tencent_analytics:
 
 # Tencent MTA ID
 # tencent_mta:
 
-
 # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
-# baidu_push: true
+baidu_push: true
 
 # Google Calendar
 # Share your recent schedule to others via calendar page
@@ -562,7 +549,6 @@ google_analytics:
 #     hits_empty: "We didn't find any results for the search: ${query}"
 #     hits_stats: "${hits} results found in ${time} ms"
 
-
 # Local search
 local_search:
   enable: true
@@ -575,7 +561,6 @@ local_search:
 # Usage: {% exturl text url "title" %}
 # Alias: {% extlink text url "title" %}
 exturl: false
-
 
 #! ---------------------------------------------------------------
 #! DO NOT EDIT THE FOLLOWING SETTINGS
@@ -636,7 +621,7 @@ vendors:
   _internal: assets/lib
 
   # Internal version: 2.1.3
-  jquery:
+  jquery: https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js
 
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
@@ -653,11 +638,8 @@ vendors:
 
   # Internal version: 1.2.1
   # See: http://VelocityJS.org
-  velocity:
-
-  # Internal version: 1.2.1
-  # See: http://VelocityJS.org
-  velocity_ui:
+  velocity: https://cdn.jsdelivr.net/npm/velocity-animate@1.2.3/velocity.min.js
+  velocity_ui: https://cdn.jsdelivr.net/npm/velocity-animate@1.2.3/velocity.ui.min.js
 
   # Internal version: 0.7.9
   # See: https://faisalman.github.io/ua-parser-js/
@@ -665,7 +647,7 @@ vendors:
 
   # Internal version: 4.6.2
   # See: http://fontawesome.io/
-  fontawesome:
+  fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
 
   # Internal version: 1
   # https://www.algolia.com
@@ -677,8 +659,8 @@ vendors:
   # Or use direct links below:
   # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
   # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
-  pace:
-  pace_css:
+  pace: https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js
+  pace_css: https://cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-big-counter.min.css
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
@@ -706,7 +688,6 @@ vendors:
   # Internal version: 3.3.0
   # https://github.com/ethantw/Han
   han:
-
 
 # Assets
 css: assets/css
