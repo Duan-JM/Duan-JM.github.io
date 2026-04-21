@@ -7,15 +7,19 @@ tags: [Losses, StyleTransfer]
 ---
 
 # TransferLoss
+
 ## VGGLoss
+
 VGGLoss 是提取 VGG 的不同的层学到的图片的特征，之后通过对比这些不同层的特征来计算两个图片的相似度，计算相似度的功能如下：
+
+<!--more-->
 
 $$
 l_{vgg}(x, y) = ||f_\phi(x) - f_\phi(y)||^{2}_2
 $$
-<!--more-->
 
 ## StyleLoss
+
 StyleLoss 和 VGGLoss 相似，不同的是计算相似的时候是使用的 [Gram 矩阵](https://zh.wikipedia.org/wiki/%E6%A0%BC%E6%8B%89%E5%A7%86%E7%9F%A9%E9%98%B5)，直观上的差别就是，VGGLoss 是不同的层的结果之间的相减求平方，而 Style Loss 是两个特征要先乘自己的转置之后再做类似 VGGLoss 的操作。
 
 $$
@@ -23,6 +27,7 @@ l_{style}(x, y) = ||G(f_\phi(x)) - G(f_\phi(y))||^{2}_2
 $$
 
 ## SSIMLoss & MSELoss
+
 常用的 MSELoss 针对色彩的敏感度比模糊度高，为了让图片生成更好的清晰的图片，可以用 SSIMLoss 来替代 MSE Loss。具体的公式和解释可以看[这个文章](https://zhuanlan.zhihu.com/p/67199699)。直接能用的源码[在这里](https://github.com/Po-Hsun-Su/pytorch-ssim.git)。
 
 ## VGGLoss 和 StyleLoss 的代码实现
