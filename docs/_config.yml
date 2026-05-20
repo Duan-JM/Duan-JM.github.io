@@ -83,6 +83,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-paginate
 
 # ---------------------------------------------------------------
 # Site Information Settings
@@ -217,7 +218,7 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  Github: https://github.com/Duan-JM
+  GitHub: https://github.com/Duan-JM
   Twitter: https://twitter.com/EblisQwQ
 
 # Social Links Icons
@@ -228,7 +229,6 @@ social:
 social_icons:
   enable: true
   # Icon Mappings.
-  KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
   Twitter: twitter
   # Weibo: weibo
@@ -300,8 +300,9 @@ excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
+# Disabled to avoid conflict with the `excerpt_separator: <!--more-->` setting above.
 auto_excerpt:
-  enable: true
+  enable: false
   length: 150
 
 # Post meta display settings

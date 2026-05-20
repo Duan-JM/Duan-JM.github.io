@@ -4,11 +4,9 @@ serve:
 
 .PHONY: clean
 clean:
-	rm -r ./docs/_site
-	rm ./docs/Gemfile.lock
+	rm -rf ./docs/_site
 
 .PHONY: install
 install:
-	sudo gem install bundler --user -V
-	cd ./docs && sudo bundle install
+	cd ./docs && bundle config set --local path 'vendor/bundle' && bundle install
 
