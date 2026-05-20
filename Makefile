@@ -4,8 +4,7 @@ serve:
 
 .PHONY: clean
 clean:
-	rm -r ./docs/_site
-	rm ./docs/Gemfile.lock
+	rm -rf ./docs/_site
 
 .PHONY: install
 install:
