@@ -8,6 +8,5 @@ clean:
 
 .PHONY: install
 install:
-	gem install --user-install bundler
 	cd ./docs && bundle config set --local path 'vendor/bundle' && bundle install
 
