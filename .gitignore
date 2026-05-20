@@ -1,4 +1,6 @@
 # no site file
 docs/_site/
 docs/remain_delete/
+docs/vendor/
+docs/.bundle/
 .DS_Store
