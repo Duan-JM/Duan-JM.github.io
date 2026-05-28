@@ -1,6 +1,6 @@
 .PHONY: serve
 serve:
-	cd docs && bundle exec jekyll serve
+	cd docs && PATH="/opt/homebrew/opt/ruby@3.2/bin:$$PATH" bundle exec jekyll serve
 
 .PHONY: clean
 clean:
@@ -8,5 +8,5 @@ clean:
 
 .PHONY: install
 install:
-	cd ./docs && bundle config set --local path 'vendor/bundle' && bundle install
+	cd ./docs && PATH="/opt/homebrew/opt/ruby@3.2/bin:$$PATH" bundle config set --local path 'vendor/bundle' && PATH="/opt/homebrew/opt/ruby@3.2/bin:$$PATH" bundle install
 
