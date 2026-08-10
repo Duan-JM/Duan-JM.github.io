@@ -283,7 +283,7 @@ links_title: Links
 # links_layout: block
 links_layout: inline
 links:
-  #Title: http://example.com/
+  wdblink: https://wdblink.github.io/
 
 # ---------------------------------------------------------------
 # Post Settings
