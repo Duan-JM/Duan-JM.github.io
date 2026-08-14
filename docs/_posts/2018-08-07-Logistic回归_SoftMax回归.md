@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title: "Logistic回归&SoftMax回归"
 date: 2018-08-07
 categories: 机器学习
@@ -77,6 +78,3 @@ $R^2$：值域为，最优解是1，若预测值恒为样本期望则为0
 算法也是又简单到复杂的，之后随着线性回归算法的使用，我们发现出现了过拟合，于是我们用正则项来解决，于是出现了LASSO和Ridge算法。之后为了让这个“一刀切”更好，出现了SVM。而概率的那条路就走的更远一点，在考虑了特征之间的关系后，出现了贝叶斯网络，更进一步在考虑到了隐变量之后出现了HMM，慢慢的也能看见现在的神经网络的雏形。
 
 最后，个人觉得算法是一种工具，如果不能灵活使用的话，充其量只能算一种思辨游戏。祝大家 HappyCoding。
-<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>

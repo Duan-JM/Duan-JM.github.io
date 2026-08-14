@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title: "CS224n笔记03 A Deeper Look at Word Vectors"
 date: 2018-10-30
 categories: NLP
@@ -106,9 +107,7 @@ $$
 ## 参考
 - CS224n 课程：[视频链接](https://www.bilibili.com/video/av30326868/?p=3)
 - 大佬的笔记：[链接在此](http://www.hankcs.com/nlp/cs224n-advanced-word-vector-representations.html)
-<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 [^1]:	http://www.hankcs.com/nlp/cs224n-advanced-word-vector-representations.html
 

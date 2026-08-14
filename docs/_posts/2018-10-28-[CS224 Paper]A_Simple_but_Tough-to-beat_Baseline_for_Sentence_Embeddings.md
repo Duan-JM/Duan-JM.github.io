@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title: "[CS224 Paper]A Simple but Tough-to-beat Baseline for Sentence Embeddings"
 date: 2018-10-28
 categories: NLP
@@ -66,8 +67,6 @@ tags: ["NLP" , "CS224"]
 1. 大佬的文章（[链接地址](http://www.hankcs.com/nlp/cs224n-sentence-embeddings.html)）
 2. [Paper]A Simple but Tough-to-beat Baseline for Sentence Embeddings
 
-<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 [^1]:	John Wieting, Mohit Bansal, Kevin Gimpel, and Karen Livescu. Towards universal paraphrastic sentence embeddings. In International Conference on Learning Representations, 2016.

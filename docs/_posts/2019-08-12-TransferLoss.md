@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title: "Style Transfer Loss Summary"
 date: 2019-08-12
 categories: Losses

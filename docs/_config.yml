@@ -89,8 +89,8 @@ plugins:
 # Site Information Settings
 # ---------------------------------------------------------------
 
-# Put your favicon.ico into `assets/` directory.
-# favicon: /assets/favicon.icon
+# Browser tab and bookmark icon.
+favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "投资,理财,机器学习,深度学习,强化学习,Python,TensorFlow,Jekyll,博客,Duan-JM"
@@ -356,7 +356,7 @@ highlight_theme: normal
 # MathJax Support
 mathjax:
   enable: true
-  per_page: false
+  per_page: true
   cdn: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # Han Support docs: https://hanzi.pro/

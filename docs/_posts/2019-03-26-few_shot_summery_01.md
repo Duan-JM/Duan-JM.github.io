@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title: "Few-shot Learning 总结"
 date: 2019-03-26
 categories: FewShotLearning
@@ -49,8 +50,6 @@ Relation Network 是 few-shot learning 中比较直观的模型。正规的来�
 Matching Network 则是用 Query 的样本和 Support 的样本做 Attention 操作，最终得到该图片和其他图片的相似度。
 ![](/assets/images/blog/20190326fewshotsummery/CleanShot%202019-03-26%20at%2009.04.11.png)
 
-<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath:[['$','$']]}});</script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 [^1]: Learning to Compare：Relation Network for Few-Shot Learning CVPR 2018
